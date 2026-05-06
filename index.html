@@ -5,49 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Omanchi Hope Foundation</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* HEADER */
-    header {
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f8fc;
+      color: #1c1c1c;
+    }
+
+    /* NAVBAR */
+    nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 12px 25px;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
 
-    header img {
-      height: 65px; /* bigger logo */
+    nav img {
+      height: 60px;
     }
 
-    header h2 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 600;
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-weight: 500;
+    }
+
+    nav ul li {
+      cursor: pointer;
     }
 
     /* HERO */
     .hero {
-      height: 85vh;
+      height: 90vh;
       background: url('hero.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      color: white;
       text-align: center;
+      color: white;
+      position: relative;
+      padding: 20px;
     }
 
     .hero::before {
@@ -57,23 +68,52 @@
       background: rgba(0,0,0,0.6);
     }
 
-    .hero h1 {
+    .hero-content {
       position: relative;
-      font-size: 40px;
-      max-width: 750px;
-      padding: 20px;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 5px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #111;
     }
 
     /* SECTIONS */
     section {
-      padding: 60px 20px;
+      padding: 70px 20px;
       max-width: 1100px;
       margin: auto;
     }
 
-    h2 {
+    .section-title {
       text-align: center;
-      margin-bottom: 30px;
+      font-size: 28px;
+      margin-bottom: 40px;
     }
 
     /* ABOUT */
@@ -84,7 +124,7 @@
       align-items: center;
       background: white;
       padding: 25px;
-      border-radius: 15px;
+      border-radius: 14px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
@@ -95,28 +135,46 @@
     }
 
     .about p {
-      line-height: 1.7;
+      line-height: 1.8;
+      font-size: 15px;
     }
 
-    /* IMPACT / STORY SECTION */
+    /* INFO CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* IMPACT */
     .impact {
       background: white;
-      padding: 30px;
-      border-radius: 15px;
+      padding: 25px;
+      border-radius: 14px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
       text-align: center;
     }
 
     .impact p {
       line-height: 1.8;
-      font-size: 16px;
+      margin-bottom: 20px;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
-      margin-top: 20px;
     }
 
     .gallery img {
@@ -130,6 +188,7 @@
       padding: 20px;
       background: white;
       margin-top: 40px;
+      font-size: 14px;
     }
 
     /* WHATSAPP */
@@ -150,60 +209,95 @@
 
 <body>
 
-<!-- HEADER -->
-<header>
+<!-- NAV -->
+<nav>
   <img src="logo.jpg" alt="Logo">
-  <h2>Omanchi Hope Foundation</h2>
-</header>
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Mission</li>
+    <li>Contact</li>
+  </ul>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Restoring Hope to Children in Need</h1>
+  <div class="hero-content">
+    <h1>Omanchi Hope Foundation</h1>
+    <p>Restoring dignity, hope, and opportunity to vulnerable children.</p>
+
+    <a class="btn btn-primary" href="https://wa.me/2349162447016" target="_blank">
+      Contact Us
+    </a>
+
+    <a class="btn btn-secondary" href="#about">
+      Learn More
+    </a>
+  </div>
 </div>
 
 <!-- ABOUT -->
-<section>
-  <h2>About Us</h2>
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+
   <div class="about">
     <img src="about.jpg" alt="About">
     <div>
       <p>
-        Omanchi Hope Foundation is dedicated to supporting vulnerable children and communities.
-        We believe every child deserves dignity, education, and a chance at a better life.
+        Omanchi Hope Foundation is committed to improving the lives of vulnerable children
+        through education, care, and community support. We believe every child deserves a future filled with hope.
       </p>
     </div>
   </div>
 </section>
 
-<!-- IMPACT / REAL STORY SECTION -->
+<!-- MISSION / VISION -->
 <section>
-  <h2>The Reality We Cannot Ignore</h2>
+  <h2 class="section-title">Our Mission</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Mission</h3>
+      <p>To support and uplift children in need through sustainable care and education.</p>
+    </div>
+
+    <div class="card">
+      <h3>Vision</h3>
+      <p>A world where every child has equal access to opportunity and dignity.</p>
+    </div>
+
+    <div class="card">
+      <h3>Focus</h3>
+      <p>Education, relief support, and community empowerment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section>
+  <h2 class="section-title">The Reality We Respond To</h2>
 
   <div class="impact">
     <p>
-      Across many communities, children are still facing hardship — holding up signs,
-      asking for help, and hoping someone sees them. These images reflect real struggles,
-      not just statistics.
-      <br><br>
-      At Omanchi Hope Foundation, we exist to respond to this reality — not with pity,
-      but with action, support, and long-term change.
+      These children are not statistics — they are real lives facing hardship every day.
+      Our mission is to respond with action, not silence.
     </p>
 
     <div class="gallery">
-      <img src="children1.jpg" alt="Child in need">
-      <img src="children2.jpg" alt="Child in need">
+      <img src="children1.jpg" alt="">
+      <img src="children2.jpg" alt="">
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Omanchi Hope Foundation. All rights reserved.</p>
+  © 2026 Omanchi Hope Foundation. All rights reserved.
 </footer>
 
 <!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/2349162447016" target="_blank">
-  💬 Contact Us
+  💬 Chat
 </a>
 
 </body>
