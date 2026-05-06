@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hope Foundation</title>
+  <title>Omanchi Hope Foundation</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -18,9 +18,9 @@
     /* HEADER */
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 15px 25px;
+      justify-content: space-between;
+      padding: 12px 25px;
       background: white;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
@@ -29,7 +29,13 @@
     }
 
     header img {
-      height: 45px;
+      height: 65px; /* bigger logo */
+    }
+
+    header h2 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 600;
     }
 
     /* HERO */
@@ -48,13 +54,13 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.6);
     }
 
     .hero h1 {
       position: relative;
-      font-size: 42px;
-      max-width: 700px;
+      font-size: 40px;
+      max-width: 750px;
       padding: 20px;
     }
 
@@ -68,7 +74,6 @@
     h2 {
       text-align: center;
       margin-bottom: 30px;
-      font-size: 28px;
     }
 
     /* ABOUT */
@@ -91,24 +96,32 @@
 
     .about p {
       line-height: 1.7;
+    }
+
+    /* IMPACT / STORY SECTION */
+    .impact {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .impact p {
+      line-height: 1.8;
       font-size: 16px;
     }
 
-    /* GALLERY */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
+      margin-top: 20px;
     }
 
     .gallery img {
       width: 100%;
       border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
     }
 
     /* FOOTER */
@@ -119,7 +132,7 @@
       margin-top: 40px;
     }
 
-    /* WHATSAPP BUTTON */
+    /* WHATSAPP */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -140,12 +153,12 @@
 <!-- HEADER -->
 <header>
   <img src="logo.jpg" alt="Logo">
-  <h2>Hope Foundation</h2>
+  <h2>Omanchi Hope Foundation</h2>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Building Hope for a Better Future</h1>
+  <h1>Restoring Hope to Children in Need</h1>
 </div>
 
 <!-- ABOUT -->
@@ -155,25 +168,37 @@
     <img src="about.jpg" alt="About">
     <div>
       <p>
-        Hope Foundation is committed to supporting children and communities in need.
-        We focus on education, care, and empowerment to create a brighter future for all.
+        Omanchi Hope Foundation is dedicated to supporting vulnerable children and communities.
+        We believe every child deserves dignity, education, and a chance at a better life.
       </p>
     </div>
   </div>
 </section>
 
-<!-- IMPACT -->
+<!-- IMPACT / REAL STORY SECTION -->
 <section>
-  <h2>Our Impact</h2>
-  <div class="gallery">
-    <img src="children1.jpg" alt="Children 1">
-    <img src="children2.jpg" alt="Children 2">
+  <h2>The Reality We Cannot Ignore</h2>
+
+  <div class="impact">
+    <p>
+      Across many communities, children are still facing hardship — holding up signs,
+      asking for help, and hoping someone sees them. These images reflect real struggles,
+      not just statistics.
+      <br><br>
+      At Omanchi Hope Foundation, we exist to respond to this reality — not with pity,
+      but with action, support, and long-term change.
+    </p>
+
+    <div class="gallery">
+      <img src="children1.jpg" alt="Child in need">
+      <img src="children2.jpg" alt="Child in need">
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Hope Foundation. All rights reserved.</p>
+  <p>© 2026 Omanchi Hope Foundation. All rights reserved.</p>
 </footer>
 
 <!-- WHATSAPP -->
