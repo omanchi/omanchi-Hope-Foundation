@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMANCHI HOPE FOUNDATION</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+header {
+    background: #0c3b2e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #145c43;
+}
+
+nav a {
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #0c3b2e;
+}
+
+.section {
+    padding: 40px;
+    text-align: center;
+}
+
+.hero {
+    background: url('kids1.jpg') center/cover no-repeat;
+    color: white;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.gallery img {
+    width: 300px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.bio {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+}
+
+button {
+    background: #0c3b2e;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #145c43;
+}
+
+footer {
+    background: #0c3b2e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+OMANCHI HOPE FOUNDATION
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About Samuel</a>
+<a href="#gallery">Gallery</a>
+<a href="#donate">Donate</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="hero">
+<h1>Giving Hope, Changing Lives</h1>
+<p>Providing shelter, care, and a future for children in need</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<h2>About the Founder</h2>
+
+<img src="samuel.jpg" width="250" style="border-radius:10px;">
+
+<div class="bio">
+<p>
+Samuel is a passionate humanitarian and visionary dedicated to changing the lives of vulnerable children.
+After witnessing the struggles of homeless and abandoned kids, he established the Omanchi Hope Foundation
+to provide them with shelter, education, and a second chance at life.
+</p>
+
+<p>
+Through his leadership, dozens of children have been rescued from the streets and placed in a safe,
+loving environment. Samuel believes every child deserves dignity, opportunity, and hope.
+</p>
+
+<p><strong>Your support helps turn this vision into reality.</strong></p>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+<h2>Our Children</h2>
+
+<div class="gallery">
+<img src="kids2.jpg">
+<img src="kids3.jpg">
+<img src="kids4.jpg">
+<img src="kids5.jpg">
+<img src="samuel_kids.jpg">
+</div>
+
+<p>Every smile here is a life transformed.</p>
+</section>
+
+<!-- DONATE -->
+<section id="donate" class="section">
+<h2>Support Our Mission</h2>
+
+<p>Your donation helps provide food, shelter, education, and healthcare.</p>
+
+<button onclick="donate()">Donate Now</button>
+
+<p id="donationMsg"></p>
+</section>
+
+<footer>
+© 2026 Omanchi Hope Foundation | Making a Difference
+</footer>
+
+<script>
+function donate() {
+    document.getElementById("donationMsg").innerHTML =
+    "Thank you for your willingness to support! Payment integration coming soon.";
+}
+</script>
+
+</body>
+  </html>
