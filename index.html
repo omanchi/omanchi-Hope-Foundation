@@ -1,304 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omanchi Hope Foundation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omanchi Hope Foundation</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Inter',sans-serif;background:#f6f8fc;color:#1c1c1c;}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f6f8fc;
-      color: #1c1c1c;
-    }
+nav {
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;background:#fff;position:sticky;top:0;z-index:100;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
 
-    /* NAVBAR */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
+nav img {height:60px;}
 
-    nav img {
-      height: 60px;
-    }
+.menu {display:flex;gap:15px;}
+.menu a {text-decoration:none;color:#333;font-weight:500;}
 
-    nav ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      font-weight: 500;
-    }
+.menu-btn {
+display:none;font-size:22px;cursor:pointer;
+}
 
-    nav ul li {
-      cursor: pointer;
-    }
+.hero {
+height:90vh;background:url('hero.jpg') center/cover no-repeat;
+display:flex;align-items:center;justify-content:center;
+text-align:center;color:white;position:relative;padding:20px;
+}
 
-    /* HERO */
-    .hero {
-      height: 90vh;
-      background: url('hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
-      padding: 20px;
-    }
+.hero::before {
+content:"";position:absolute;inset:0;background:rgba(0,0,0,0.65);
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-    }
+.hero-content {position:relative;max-width:800px;}
 
-    .hero-content {
-      position: relative;
-      max-width: 800px;
-    }
+.hero h1 {font-size:44px;margin-bottom:15px;}
+.hero p {margin-bottom:20px;}
 
-    .hero h1 {
-      font-size: 46px;
-      margin-bottom: 15px;
-    }
+.btn {
+padding:12px 20px;border-radius:6px;text-decoration:none;
+font-weight:600;display:inline-block;margin:5px;
+}
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-      opacity: 0.9;
-    }
+.btn-donate {background:#ff6b35;color:white;}
+.btn-contact {background:#25D366;color:white;}
 
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 5px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-    }
+section {padding:70px 20px;max-width:1100px;margin:auto;}
+h2 {text-align:center;margin-bottom:30px;}
 
-    .btn-primary {
-      background: #25D366;
-      color: white;
-    }
+.card {
+background:white;padding:20px;border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
 
-    .btn-secondary {
-      background: white;
-      color: #111;
-    }
+.about {display:flex;flex-wrap:wrap;gap:20px;align-items:center;}
+.about img {max-width:400px;width:100%;border-radius:10px;}
 
-    /* SECTIONS */
-    section {
-      padding: 70px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.counters {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center;}
+.counter {font-size:32px;color:#ff6b35;font-weight:bold;}
 
-    .section-title {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 40px;
-    }
+.gallery {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
+.gallery img {width:100%;border-radius:10px;}
 
-    /* ABOUT */
-    .about {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      align-items: center;
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
+.donations {text-align:center;}
+.amounts button {
+margin:5px;padding:10px 15px;border:none;border-radius:6px;
+background:#ff6b35;color:white;cursor:pointer;
+}
 
-    .about img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: 12px;
-    }
+.testimonials {
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;
+}
 
-    .about p {
-      line-height: 1.8;
-      font-size: 15px;
-    }
+footer {text-align:center;padding:20px;background:#fff;}
 
-    /* INFO CARDS */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+.whatsapp {
+position:fixed;bottom:20px;right:20px;background:#25D366;
+color:white;padding:14px;border-radius:50%;text-decoration:none;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    /* IMPACT */
-    .impact {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    .impact p {
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: white;
-      margin-top: 40px;
-      font-size: 14px;
-    }
-
-    /* WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-  </style>
+@media(max-width:768px){
+.menu {display:none;flex-direction:column;background:white;position:absolute;top:60px;right:20px;padding:10px;}
+.menu.show {display:flex;}
+.menu-btn {display:block;}
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <img src="logo.jpg" alt="Logo">
-  <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Mission</li>
-    <li>Contact</li>
-  </ul>
+<img src="logo.jpg">
+<div class="menu" id="menu">
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#donate">Donate</a>
+</div>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-content">
-    <h1>Omanchi Hope Foundation</h1>
-    <p>Restoring dignity, hope, and opportunity to vulnerable children.</p>
+<div class="hero-content">
+<h1>Omanchi Hope Foundation</h1>
+<p>Giving vulnerable children a future filled with hope.</p>
 
-    <a class="btn btn-primary" href="https://wa.me/2349162447016" target="_blank">
-      Contact Us
-    </a>
-
-    <a class="btn btn-secondary" href="#about">
-      Learn More
-    </a>
-  </div>
+<a class="btn btn-donate" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate Now</a>
+<a class="btn btn-contact" href="https://wa.me/2349162447016" target="_blank">Contact</a>
+</div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
-  <h2 class="section-title">About Us</h2>
-
-  <div class="about">
-    <img src="about.jpg" alt="About">
-    <div>
-      <p>
-        Omanchi Hope Foundation is committed to improving the lives of vulnerable children
-        through education, care, and community support. We believe every child deserves a future filled with hope.
-      </p>
-    </div>
-  </div>
+<h2>About Us</h2>
+<div class="about card">
+<img src="about.jpg">
+<p>
+We are committed to helping children facing extreme hardship.
+Our mission is to restore dignity, opportunity, and hope through community support.
+</p>
+</div>
 </section>
 
-<!-- MISSION / VISION -->
 <section>
-  <h2 class="section-title">Our Mission</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Mission</h3>
-      <p>To support and uplift children in need through sustainable care and education.</p>
-    </div>
-
-    <div class="card">
-      <h3>Vision</h3>
-      <p>A world where every child has equal access to opportunity and dignity.</p>
-    </div>
-
-    <div class="card">
-      <h3>Focus</h3>
-      <p>Education, relief support, and community empowerment.</p>
-    </div>
-  </div>
+<h2>Our Reach</h2>
+<div class="counters">
+<div class="card"><div class="counter" data-target="120">0</div><p>Children Supported</p></div>
+<div class="card"><div class="counter" data-target="40">0</div><p>Volunteers</p></div>
+<div class="card"><div class="counter" data-target="6">0</div><p>Communities</p></div>
+</div>
 </section>
 
-<!-- IMPACT -->
+<section id="donate">
+<h2>Support Our Cause</h2>
+<div class="donations card">
+<p>Your support changes lives.</p>
+
+<div class="amounts">
+<button onclick="donate()">₦500</button>
+<button onclick="donate()">₦1000</button>
+<button onclick="donate()">₦5000</button>
+</div>
+
+<br>
+
+<a class="btn btn-donate" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate Any Amount</a>
+</div>
+</section>
+
 <section>
-  <h2 class="section-title">The Reality We Respond To</h2>
+<h2>The Reality We Respond To</h2>
+<div class="card">
+<p>Children in need deserve more than survival — they deserve a future.</p>
 
-  <div class="impact">
-    <p>
-      These children are not statistics — they are real lives facing hardship every day.
-      Our mission is to respond with action, not silence.
-    </p>
-
-    <div class="gallery">
-      <img src="children1.jpg" alt="">
-      <img src="children2.jpg" alt="">
-    </div>
-  </div>
+<div class="gallery">
+<img src="children1.jpg">
+<img src="children2.jpg">
+</div>
+</div>
 </section>
 
-<!-- FOOTER -->
+<section>
+<h2>What People Say</h2>
+<div class="testimonials">
+<div class="card">
+<p>"This foundation is doing incredible work."</p>
+</div>
+
+<div class="card">
+<p>"Real impact. Real change."</p>
+</div>
+
+<div class="card">
+<p>"Supporting them was the best decision."</p>
+</div>
+</div>
+</section>
+
 <footer>
-  © 2026 Omanchi Hope Foundation. All rights reserved.
+© 2026 Omanchi Hope Foundation
 </footer>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/2349162447016" target="_blank">
-  💬 Chat
-</a>
+<a class="whatsapp" href="https://wa.me/2349162447016" target="_blank">💬</a>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("show");
+}
+
+function donate(){
+window.open("https://paystack.shop/pay/mrtyf-aq5c","_blank");
+}
+
+const counters=document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute('data-target');
+const count=+counter.innerText;
+const inc=target/100;
+
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+};
+update();
+});
+</script>
 
 </body>
 </html>
