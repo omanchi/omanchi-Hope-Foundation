@@ -1,38 +1,28 @@
-// DARK MODE
-function toggleDark(){
-document.body.classList.toggle("dark");
-localStorage.setItem("dark", document.body.classList.contains("dark"));
+let children = 74;
+let counterEl = document.getElementById("childrenCount");
+
+// simulate donation impact
+function increaseImpact(amount){
+if(amount >= 10000){
+children += 1;
+counterEl.innerText = children;
+}
 }
 
-if(localStorage.getItem("dark") === "true"){
-document.body.classList.add("dark");
+// preset donation buttons
+function donate(amount){
+alert("You selected ₦" + amount);
+increaseImpact(amount);
 }
 
-// SHARE FUNCTION
-function shareSite(){
-if(navigator.share){
-navigator.share({
-title:"Omanchi Hope Foundation",
-url:location.href
-});
+// custom donation
+function customDonate(){
+let value = document.getElementById("customAmount").value;
+
+if(value && value >= 10000){
+alert("Donation of ₦" + value + " selected");
+increaseImpact(value);
 }else{
-alert("Copy link: " + location.href);
+alert("Minimum donation is ₦10,000");
 }
 }
-
-// COUNTER ANIMATION (SMOOTH)
-let count = 0;
-let counterEl = document.getElementById("counter");
-
-function animateCounter(){
-let interval = setInterval(()=>{
-if(count < 120){
-count++;
-counterEl.innerText = count;
-}else{
-clearInterval(interval);
-}
-},25);
-}
-
-animateCounter();
