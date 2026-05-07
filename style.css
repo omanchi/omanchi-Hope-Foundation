@@ -1,32 +1,18 @@
-/* =========================
-   GLOBAL RESET
-========================= */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
 font-family:'Inter',sans-serif;
 background:#f4f6fb;
 color:#111;
-transition:0.3s ease;
-line-height:1.6;
+transition:0.3s;
 }
 
-/* =========================
-   DARK MODE (app.js compatible)
-========================= */
 body.dark{
 background:#0f1115;
 color:#eaeaea;
 }
 
-/* =========================
-   NAVIGATION BAR
-========================= */
+/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -35,24 +21,17 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:14px 18px;
-background:rgba(255,255,255,0.92);
-backdrop-filter:blur(12px);
-box-shadow:0 4px 18px rgba(0,0,0,0.06);
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
 z-index:1000;
-transition:0.3s ease;
 }
 
 body.dark nav{
-background:rgba(20,20,25,0.92);
+background:rgba(20,20,25,0.95);
 }
 
-.logo img{
-height:52px;
-}
+.logo img{height:50px;}
 
-/* =========================
-   NAV LINKS
-========================= */
 .nav-links{
 display:flex;
 gap:10px;
@@ -62,82 +41,67 @@ flex-wrap:wrap;
 
 .nav-links a,
 .nav-links button,
-.nav-links select{
-border:none;
+select{
 padding:8px 12px;
 border-radius:10px;
+border:none;
+background:transparent;
 cursor:pointer;
 font-weight:600;
-background:transparent;
-color:inherit;
 text-decoration:none;
-transition:0.2s ease;
+color:inherit;
 }
 
-/* hover effect */
-.nav-links a:hover,
-.nav-links button:hover{
-transform:translateY(-2px);
-opacity:0.85;
-}
-
-/* language dropdown */
-.lang-select{
-background:white;
-}
-
-body.dark .lang-select{
-background:#1a1d25;
-color:white;
-}
-
-/* =========================
-   BUTTON STYLES
-========================= */
-.btn{
-padding:10px 14px;
-border-radius:10px;
-font-weight:600;
-display:inline-block;
-transition:0.3s ease;
-}
-
+/* BUTTONS */
 .btn.primary{
 background:#ff6b35;
 color:white;
-}
-
-.btn.green{
-background:#25D366;
-color:white;
-}
-
-/* WhatsApp CONTACT BUTTON (nav version) */
-.nav-links .btn.green{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-/* small icon inside contact button */
-.nav-links .btn.green::before{
-content:"💬";
-font-size:14px;
+border-radius:10px;
 }
 
 /* =========================
-   HERO SECTION
+   WHATSAPP BUTTON (FIXED PROPERLY)
 ========================= */
+
+.whatsapp-btn{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 14px;
+background:#25D366;
+color:white;
+font-weight:600;
+border-radius:12px;
+text-decoration:none;
+box-shadow:0 8px 18px rgba(0,0,0,0.15);
+transition:0.25s ease;
+}
+
+.wa-icon{
+width:28px;
+height:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,0.2);
+border-radius:50%;
+font-size:16px;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.05);
+}
+
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-position:relative;
 background:url('hero.jpg') center/cover no-repeat;
 color:white;
-padding:20px;
+position:relative;
 }
 
 .hero::before{
@@ -147,184 +111,79 @@ inset:0;
 background:rgba(0,0,0,0.6);
 }
 
-.hero-content{
-position:relative;
-max-width:850px;
-}
+.hero-content{position:relative;}
 
-.hero h1{
-font-size:52px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:18px;
-opacity:0.9;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-section{
-padding:85px 20px;
-max-width:1100px;
-margin:auto;
-}
-
+/* CARDS */
 .card{
 background:white;
-padding:25px;
-border-radius:16px;
-box-shadow:0 10px 28px rgba(0,0,0,0.06);
-transition:0.3s ease;
+padding:20px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 body.dark .card{
 background:#1a1d25;
 }
 
-/* =========================
-   GRID (NEWS)
-========================= */
+/* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-.card img{
-width:100%;
-border-radius:12px;
-margin-bottom:10px;
-}
-
-/* =========================
-   IMPACT COUNTER
-========================= */
+/* COUNTER */
 .counter{
 font-size:48px;
-font-weight:700;
+font-weight:bold;
 color:#ff6b35;
 text-align:center;
 }
 
-/* =========================
-   DONATION SECTION
-========================= */
+/* DONATION */
 .donation-grid{
-display:flex;
-gap:12px;
-justify-content:center;
-flex-wrap:wrap;
-margin:15px 0;
-}
-
-.donation-grid button{
-padding:12px 18px;
-border:none;
-border-radius:10px;
-background:#111;
-color:white;
-font-weight:600;
-cursor:pointer;
-transition:0.3s ease;
-}
-
-body.dark .donation-grid button{
-background:#2a2f3a;
-}
-
-.donation-grid button:hover{
-transform:scale(1.05);
-}
-
-/* custom donation input */
-.custom-donate{
 display:flex;
 gap:10px;
 justify-content:center;
 flex-wrap:wrap;
+}
+
+.donation-grid button{
+padding:12px 16px;
+border:none;
+border-radius:10px;
+background:#111;
+color:white;
+cursor:pointer;
+}
+
+.custom-donate{
+display:flex;
+gap:10px;
+justify-content:center;
 margin-top:10px;
 }
 
 .custom-donate input{
 padding:10px;
 border-radius:10px;
-border:1px solid #ddd;
-min-width:220px;
+border:1px solid #ccc;
 }
 
-.custom-donate button{
-padding:10px 16px;
-border:none;
-border-radius:10px;
-background:#ff6b35;
-color:white;
-font-weight:600;
-cursor:pointer;
-}
-
-/* Paystack button */
 .paystack-btn{
 display:inline-block;
 margin-top:15px;
-padding:12px 16px;
+padding:12px;
 background:#ff6b35;
 color:white;
 border-radius:10px;
 text-decoration:none;
-font-weight:600;
-transition:0.3s ease;
 }
 
-.paystack-btn:hover{
-transform:translateY(-2px);
-}
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 footer{
 text-align:center;
-padding:40px 20px;
+padding:30px;
 font-size:14px;
-opacity:0.75;
-}
-
-/* =========================
-   REVEAL ANIMATION (app.js compatible)
-========================= */
-.reveal{
-opacity:0;
-transform:translateY(20px);
-transition:0.8s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-@media(max-width:768px){
-
-.hero h1{
-font-size:34px;
-}
-
-.nav-links{
-justify-content:center;
-}
-
-.donation-grid{
-flex-direction:column;
-align-items:center;
-}
-
-.custom-donate{
-flex-direction:column;
-align-items:center;
-}
+opacity:0.7;
 }
