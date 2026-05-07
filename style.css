@@ -15,9 +15,6 @@ font-family:'Inter',sans-serif;
 scroll-behavior:smooth;
 }
 
-/* =========================
-   BODY (BASE + DARK MODE)
-========================= */
 body{
 background:#f4f6fb;
 color:var(--text);
@@ -31,7 +28,60 @@ color:#eaeaea;
 }
 
 /* =========================
-   HERO SECTION (LIFE EFFECT)
+   TOP NAV (LIGHT + CLEAN)
+========================= */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 20px;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(12px);
+z-index:1000;
+box-shadow:0 5px 18px rgba(0,0,0,0.06);
+}
+
+body.dark nav{
+background:rgba(20,20,25,0.85);
+}
+
+/* LOGO */
+.logo img{
+height:50px;
+}
+
+/* NAV LINKS */
+.nav-links{
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.nav-links a,
+.nav-links button,
+.nav-links select{
+padding:8px 12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+text-decoration:none;
+background:transparent;
+color:inherit;
+transition:0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links button:hover{
+transform:translateY(-2px);
+}
+
+/* =========================
+   HERO (STRONG IMPACT)
 ========================= */
 .hero{
 height:100vh;
@@ -51,19 +101,18 @@ inset:0;
 background:linear-gradient(
 180deg,
 rgba(0,0,0,0.5),
-rgba(0,0,0,0.75)
+rgba(0,0,0,0.8)
 );
 }
 
 .hero-content{
 position:relative;
 max-width:850px;
-animation:fadeUp 1.2s ease;
+animation:fadeUp 1s ease;
 }
 
 .hero h1{
 font-size:56px;
-letter-spacing:1px;
 margin-bottom:10px;
 }
 
@@ -73,26 +122,15 @@ opacity:0.9;
 line-height:1.6;
 }
 
-/* HERO BUTTONS */
-.hero-actions{
-margin-top:20px;
-display:flex;
-gap:12px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
 /* =========================
-   BUTTONS (MORE LIFELIKE)
+   BUTTONS (LIVELY BUT CLEAN)
 ========================= */
 .btn{
 padding:10px 16px;
 border-radius:10px;
-text-decoration:none;
 font-weight:600;
 display:inline-block;
 transition:0.3s ease;
-transform:translateY(0);
 }
 
 .btn:hover{
@@ -136,17 +174,12 @@ body.dark .card{
 background:#1a1d25;
 }
 
-/* =========================
-   HEADINGS
-========================= */
+/* TEXT */
 h2{
 font-size:28px;
 margin-bottom:12px;
 }
 
-/* =========================
-   TEXT
-========================= */
 p{
 line-height:1.7;
 color:var(--muted);
@@ -156,9 +189,7 @@ body.dark p{
 color:#bdbdbd;
 }
 
-/* =========================
-   IMAGES (SMOOTH STYLE)
-========================= */
+/* IMAGES */
 img{
 width:100%;
 border-radius:14px;
@@ -177,10 +208,6 @@ transform:scale(1.01);
 font-size:64px;
 font-weight:800;
 color:var(--primary);
-animation:pop 0.6s ease;
-}
-
-.center{
 text-align:center;
 }
 
@@ -230,14 +257,9 @@ color:white;
 padding:12px 14px;
 border-radius:10px;
 cursor:pointer;
-transition:0.3s ease;
 }
 
-.custom-donate button:hover{
-transform:translateY(-2px);
-}
-
-/* PAYSTACK BUTTON */
+/* PAY BUTTON */
 .paystack-btn{
 display:block;
 margin-top:18px;
@@ -248,15 +270,26 @@ padding:14px;
 border-radius:12px;
 text-decoration:none;
 font-weight:600;
-transition:0.3s ease;
-}
-
-.paystack-btn:hover{
-transform:scale(1.02);
 }
 
 /* =========================
-   GRID SYSTEM
+   LANGUAGE SELECTOR (NEW UX)
+========================= */
+.lang-select{
+background:white;
+border:1px solid #ddd;
+border-radius:10px;
+padding:8px;
+}
+
+body.dark .lang-select{
+background:#1a1d25;
+color:white;
+border:1px solid #333;
+}
+
+/* =========================
+   GRID
 ========================= */
 .grid{
 display:grid;
@@ -290,7 +323,7 @@ transform:translateY(0);
 }
 
 /* =========================
-   KEY ANIMATIONS
+   ANIMATIONS
 ========================= */
 @keyframes fadeUp{
 from{
@@ -301,9 +334,4 @@ to{
 opacity:1;
 transform:translateY(0);
 }
-}
-
-@keyframes pop{
-0%{transform:scale(0.8);opacity:0;}
-100%{transform:scale(1);opacity:1;}
 }
