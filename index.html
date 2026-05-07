@@ -1,166 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Omachi Hope Foundation</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= HERO ================= -->
-<header class="hero" id="home">
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+  <header class="hero" id="home">
 
-  <nav class="navbar">
-    <div class="logo">
-      <img src="logo.jpg" alt="Logo">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+      <div class="logo">
+        <img src="logo.jpg" alt="Omachi Hope Foundation Logo">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#donate">Donate</a></li>
+      </ul>
+
+    </nav>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+
+      <h1>
+        Building Hope.<br>
+        Restoring Lives.<br>
+        Reshaping Futures.
+      </h1>
+
+      <p>
+        The Omachi Hope Foundation exists to restore dignity, rebuild lives,
+        and create sustainable opportunities for underserved communities.
+        Through compassion-driven action, we are building a future where
+        every child, every family, and every community has access to hope,
+        stability, and the opportunity to thrive beyond limitation.
+      </p>
+
+      <a href="#donate" class="btn">
+        Support Our Mission
+      </a>
+
     </div>
 
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#mission">Mission</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#impact">Impact</a></li>
-      <li><a href="#donate">Donate</a></li>
-    </ul>
-  </nav>
+    <!-- OVERLAY -->
+    <div class="hero-overlay"></div>
 
-  <div class="hero-content">
-    <h1>Building Hope. Restoring Lives.</h1>
-    <p>
-      The Omachi Hope Foundation is dedicated to transforming lives through education,
-      healthcare, and community development. We believe real change begins when compassion
-      becomes action and action becomes consistency.
-    </p>
-  </div>
+    <!-- HERO IMAGE -->
+    <img
+      src="hopefoundation.jpg"
+      alt="Hope Foundation"
+      class="hero-img"
+    >
 
-  <div class="hero-overlay"></div>
-  <img src="hopefoundation.jpg" class="hero-img" alt="Hero Image">
+  </header>
 
-</header>
+  <!-- =========================
+       ABOUT SECTION
+  ========================== -->
+  <section class="section" id="about">
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-  <div class="container">
-    <h2>About Us</h2>
+    <div class="container">
 
-    <div class="grid">
-      <img src="about.jpg" alt="About Image">
+      <h2>About Us</h2>
 
-      <div>
+      <div class="grid">
+
+        <img
+          src="about.jpg"
+          alt="About Omachi Hope Foundation"
+        >
+
+        <div>
+
+          <p>
+            The Omachi Hope Foundation was founded on the belief that true
+            transformation begins when compassion is matched with consistent,
+            intentional action. We are committed to reaching vulnerable
+            communities through initiatives that provide educational support,
+            healthcare assistance, community development, and long-term
+            empowerment opportunities.
+          </p>
+
+          <p>
+            Our vision goes beyond temporary aid. We seek to establish
+            sustainable systems that uplift individuals and create environments
+            where people can rediscover dignity, purpose, and stability.
+            Every project we initiate is rooted in the conviction that hope
+            should not merely exist as an emotion, but as a structure capable
+            of changing lives for generations.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       MISSION SECTION
+  ========================== -->
+  <section class="section dark" id="mission">
+
+    <div class="container">
+
+      <h2>Our Mission</h2>
+
+      <p>
+        Our mission is to restore hope through practical solutions that
+        empower individuals and strengthen communities. Through education,
+        healthcare outreach, humanitarian support, and community development,
+        we are building systems that create lasting impact rather than
+        temporary relief.
+      </p>
+
+      <p>
+        We believe that every life deserves dignity, every child deserves
+        opportunity, and every community deserves the chance to grow beyond
+        hardship. Through collaboration, compassion, and sustained effort,
+        we continue to transform stories of struggle into stories of renewal.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       PROJECTS SECTION
+  ========================== -->
+  <section class="section" id="projects">
+
+    <div class="container">
+
+      <h2>Our Projects</h2>
+
+      <div class="cards">
+
+        <!-- CARD 1 -->
+        <div class="card">
+
+          <img
+            src="children1.jpg"
+            alt="Education Support"
+          >
+
+          <h3>Education Support</h3>
+
+          <p>
+            We provide access to learning materials, mentorship,
+            and educational opportunities that help children
+            develop confidence, knowledge, and a pathway toward
+            a brighter future.
+          </p>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+
+          <img
+            src="children2.jpg"
+            alt="Healthcare Outreach"
+          >
+
+          <h3>Healthcare Outreach</h3>
+
+          <p>
+            Through healthcare support and outreach initiatives,
+            we are helping vulnerable individuals gain access to
+            essential medical care, wellness education, and
+            preventive health awareness.
+          </p>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+
+          <img
+            src="hopefoundation.jpg"
+            alt="Community Development"
+          >
+
+          <h3>Community Development</h3>
+
+          <p>
+            Our community development initiatives focus on creating
+            sustainable structures that improve living conditions,
+            strengthen local support systems, and inspire long-term
+            transformation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       IMPACT SECTION
+  ========================== -->
+  <section class="section dark" id="impact">
+
+    <div class="container">
+
+      <h2>Our Impact</h2>
+
+      <p>
+        Every outreach program, every educational initiative,
+        and every support system we build contributes to lives
+        being restored and futures being rebuilt. From helping
+        children return to school to supporting struggling families,
+        our impact continues to expand through every act of compassion.
+      </p>
+
+      <p>
+        We are committed to ensuring that our work creates not only
+        immediate relief but lasting transformation capable of
+        empowering communities for generations to come.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       DONATION SECTION
+  ========================== -->
+  <section class="section dark" id="donate">
+
+    <div class="container">
+
+      <h2>Support Our Mission</h2>
+
+      <p>
+        Your generosity enables us to continue restoring hope,
+        supporting vulnerable communities, and building sustainable
+        systems that transform lives. Every donation contributes
+        directly toward creating meaningful and lasting impact.
+      </p>
+
+      <!-- DONATION BOX -->
+      <div class="donation-box">
+
+        <h3>Make a Donation</h3>
+
         <p>
-          We are a non-profit organization committed to rebuilding hope in underserved communities.
-          Our mission is rooted in the belief that every human life carries value, dignity, and potential.
+          Select a donation amount or enter a custom contribution
+          to support our mission.
         </p>
 
-        <p>
-          Through structured programs in education, welfare, and outreach, we aim to bridge the gap
-          between hardship and opportunity, ensuring no one is left behind.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- PRESET BUTTONS -->
+        <div class="donation-options">
 
-<!-- ================= MISSION ================= -->
-<section id="mission" class="section dark">
-  <div class="container">
-    <h2>Our Mission</h2>
+          <button type="button">₦2,000</button>
 
-    <p>
-      To restore dignity, empower communities, and create sustainable systems that allow individuals
-      to rise beyond their circumstances and build meaningful futures.
-    </p>
-  </div>
-</section>
+          <button type="button">₦5,000</button>
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class="section">
-  <div class="container">
-    <h2>Our Projects</h2>
+          <button type="button">₦10,000</button>
 
-    <div class="cards">
+          <button type="button">₦50,000</button>
 
-      <div class="card">
-        <img src="children1.jpg">
-        <h3>Education Support</h3>
-        <p>Providing access to learning, mentorship, and academic resources for children.</p>
-      </div>
+        </div>
 
-      <div class="card">
-        <img src="children2.jpg">
-        <h3>Healthcare Outreach</h3>
-        <p>Bringing essential medical care and awareness to vulnerable communities.</p>
-      </div>
+        <!-- DONATION FORM -->
+        <form class="donation-form">
 
-      <div class="card">
-        <img src="hopefoundation.jpg">
-        <h3>Community Growth</h3>
-        <p>Developing sustainable systems for long-term community development.</p>
+          <input
+            type="number"
+            placeholder="Enter custom amount (₦)"
+            required
+          >
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            required
+          >
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+          >
+
+          <button type="submit">
+            Donate Now
+          </button>
+
+        </form>
+
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- ================= IMPACT ================= -->
-<section id="impact" class="section dark">
-  <div class="container">
-    <h2>Our Impact</h2>
+  </section>
 
-    <p>
-      Every effort we make contributes to a larger story of transformation — from children returning
-      to school to families regaining stability and hope.
-    </p>
-  </div>
-</section>
-
-<!-- ================= DONATION ================= -->
-<section id="donate" class="section dark">
-  <div class="container">
-
-    <h2>Support Our Mission</h2>
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
 
     <p>
-      Your donation helps us provide education, healthcare, and hope to communities in need.
-      Every contribution becomes part of a larger movement of restoration and dignity.
+      © 2026 Omachi Hope Foundation.
+      All Rights Reserved.
     </p>
 
-    <div class="donation-box">
+  </footer>
 
-      <h3>Make a Donation</h3>
-
-      <div class="donation-options">
-        <button type="button">₦2,000</button>
-        <button type="button">₦5,000</button>
-        <button type="button">₦10,000</button>
-        <button type="button">₦50,000</button>
-      </div>
-
-      <form class="donation-form">
-        <input type="number" placeholder="Enter amount (₦)" />
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <button type="submit">Donate Now</button>
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="section">
-  <div class="container">
-    <p>© 2026 Omachi Hope Foundation. All Rights Reserved.</p>
-  </div>
-</footer>
-
-<!-- ================= JS ================= -->
-<script src="app.js"></script>
+  <!-- =========================
+       APP.JS CONNECTION
+  ========================== -->
+  <script src="app.js"></script>
 
 </body>
 </html>
