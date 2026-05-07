@@ -4,18 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Omanchi Hope Foundation</title>
 
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- NAV -->
 <nav>
-
 <div class="logo">
 <img src="logo.jpg" alt="logo">
 </div>
@@ -25,115 +23,68 @@
 <a href="#about">About</a>
 <a href="#impact">Impact</a>
 <a href="#family">Hope Family</a>
-<a href="#news">Updates</a>
+<a href="#news">News</a>
 
-<a href="#donate" class="btn primary">Donate</a>
+<a href="#donate" class="btn">Donate</a>
 
-<a href="https://wa.me/2349162447016" class="whatsapp-btn" target="_blank">
-💬 Contact
-</a>
+<a class="wa" href="https://wa.me/2349162447016" target="_blank">Contact</a>
 
 <button onclick="toggleDark()">🌙</button>
 
-<select onchange="changeLanguage(this.value)">
+<select onchange="setLang(this.value)">
 <option value="en">EN</option>
 <option value="fr">FR</option>
 <option value="es">ES</option>
 </select>
 
 </div>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-
-<div class="hero-content reveal">
-
+<div>
 <h1 id="title">Omanchi Hope Foundation</h1>
-
-<p id="subtitle">
-We are committed to restoring dignity, education, and hope to vulnerable children through structured support systems, outreach programs, and community care.
-</p>
-
-<a href="#donate" class="btn primary">Support a Child</a>
-
+<p id="subtitle">Restoring dignity and opportunity for vulnerable children.</p>
+<a href="#donate" class="btn">Support Now</a>
 </div>
-
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="reveal">
-
-<div class="card about-card">
-
-<h2>About Us</h2>
-
-<div class="about-logo">
-<img src="logo.jpg">
-</div>
-
+<section id="about">
+<h2>About</h2>
 <p>
-Omanchi Hope Foundation works directly with underserved communities to identify children in need and provide structured long-term support.
+We support children through structured welfare, education aid, and community programs designed for long-term impact.
 </p>
-
-<p>
-Our mission is to ensure that no child is left behind due to lack of resources, access to education, or basic welfare.
-</p>
-
-</div>
-
 </section>
 
 <!-- IMPACT -->
-<section id="impact" class="reveal center">
-
-<div class="card">
-
+<section id="impact">
 <h2>Our Impact</h2>
-
-<div class="counter" id="counter">74</div>
-
-<p>Children currently supported through education, food, and welfare programs.</p>
-
-</div>
-
+<div class="counter" id="counter">0</div>
+<p>Children supported</p>
 </section>
 
 <!-- HOPE FAMILY -->
-<section id="family" class="reveal">
-
-<div class="card">
-
+<section id="family">
 <h2>The Hope Family</h2>
-
-<p>
-A growing community of children, volunteers, and supporters working together to create lasting change.
-</p>
-
+<p>A growing community of supporters and children.</p>
 <img src="hopefoundation.jpg">
-
-</div>
-
 </section>
 
 <!-- NEWS -->
-<section id="news" class="reveal">
-
+<section id="news">
 <h2>Updates</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="children1.jpg">
-<h3>Outreach</h3>
-<p>We continue reaching communities in need of support.</p>
+<p>Outreach programs ongoing.</p>
 </div>
 
 <div class="card">
 <img src="children2.jpg">
-<h3>Education</h3>
-<p>Expanding access to school materials and learning programs.</p>
+<p>Education support expanding.</p>
 </div>
 
 </div>
@@ -141,38 +92,23 @@ A growing community of children, volunteers, and supporters working together to 
 </section>
 
 <!-- DONATION -->
-<section id="donate" class="reveal center">
+<section id="donate">
+<h2>Donate</h2>
 
-<div class="card">
-
-<h2>Support Our Mission</h2>
-
-<p>Your donation helps transform lives.</p>
-
-<div class="donation-grid">
 <button onclick="donate(10000)">₦10,000</button>
 <button onclick="donate(20000)">₦20,000</button>
 <button onclick="donate(50000)">₦50,000</button>
-</div>
 
-<div class="custom-donate">
-<input id="customAmount" type="number" placeholder="Enter amount (₦)">
-<button onclick="customDonate()">Donate</button>
-</div>
-
-<a class="paystack-btn" href="https://paystack.shop/pay/mrtyf-aq5c">
-Pay via Paystack
-</a>
-
-</div>
+<input id="custom" placeholder="Enter amount">
+<button onclick="customDonate()">Donate Custom</button>
 
 </section>
 
 <footer>
-<p>© 2026 Omanchi Hope Foundation • Built for impact</p>
+<p>© 2026 Omanchi Hope Foundation</p>
 </footer>
 
 <script src="app.js"></script>
 
 </body>
-  </html>
+</html>
