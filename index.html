@@ -15,95 +15,97 @@
 <header class="hero">
 <div class="hero-content">
 <h1>Omanchi Hope Foundation</h1>
-<p>Restoring dignity, hope, and opportunity to vulnerable children.</p>
+<p>Restoring dignity, hope, and opportunity to vulnerable children across communities.</p>
 
-<div class="hero-buttons">
-<a class="btn primary" href="#donate">Support a Child</a>
+<div class="hero-actions">
+<a class="btn primary" href="#donate">Donate Now</a>
 <a class="btn green" href="https://wa.me/2349162447016" target="_blank">WhatsApp Us</a>
 </div>
 </div>
 </header>
 
 <!-- ABOUT -->
-<section>
+<section class="reveal">
 <div class="card">
-<h2>About Us</h2>
+<h2>About the Foundation</h2>
 <p>
-Omanchi Hope Foundation is committed to supporting vulnerable children through education,
-food support, and community outreach programs across underserved areas.
+Omanchi Hope Foundation is dedicated to improving the lives of vulnerable children through education,
+food support, medical aid, and community outreach programs.
 </p>
 <img src="about.jpg">
 </div>
 </section>
 
 <!-- HOPE FAMILY -->
-<section>
+<section class="reveal">
 <div class="card">
 <h2>Hope Family</h2>
+
 <p>
-The Hope Family is a growing movement of volunteers, donors, and children united by compassion.
-Every donation strengthens our ability to provide food, school support, and emotional care.
+The Hope Family represents a growing movement of compassion-driven individuals committed to
+changing lives. From volunteers to donors and beneficiaries, we operate as one united family.
 </p>
+
+<p>
+Every child supported becomes part of a long-term care system focused on education, emotional healing,
+and sustainable development.
+</p>
+
 <img src="hopefoundation.jpg">
 </div>
 </section>
 
 <!-- IMPACT -->
-<section class="impact">
+<section class="reveal">
 <div class="card center">
 <h2>Our Impact</h2>
 
-<div class="big-number" id="childrenCount">74</div>
+<div class="counter" id="counter">74</div>
 <p>Children currently supported</p>
 
-<div class="small-note">
-Every donation helps increase this number through direct outreach programs.
-</div>
+<p class="note">
+Every donation helps expand this number through outreach and care programs.
+</p>
 </div>
 </section>
 
-<!-- DONATION OPTIONS (BOTTOM STRATEGIC SECTION) -->
-<section id="donate">
+<!-- DONATION -->
+<section id="donate" class="reveal">
 <div class="card">
-<h2>Support the Mission</h2>
+<h2>Support Our Mission</h2>
 
-<p>Select a quick donation or enter a custom amount:</p>
+<p>Select a donation level or enter a custom amount:</p>
 
 <div class="donation-grid">
-
-<button class="donate-btn" onclick="donate(10000)">₦10,000</button>
-<button class="donate-btn" onclick="donate(20000)">₦20,000</button>
-<button class="donate-btn" onclick="donate(50000)">₦50,000</button>
-
+<button onclick="donate(10000)">₦10,000</button>
+<button onclick="donate(20000)">₦20,000</button>
+<button onclick="donate(50000)">₦50,000</button>
 </div>
 
 <div class="custom-donate">
-<input type="number" id="customAmount" placeholder="Enter custom amount (₦)">
-<button onclick="customDonate()">Donate Now</button>
+<input type="number" id="customAmount" placeholder="Enter amount (₦)">
+<button onclick="customDonate()">Donate</button>
 </div>
 
-<a class="final-donate" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">
+<a class="paystack-btn" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">
 Proceed to Secure Payment
 </a>
-
 </div>
 </section>
 
 <!-- BLOG -->
-<section>
-<div class="card">
-<h2>Updates</h2>
+<section class="reveal">
+<h2>News & Updates</h2>
 
 <div class="grid">
-<div>
+<div class="card">
 <img src="children1.jpg">
-<p>Community outreach continues across rural areas.</p>
+<p>Community outreach programs reaching rural communities.</p>
 </div>
 
-<div>
+<div class="card">
 <img src="children2.jpg">
-<p>Providing consistent support to vulnerable children.</p>
-</div>
+<p>Providing consistent care and support for vulnerable children.</p>
 </div>
 </div>
 </section>
