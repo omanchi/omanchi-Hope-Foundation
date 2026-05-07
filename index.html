@@ -3,119 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Omanchi Hope Foundation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
-<header class="hero">
-<div class="hero-content">
+<!-- ================= NAVIGATION ================= -->
+<nav>
+<div class="logo">
+<img src="logo.jpg" alt="Omanchi Hope Foundation Logo">
+</div>
+
+<div class="nav-links">
+
+<a href="#about">About</a>
+<a href="#family">Hope Family</a>
+<a href="#news">News</a>
+
+<a class="btn primary" href="#donate">Donate</a>
+
+<button onclick="toggleDark()">🌙</button>
+
+<button class="btn green" onclick="showToast('Share this mission with others')">Share</button>
+
+<!-- Language Selector -->
+<select onchange="changeLanguage(this.value)">
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+</select>
+
+</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+<div class="hero-content reveal">
+
 <h1>Omanchi Hope Foundation</h1>
-<p>Restoring dignity, hope, and opportunity to vulnerable children across communities.</p>
+
+<p>
+We are dedicated to restoring dignity, hope, and opportunity to vulnerable children who have been forgotten by society.  
+Every child deserves a chance to dream, to grow, and to live a life filled with possibility.
+</p>
 
 <div class="hero-actions">
-<a class="btn primary" href="#donate">Donate Now</a>
-<a class="btn green" href="https://wa.me/2349162447016" target="_blank">WhatsApp Us</a>
+<a class="btn primary" href="#donate">Support a Child</a>
+<a class="btn green" href="#family">Meet the Hope Family</a>
 </div>
-</div>
-</header>
 
-<!-- ABOUT -->
-<section class="reveal">
-<div class="card">
-<h2>About the Foundation</h2>
-<p>
-Omanchi Hope Foundation is dedicated to improving the lives of vulnerable children through education,
-food support, medical aid, and community outreach programs.
-</p>
-<img src="about.jpg">
 </div>
+
 </section>
 
-<!-- HOPE FAMILY -->
-<section class="reveal">
+<!-- ================= ABOUT ================= -->
+<section id="about" class="reveal">
+
 <div class="card">
-<h2>Hope Family</h2>
+
+<h2>About the Mission</h2>
 
 <p>
-The Hope Family represents a growing movement of compassion-driven individuals committed to
-changing lives. From volunteers to donors and beneficiaries, we operate as one united family.
+The Omani Hope Foundation was created out of a deep conviction that no child should be left behind.  
+Across many communities, children face hardship, lack of education, hunger, and abandonment.  
+We exist to change that story — not just with words, but with consistent, life-changing action.
 </p>
 
 <p>
-Every child supported becomes part of a long-term care system focused on education, emotional healing,
-and sustainable development.
+Through outreach programs, education support, food assistance, and emotional care, we are building a future where vulnerable children are not only supported but empowered to rise above their circumstances.
 </p>
 
-<img src="hopefoundation.jpg">
 </div>
+
 </section>
 
-<!-- IMPACT -->
-<section class="reveal">
-<div class="card center">
+<!-- ================= HOPE FAMILY ================= -->
+<section id="family" class="reveal">
+
+<div class="card">
+
+<h2>The Hope Family</h2>
+
+<p>
+The “Hope Family” represents every child, volunteer, supporter, and partner connected to this mission.  
+It is more than a program — it is a growing community of compassion.
+</p>
+
+<p>
+Each child in our care carries a unique story, and we are committed to ensuring those stories do not end in pain, but in transformation.  
+Together, we are building a family where love replaces neglect and opportunity replaces limitation.
+</p>
+
+<img src="hopefoundation.jpg" alt="Hope Family">
+
+</div>
+
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section class="reveal center">
+
+<div class="card">
+
 <h2>Our Impact</h2>
 
 <div class="counter" id="counter">74</div>
-<p>Children currently supported</p>
 
-<p class="note">
-Every donation helps expand this number through outreach and care programs.
-</p>
+<p>Children currently supported through ongoing programs and outreach efforts.</p>
+
 </div>
+
 </section>
 
-<!-- DONATION -->
-<section id="donate" class="reveal">
-<div class="card">
-<h2>Support Our Mission</h2>
+<!-- ================= NEWS ================= -->
+<section id="news" class="reveal">
 
-<p>Select a donation level or enter a custom amount:</p>
-
-<div class="donation-grid">
-<button onclick="donate(10000)">₦10,000</button>
-<button onclick="donate(20000)">₦20,000</button>
-<button onclick="donate(50000)">₦50,000</button>
-</div>
-
-<div class="custom-donate">
-<input type="number" id="customAmount" placeholder="Enter amount (₦)">
-<button onclick="customDonate()">Donate</button>
-</div>
-
-<a class="paystack-btn" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">
-Proceed to Secure Payment
-</a>
-</div>
-</section>
-
-<!-- BLOG -->
-<section class="reveal">
 <h2>News & Updates</h2>
 
 <div class="grid">
+
 <div class="card">
-<img src="children1.jpg">
-<p>Community outreach programs reaching rural communities.</p>
+<img src="children1.jpg" alt="Community Outreach">
+<p>
+Our team continues to reach underserved communities, providing food, clothing, and educational support to children who need it most.
+</p>
 </div>
 
 <div class="card">
-<img src="children2.jpg">
-<p>Providing consistent care and support for vulnerable children.</p>
+<img src="children2.jpg" alt="Children Support Program">
+<p>
+We are expanding our child support initiatives, ensuring that more vulnerable children gain access to basic care and long-term empowerment programs.
+</p>
 </div>
+
 </div>
+
 </section>
 
-<!-- FOOTER -->
+<!-- ================= DONATION ================= -->
+<section id="donate" class="reveal">
+
+<div class="card center">
+
+<h2>Support the Mission</h2>
+
+<p>
+Your contribution directly impacts the life of a child. Every donation helps provide food, education, and hope for a better future.
+</p>
+
+<!-- DONATION BUTTONS -->
+<div class="donation-grid">
+
+<button onclick="donate(10000)">₦10,000</button>
+<button onclick="donate(20000)">₦20,000</button>
+<button onclick="donate(50000)">₦50,000</button>
+
+</div>
+
+<!-- CUSTOM DONATION -->
+<div class="custom-donate">
+
+<input type="number" id="customAmount" placeholder="Enter custom amount (₦10,000+)">
+
+<button onclick="customDonate()">Donate</button>
+
+</div>
+
+<!-- PAYSTACK DIRECT LINK -->
+<a class="paystack-btn" href="https://paystack.shop/pay/mrtyf-aq5c">
+Donate Securely via Paystack
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer>
-<p>© 2026 Omanchi Hope Foundation. All Rights Reserved.</p>
-<p>Built with compassion for humanity.</p>
+
+<p>
+© 2026 Omanchi Hope Foundation. All rights reserved.
+</p>
+
+<p>
+Built with compassion for vulnerable children.
+</p>
+
 </footer>
 
+<!-- ================= SCRIPT ================= -->
 <script src="app.js"></script>
+
 </body>
 </html>
