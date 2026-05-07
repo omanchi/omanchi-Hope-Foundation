@@ -15,30 +15,32 @@
 
 <!-- ================= NAVIGATION ================= -->
 <nav>
+
 <div class="logo">
-<img src="logo.jpg" alt="Omanchi Hope Foundation Logo">
+<img src="logo.jpg" alt="Omanchi Hope Foundation">
 </div>
 
 <div class="nav-links">
 
 <a href="#about">About</a>
+<a href="#impact">Impact</a>
 <a href="#family">Hope Family</a>
-<a href="#news">News</a>
+<a href="#news">Updates</a>
 
 <a class="btn primary" href="#donate">Donate</a>
 
 <button onclick="toggleDark()">🌙</button>
 
-<button class="btn green" onclick="showToast('Share this mission with others')">Share</button>
+<button class="btn green" onclick="showToast('Share this mission')">Share</button>
 
-<!-- Language Selector -->
-<select onchange="changeLanguage(this.value)">
+<select onchange="changeLanguage(this.value)" class="lang-select">
 <option value="en">English</option>
 <option value="fr">Français</option>
 <option value="es">Español</option>
 </select>
 
 </div>
+
 </nav>
 
 <!-- ================= HERO ================= -->
@@ -49,13 +51,12 @@
 <h1>Omanchi Hope Foundation</h1>
 
 <p>
-We are dedicated to restoring dignity, hope, and opportunity to vulnerable children who have been forgotten by society.  
-Every child deserves a chance to dream, to grow, and to live a life filled with possibility.
+A registered humanitarian initiative dedicated to restoring dignity, education, and emotional support to vulnerable children living in underserved communities.
 </p>
 
 <div class="hero-actions">
 <a class="btn primary" href="#donate">Support a Child</a>
-<a class="btn green" href="#family">Meet the Hope Family</a>
+<a class="btn green" href="#impact">See Our Impact</a>
 </div>
 
 </div>
@@ -67,16 +68,35 @@ Every child deserves a chance to dream, to grow, and to live a life filled with 
 
 <div class="card">
 
-<h2>About the Mission</h2>
+<h2>About the Foundation</h2>
 
 <p>
-The Omani Hope Foundation was created out of a deep conviction that no child should be left behind.  
-Across many communities, children face hardship, lack of education, hunger, and abandonment.  
-We exist to change that story — not just with words, but with consistent, life-changing action.
+Omanchi Hope Foundation is built on a simple but powerful belief: every child deserves protection, education, and the opportunity to live a meaningful life regardless of their background.
 </p>
 
 <p>
-Through outreach programs, education support, food assistance, and emotional care, we are building a future where vulnerable children are not only supported but empowered to rise above their circumstances.
+We work directly within vulnerable communities, partnering with local volunteers, educators, and caregivers to identify children in need and provide structured, consistent support. Our programs focus on education access, food assistance, emotional care, and long-term empowerment.
+</p>
+
+<p>
+This is not a short-term initiative. It is a sustained commitment to rebuilding hope where it has been lost.
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section id="impact" class="reveal center">
+
+<div class="card">
+
+<h2>Our Impact So Far</h2>
+
+<div class="counter" id="counter">74</div>
+
+<p>
+Children currently receiving structured support through education, care, and outreach programs.
 </p>
 
 </div>
@@ -91,55 +111,52 @@ Through outreach programs, education support, food assistance, and emotional car
 <h2>The Hope Family</h2>
 
 <p>
-The “Hope Family” represents every child, volunteer, supporter, and partner connected to this mission.  
-It is more than a program — it is a growing community of compassion.
+The Hope Family represents the heart of our mission — children, caregivers, volunteers, and partners working together to rebuild lives affected by poverty and neglect.
 </p>
 
 <p>
-Each child in our care carries a unique story, and we are committed to ensuring those stories do not end in pain, but in transformation.  
-Together, we are building a family where love replaces neglect and opportunity replaces limitation.
+Every child supported through this foundation becomes part of a growing network of care and accountability. We do not just provide aid; we build relationships that last.
 </p>
 
-<img src="hopefoundation.jpg" alt="Hope Family">
+<p>
+Our commitment is to ensure that no child feels invisible, abandoned, or forgotten.
+</p>
+
+<img src="hopefoundation.jpg" alt="Hope Family Community">
 
 </div>
 
 </section>
 
-<!-- ================= IMPACT ================= -->
-<section class="reveal center">
-
-<div class="card">
-
-<h2>Our Impact</h2>
-
-<div class="counter" id="counter">74</div>
-
-<p>Children currently supported through ongoing programs and outreach efforts.</p>
-
-</div>
-
-</section>
-
-<!-- ================= NEWS ================= -->
+<!-- ================= NEWS / UPDATES ================= -->
 <section id="news" class="reveal">
 
-<h2>News & Updates</h2>
+<h2>Latest Updates</h2>
 
 <div class="grid">
 
 <div class="card">
+
 <img src="children1.jpg" alt="Community Outreach">
+
+<h3>Community Outreach Programs</h3>
+
 <p>
-Our team continues to reach underserved communities, providing food, clothing, and educational support to children who need it most.
+Our outreach teams continue to engage with vulnerable communities, providing essential support including food supplies, clothing, and school materials to children in urgent need.
 </p>
+
 </div>
 
 <div class="card">
-<img src="children2.jpg" alt="Children Support Program">
+
+<img src="children2.jpg" alt="Education Support">
+
+<h3>Education Support Initiative</h3>
+
 <p>
-We are expanding our child support initiatives, ensuring that more vulnerable children gain access to basic care and long-term empowerment programs.
+We are actively expanding access to education by supporting school enrollment, learning materials, and mentorship programs for children who previously had no access to formal education.
 </p>
+
 </div>
 
 </div>
@@ -151,10 +168,10 @@ We are expanding our child support initiatives, ensuring that more vulnerable ch
 
 <div class="card center">
 
-<h2>Support the Mission</h2>
+<h2>Make a Real Difference</h2>
 
 <p>
-Your contribution directly impacts the life of a child. Every donation helps provide food, education, and hope for a better future.
+Your donation directly supports food, education, and care for vulnerable children. Every contribution creates measurable impact.
 </p>
 
 <!-- DONATION BUTTONS -->
@@ -169,16 +186,19 @@ Your contribution directly impacts the life of a child. Every donation helps pro
 <!-- CUSTOM DONATION -->
 <div class="custom-donate">
 
-<input type="number" id="customAmount" placeholder="Enter custom amount (₦10,000+)">
-
+<input type="number" id="customAmount" placeholder="Enter custom amount (₦10,000 minimum)">
 <button onclick="customDonate()">Donate</button>
 
 </div>
 
-<!-- PAYSTACK DIRECT LINK -->
+<!-- PAYSTACK -->
 <a class="paystack-btn" href="https://paystack.shop/pay/mrtyf-aq5c">
 Donate Securely via Paystack
 </a>
+
+<p style="margin-top:15px;font-size:13px;opacity:0.7;">
+Secure payment powered by Paystack. Your support goes directly into field operations and child welfare programs.
+</p>
 
 </div>
 
@@ -187,17 +207,18 @@ Donate Securely via Paystack
 <!-- ================= FOOTER ================= -->
 <footer>
 
+<p><strong>Omanchi Hope Foundation</strong></p>
+
 <p>
-© 2026 Omanchi Hope Foundation. All rights reserved.
+© 2026 All Rights Reserved • A humanitarian initiative committed to child welfare and community support.
 </p>
 
 <p>
-Built with compassion for vulnerable children.
+Built with transparency, compassion, and accountability.
 </p>
 
 </footer>
 
-<!-- ================= SCRIPT ================= -->
 <script src="app.js"></script>
 
 </body>
