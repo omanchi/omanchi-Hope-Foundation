@@ -8,438 +8,170 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
 font-family:'Inter',sans-serif;
-background:#f4f7fb;
-color:#1b1b1b;
-overflow-x:hidden;
+background:#f5f7fb;
+color:#111;
+transition:0.3s;
 }
 
-/* NAVBAR */
+/* DARK MODE */
+body.dark{
+background:#0f1115;
+color:#eaeaea;
+}
+
 nav{
-position:fixed;
-top:0;
-width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 30px;
-background:rgba(255,255,255,0.95);
-backdrop-filter:blur(10px);
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+padding:15px 20px;
+background:#fff;
+position:fixed;
+width:100%;
+top:0;
 z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
+body.dark nav{
+background:#1a1d25;
 }
 
-.logo img{
-height:70px;
-}
-
-.logo h2{
-font-size:20px;
-}
+.logo img{height:60px;}
 
 .nav-links{
 display:flex;
-gap:20px;
+gap:10px;
 align-items:center;
 }
 
-.nav-links a{
+.nav-links a, .nav-links button{
 text-decoration:none;
-color:#222;
-font-weight:500;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:#ff6b35;
-}
-
-.language-select{
-padding:8px;
-border-radius:6px;
-border:1px solid #ddd;
-}
-
-/* HERO */
-.hero{
-height:100vh;
-background:url('hero.jpg') center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-color:white;
-padding:20px;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65));
-}
-
-.hero-content{
-position:relative;
-max-width:850px;
-animation:fadeUp 1.2s ease;
-}
-
-.hero h1{
-font-size:58px;
-margin-bottom:20px;
-line-height:1.1;
-}
-
-.hero p{
-font-size:20px;
-line-height:1.7;
-margin-bottom:30px;
-opacity:0.95;
+padding:8px 12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
 }
 
 .btn{
-display:inline-block;
-padding:14px 24px;
-margin:5px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
-
-.btn-donate{
 background:#ff6b35;
 color:white;
 }
 
-.btn-contact{
-background:#25D366;
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:url('hero.jpg') center/cover;
+position:relative;
 color:white;
 }
 
-.btn:hover{
-transform:translateY(-3px);
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
 }
 
-/* SECTIONS */
+.hero-content{position:relative;max-width:700px;}
+
 section{
-padding:100px 20px;
-max-width:1200px;
+padding:90px 20px;
+max-width:1100px;
 margin:auto;
 }
 
-.section-title{
-text-align:center;
-font-size:38px;
-margin-bottom:20px;
-}
-
-.section-sub{
-text-align:center;
-max-width:700px;
-margin:auto;
-margin-bottom:50px;
-line-height:1.8;
-color:#555;
-}
-
-/* ABOUT */
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
+.card{
 background:white;
-padding:35px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.about img{
+body.dark .card{
+background:#1b1f2a;
+}
+
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.blog img{
 width:100%;
-border-radius:16px;
-}
-
-.about p{
-line-height:1.9;
-font-size:16px;
-}
-
-/* COUNTERS */
-.counters{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
-
-.counter-card{
-background:white;
-padding:30px;
-text-align:center;
-border-radius:16px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-transition:0.3s;
-}
-
-.counter-card:hover{
-transform:translateY(-5px);
+border-radius:12px;
 }
 
 .counter{
-font-size:42px;
-font-weight:bold;
+font-size:40px;
 color:#ff6b35;
-margin-bottom:10px;
+font-weight:bold;
 }
 
-/* BLOG */
-.blog-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-}
-
-.blog-card{
-background:white;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-transition:0.4s;
-}
-
-.blog-card:hover{
-transform:translateY(-8px);
-}
-
-.blog-card img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.blog-content{
-padding:22px;
-}
-
-.blog-content h3{
-margin-bottom:12px;
-}
-
-.blog-content p{
-line-height:1.7;
-color:#555;
-margin-bottom:15px;
-}
-
-.blog-date{
-font-size:14px;
-color:#999;
-}
-
-/* IMPACT */
-.impact-box{
-background:white;
-padding:35px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-margin-top:25px;
-}
-
-.gallery img{
-width:100%;
-border-radius:14px;
-transition:0.4s;
-}
-
-.gallery img:hover{
-transform:scale(1.03);
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-padding:60px 20px;
-margin-top:80px;
-text-align:center;
-}
-
-footer h3{
-margin-bottom:15px;
-font-size:26px;
-}
-
-footer p{
-opacity:0.8;
-line-height:1.7;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:16px;
-border-radius:50%;
-text-decoration:none;
-font-size:20px;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-z-index:1000;
-}
-
-/* ANIMATIONS */
-.fade-in{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.fade-in.show{
-opacity:1;
-transform:translateY(0);
-}
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* MOBILE */
-/* AUTH + DARK MODE + SHARE */
-.nav-auth-btn,.dark-toggle,.share-btn{
-background:#111;
-color:white;
-border:none;
-padding:10px 14px;
-border-radius:8px;
-cursor:pointer;
-font-weight:600;
-}
-
-.auth-modal{
+/* AUTH MODAL */
+.modal{
 display:none;
 position:fixed;
 inset:0;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(8px);
-z-index:3000;
-align-items:center;
+background:rgba(0,0,0,0.6);
 justify-content:center;
-padding:20px;
+align-items:center;
+z-index:2000;
 }
 
-.auth-box{
+.modal-box{
 background:white;
-padding:35px;
+padding:25px;
+border-radius:15px;
+width:320px;
+}
+
+body.dark .modal-box{
+background:#1b1f2a;
+}
+
+.modal-box input{
 width:100%;
-max-width:420px;
-border-radius:20px;
-position:relative;
-animation:fadeUp 0.5s ease;
-}
-
-.close-auth{
-position:absolute;
-top:15px;
-right:20px;
-font-size:30px;
-cursor:pointer;
-}
-
-.auth-tabs{
-display:flex;
-gap:10px;
-margin-bottom:20px;
-}
-
-.auth-tabs button{
-flex:1;
-padding:12px;
-border:none;
+padding:10px;
+margin:8px 0;
 border-radius:8px;
-background:#f0f0f0;
-font-weight:600;
-cursor:pointer;
+border:1px solid #ccc;
 }
 
-.auth-box input{
+.modal-box button{
 width:100%;
-padding:14px;
-margin-bottom:15px;
-border-radius:10px;
-border:1px solid #ddd;
-}
-
-.auth-btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
+padding:10px;
 background:#ff6b35;
 color:white;
-font-weight:600;
+border:none;
+border-radius:8px;
 cursor:pointer;
 }
 
-.dark-mode{
-background:#0f1115;
-color:#f1f1f1;
+.close{
+float:right;
+cursor:pointer;
+font-size:20px;
 }
 
-.dark-mode nav,
-.dark-mode .about,
-.dark-mode .counter-card,
-.dark-mode .blog-card,
-.dark-mode .impact-box,
-.dark-mode .auth-box{
-background:#1b1f27;
+.share-btn{
+background:#25D366;
 color:white;
 }
 
-@media(max-width:900px){
-.about{
-grid-template-columns:1fr;
+.dark-btn{
+background:#111;
+color:white;
 }
 
-.hero h1{
-font-size:42px;
-}
-
-.nav-links{
-display:none;
-}
-}
 </style>
 </head>
 
@@ -448,300 +180,99 @@ display:none;
 <!-- NAV -->
 <nav>
 <div class="logo">
-<img src="logo.jpg" alt="Logo">
-<h2>Omanchi Hope Foundation</h2>
+<img src="logo.jpg">
 </div>
 
 <div class="nav-links">
-<button class="nav-auth-btn" onclick="openAuth()">Login / Sign Up</button>
-<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-<button class="share-btn" onclick="shareWebsite()">📢 Share</button>
 <a href="#about">About</a>
-<a href="#impact">Impact</a>
-<a href="#blog">News</a>
-<a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate</a>
+<a href="#blog">Blog</a>
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn" target="_blank">Donate</a>
 
-<select class="language-select" onchange="translateSite(this.value)">
-<option value="en">English</option>
-<option value="fr">French</option>
-<option value="es">Spanish</option>
-</select>
+<button onclick="openAuth()">Login</button>
+<button onclick="toggleDark()" class="dark-btn">🌙</button>
+<button onclick="shareSite()" class="share-btn">Share</button>
 </div>
 </nav>
 
-<!-- AUTH MODAL -->
-<div id="authModal" class="auth-modal">
-<div class="auth-box">
-<span class="close-auth" onclick="closeAuth()">×</span>
-
-<div class="auth-tabs">
-<button onclick="showLogin()">Login</button>
-<button onclick="showSignup()">Sign Up</button>
-</div>
-
-<div id="loginForm">
-<h2>Welcome Back</h2>
-<input type="email" placeholder="Email Address">
-<input type="password" placeholder="Password">
-<button class="auth-btn">Login</button>
-</div>
-
-<div id="signupForm" style="display:none;">
-<h2>Create Account</h2>
-<input type="text" placeholder="Full Name">
-<input type="email" placeholder="Email Address">
-<input type="password" placeholder="Password">
-<button class="auth-btn">Create Account</button>
-</div>
-</div>
-</div>
-
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
 <div class="hero-content">
-<h1 id="hero-title">Restoring Hope. Transforming Lives.</h1>
-
-<p id="hero-text">
-Omanchi Hope Foundation supports vulnerable children through care, education, relief support, and community empowerment.
-</p>
-
-<a class="btn btn-donate" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">
-Donate Now
-</a>
-
-<a class="btn btn-contact" href="https://wa.me/2349162447016" target="_blank">
-Contact Us
-</a>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="fade-in">
-<h2 class="section-title">Who We Are</h2>
-<p class="section-sub">
-A mission-driven organization focused on creating opportunities and support systems for children facing hardship.
-</p>
-
-<div class="about">
-<img src="about.jpg" alt="About">
-
-<div>
-<p>
-At Omanchi Hope Foundation, we believe every child deserves dignity, protection, education, and a real opportunity to thrive.
-<br><br>
-Our work is centered around humanitarian support, awareness, and long-term community impact.
-</p>
+<h1>Omanchi Hope Foundation</h1>
+<p>Helping vulnerable children across communities.</p>
 </div>
 </div>
-</section>
 
-<!-- COUNTERS -->
-<section class="fade-in">
-<h2 class="section-title">Our Reach</h2>
-
-<div class="counters">
-<div class="counter-card">
-<div class="counter" data-target="120">0</div>
-<p>Children Supported</p>
-</div>
-
-<div class="counter-card">
-<div class="counter" data-target="40">0</div>
-<p>Volunteers</p>
-</div>
-
-<div class="counter-card">
-<div class="counter" data-target="6">0</div>
-<p>Communities Reached</p>
-</div>
-</div>
-</section>
-
-<!-- IMPACT -->
-<section id="impact" class="fade-in">
-<h2 class="section-title">The Reality We Respond To</h2>
-
-<div class="impact-box">
-<p class="section-sub">
-Behind every cardboard sign is a child asking for a chance at life.
-</p>
-
-<div class="gallery">
-<img src="children1.jpg">
-<img src="children2.jpg">
-</div>
-</div>
-</section>
-
-<!-- FOUNDER -->
-<section class="fade-in">
-<h2 class="section-title">Meet The Founder</h2>
-
-<div class="about">
-<img src="about.jpg" alt="Founder">
-
-<div>
-<h3>Omanchi Samuel</h3>
-<br>
-<p>
-Omanchi Samuel founded Omanchi Hope Foundation with a mission to bring hope, dignity, and opportunity to vulnerable children and underserved communities.
-<br><br>
-Driven by compassion and long-term impact, the foundation continues to grow through humanitarian outreach, awareness campaigns, and community support.
-</p>
-</div>
+<!-- ABOUT FOUNDER -->
+<section>
+<div class="card">
+<h2>Founder</h2>
+<p><b>Omanchi Samuel</b> founded this organization to bring hope and support to vulnerable children.</p>
 </div>
 </section>
 
 <!-- BLOG -->
-<section id="blog" class="fade-in">
-<h2 class="section-title">Latest News & Updates</h2>
-<p class="section-sub">
-Stay updated with outreach stories, foundation activities, and impact reports.
-</p>
-
+<section id="blog">
+<h2>News & Updates</h2>
 <div class="blog-grid">
-<div class="blog-card">
+<div class="card blog">
 <img src="children1.jpg">
-<div class="blog-content">
-<div class="blog-date">May 2026</div>
-<h3>Community Outreach Program</h3>
-<p>
-Our volunteers visited underserved communities to provide support and raise awareness.
-</p>
-</div>
+<p>Community outreach program update.</p>
 </div>
 
-<div class="blog-card">
+<div class="card blog">
 <img src="children2.jpg">
-<div class="blog-content">
-<div class="blog-date">April 2026</div>
-<h3>Supporting Vulnerable Children</h3>
-<p>
-The foundation continues its mission of restoring hope to children facing hardship.
-</p>
-</div>
-</div>
-
-<div class="blog-card">
-<img src="about.jpg">
-<div class="blog-content">
-<div class="blog-date">March 2026</div>
-<h3>Building a Better Future</h3>
-<p>
-Every contribution helps create long-term change and opportunities for children.
-</p>
-</div>
+<p>Support mission continues.</p>
 </div>
 </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-<h3>Omanchi Hope Foundation</h3>
-<p>
-Together, we can restore dignity, opportunity, and hope.
-</p>
-<br>
-<p>
-© 2026 Omanchi Hope Foundation. All Rights Reserved.
-</p>
-</footer>
+<!-- COUNTER -->
+<section>
+<div class="card">
+<div class="counter" id="count">0</div>
+<p>Children Reached</p>
+</div>
+</section>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/2349162447016" target="_blank">
-💬
-</a>
+<!-- AUTH -->
+<div class="modal" id="auth">
+<div class="modal-box">
+<span class="close" onclick="closeAuth()">×</span>
+<h3>Login</h3>
+<input placeholder="Email">
+<input placeholder="Password" type="password">
+<button>Login</button>
+</div>
+</div>
 
-<!-- SCRIPTS -->
 <script>
-// COUNTERS
-const counters = document.querySelectorAll('.counter');
 
-counters.forEach(counter => {
-const updateCounter = () => {
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
-const increment = target / 100;
-
-if(count < target){
-counter.innerText = Math.ceil(count + increment);
-setTimeout(updateCounter, 20);
-}else{
-counter.innerText = target;
-}
-}
-
-updateCounter();
-});
-
-// SCROLL ANIMATION
-const fadeElements = document.querySelectorAll('.fade-in');
-
-window.addEventListener('scroll', () => {
-fadeElements.forEach(el => {
-const position = el.getBoundingClientRect().top;
-const screenPosition = window.innerHeight / 1.2;
-
-if(position < screenPosition){
-el.classList.add('show');
-}
-});
-});
-
-// AUTH
 function openAuth(){
-document.getElementById('authModal').style.display='flex';
+document.getElementById('auth').style.display='flex';
 }
 
 function closeAuth(){
-document.getElementById('authModal').style.display='none';
+document.getElementById('auth').style.display='none';
 }
 
-function showSignup(){
-document.getElementById('signupForm').style.display='block';
-document.getElementById('loginForm').style.display='none';
+function toggleDark(){
+document.body.classList.toggle('dark');
 }
 
-function showLogin(){
-document.getElementById('signupForm').style.display='none';
-document.getElementById('loginForm').style.display='block';
-}
-
-// DARK MODE
-function toggleDarkMode(){
-document.body.classList.toggle('dark-mode');
-}
-
-// SHARE
-function shareWebsite(){
+function shareSite(){
 if(navigator.share){
-navigator.share({
-title:'Omanchi Hope Foundation',
-text:'Support vulnerable children through Omanchi Hope Foundation',
-url:window.location.href
-});
+navigator.share({title:'Omanchi Hope Foundation',url:location.href});
 }else{
-alert('Copy this link and share: ' + window.location.href);
+alert(location.href);
 }
 }
 
-// MULTILINGUAL DEMO
-function translateSite(lang){
-if(lang === 'fr'){
-document.getElementById('hero-title').innerText = 'Redonner Espoir. Transformer des Vies.';
-document.getElementById('hero-text').innerText = 'Omanchi Hope Foundation soutient les enfants vulnérables à travers l’éducation et le soutien communautaire.';
-}
+// counter
+let c=0;
+setInterval(()=>{
+if(c<120){c++;document.getElementById('count').innerText=c;}
+},20);
 
-else if(lang === 'es'){
-document.getElementById('hero-title').innerText = 'Restaurando Esperanza. Transformando Vidas.';
-document.getElementById('hero-text').innerText = 'Omanchi Hope Foundation apoya a niños vulnerables mediante educación y ayuda comunitaria.';
-}
-
-else {
-document.getElementById('hero-title').innerText = 'Restoring Hope. Transforming Lives.';
-document.getElementById('hero-text').innerText = 'Omanchi Hope Foundation supports vulnerable children through care, education, relief support, and community empowerment.';
-}
-}
 </script>
 
 </body>
