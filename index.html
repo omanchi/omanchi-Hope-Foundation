@@ -4,272 +4,90 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Omanchi Hope Foundation</title>
-
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-
-body{
-font-family:'Inter',sans-serif;
-background:#f5f7fb;
-color:#111;
-transition:0.3s;
-}
-
-/* DARK MODE */
-body.dark{
-background:#0f1115;
-color:#eaeaea;
-}
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:white;
-position:fixed;
-width:100%;
-top:0;
-z-index:1000;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-body.dark nav{background:#1a1d25;}
-
-.logo img{height:60px;}
-
-.nav-links{
-display:flex;
-gap:10px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav-links a, .nav-links button{
-text-decoration:none;
-padding:8px 12px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-weight:600;
-background:none;
-color:inherit;
-}
-
-.btn-donate{
-background:#ff6b35;
-color:white;
-}
-
-.btn-green{
-background:#25D366;
-color:white;
-}
-
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:url('hero.jpg') center/cover no-repeat;
-position:relative;
-color:white;
-padding:20px;
-}
-
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.6);
-}
-
-.hero-content{position:relative;max-width:750px;}
-
-.hero h1{font-size:50px;margin-bottom:15px;}
-
-section{
-padding:90px 20px;
-max-width:1100px;
-margin:auto;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-body.dark .card{background:#1b1f2a;}
-
-.blog-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.blog img{
-width:100%;
-border-radius:10px;
-}
-
-.counter{
-font-size:40px;
-font-weight:bold;
-color:#ff6b35;
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.6);
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.modal-box{
-background:white;
-padding:25px;
-border-radius:12px;
-width:320px;
-}
-
-body.dark .modal-box{background:#1b1f2a;}
-
-.modal-box input{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
-}
-
-.modal-box button{
-width:100%;
-padding:10px;
-background:#ff6b35;
-color:white;
-border:none;
-border-radius:8px;
-}
-
-.close{
-float:right;
-cursor:pointer;
-font-size:20px;
-}
-
-</style>
 </head>
-
 <body>
 
 <!-- NAV -->
 <nav>
 <div class="logo">
-<img src="logo.jpg">
+<img src="images/logo.jpg" alt="Logo">
 </div>
 
 <div class="nav-links">
 <a href="#about">About</a>
+<a href="#family">Hope Family</a>
 <a href="#blog">News</a>
 
-<a class="btn-donate" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate</a>
-
+<a class="btn" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate</a>
 <button onclick="openAuth()">Login</button>
 <button onclick="toggleDark()">🌙</button>
-<button onclick="shareSite()" class="btn-green">Share</button>
+<button onclick="shareSite()">Share</button>
 </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<header class="hero">
 <div class="hero-content">
 <h1>Omanchi Hope Foundation</h1>
-<p>Restoring hope and dignity to vulnerable children.</p>
+<p>Restoring dignity, hope, and opportunity to vulnerable children.</p>
 </div>
-</div>
+</header>
 
-<!-- ABOUT FOUNDER -->
-<section id="about">
+<!-- ABOUT -->
+<section id="about" class="section">
 <div class="card">
 <h2>Founder</h2>
-<br>
-<p><b>Omanchi Samuel</b> founded this organization to support vulnerable children and build a better future through compassion and action.</p>
+<p><b>Omanchi Samuel</b> founded this foundation to support vulnerable children and create lasting impact.</p>
+</div>
+</section>
+
+<!-- HOPE FAMILY -->
+<section id="family" class="section">
+<div class="card">
+<h2>Hope Family</h2>
+<p>Our community of volunteers, supporters, and children united by hope.</p>
+<img src="images/hope-family.jpg" class="img" alt="Hope Family">
 </div>
 </section>
 
 <!-- IMPACT -->
-<section>
+<section class="section center">
 <div class="card">
-<div class="counter" id="counter">0</div>
+<div id="counter">0</div>
 <p>Children Supported</p>
 </div>
 </section>
 
 <!-- BLOG -->
-<section id="blog">
+<section id="blog" class="section">
 <h2>News & Updates</h2>
-<br>
-<div class="blog-grid">
-<div class="card blog">
-<img src="children1.jpg">
+
+<div class="grid">
+<div class="card">
+<img src="images/children1.jpg">
 <p>Community outreach programs continue.</p>
 </div>
 
-<div class="card blog">
-<img src="children2.jpg">
-<p>Helping children in underserved areas.</p>
+<div class="card">
+<img src="images/children2.jpg">
+<p>Helping vulnerable children daily.</p>
 </div>
 </div>
 </section>
 
 <!-- AUTH -->
-<div class="modal" id="auth">
+<div id="auth" class="modal">
 <div class="modal-box">
-<span class="close" onclick="closeAuth()">×</span>
+<span onclick="closeAuth()" class="close">×</span>
 <h3>Login</h3>
 <input placeholder="Email">
-<input placeholder="Password" type="password">
+<input type="password" placeholder="Password">
 <button>Login</button>
 </div>
 </div>
 
-<script>
-
-function openAuth(){
-document.getElementById('auth').style.display='flex';
-}
-
-function closeAuth(){
-document.getElementById('auth').style.display='none';
-}
-
-function toggleDark(){
-document.body.classList.toggle('dark');
-}
-
-function shareSite(){
-if(navigator.share){
-navigator.share({title:'Omanchi Hope Foundation',url:location.href});
-}else{
-alert(location.href);
-}
-}
-
-let c=0;
-setInterval(()=>{
-if(c<120){c++;document.getElementById('counter').innerText=c;}
-},20);
-
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
