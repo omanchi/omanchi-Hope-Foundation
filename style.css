@@ -17,7 +17,7 @@ line-height:1.6;
 }
 
 /* =========================
-   DARK MODE (matches app.js)
+   DARK MODE (app.js compatible)
 ========================= */
 body.dark{
 background:#0f1115;
@@ -39,7 +39,7 @@ background:rgba(255,255,255,0.92);
 backdrop-filter:blur(12px);
 box-shadow:0 4px 18px rgba(0,0,0,0.06);
 z-index:1000;
-transition:0.3s;
+transition:0.3s ease;
 }
 
 body.dark nav{
@@ -70,17 +70,18 @@ cursor:pointer;
 font-weight:600;
 background:transparent;
 color:inherit;
-transition:0.2s ease;
 text-decoration:none;
+transition:0.2s ease;
 }
 
+/* hover effect */
 .nav-links a:hover,
 .nav-links button:hover{
 transform:translateY(-2px);
 opacity:0.85;
 }
 
-/* Language dropdown */
+/* language dropdown */
 .lang-select{
 background:white;
 }
@@ -109,6 +110,19 @@ color:white;
 .btn.green{
 background:#25D366;
 color:white;
+}
+
+/* WhatsApp CONTACT BUTTON (nav version) */
+.nav-links .btn.green{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+/* small icon inside contact button */
+.nav-links .btn.green::before{
+content:"💬";
+font-size:14px;
 }
 
 /* =========================
@@ -170,7 +184,7 @@ background:#1a1d25;
 }
 
 /* =========================
-   GRID LAYOUT (NEWS)
+   GRID (NEWS)
 ========================= */
 .grid{
 display:grid;
@@ -224,7 +238,7 @@ background:#2a2f3a;
 transform:scale(1.05);
 }
 
-/* custom donation */
+/* custom donation input */
 .custom-donate{
 display:flex;
 gap:10px;
@@ -260,7 +274,7 @@ color:white;
 border-radius:10px;
 text-decoration:none;
 font-weight:600;
-transition:0.3s;
+transition:0.3s ease;
 }
 
 .paystack-btn:hover{
@@ -278,7 +292,7 @@ opacity:0.75;
 }
 
 /* =========================
-   SCROLL ANIMATION (app.js compatible)
+   REVEAL ANIMATION (app.js compatible)
 ========================= */
 .reveal{
 opacity:0;
@@ -289,32 +303,6 @@ transition:0.8s ease;
 .reveal.active{
 opacity:1;
 transform:translateY(0);
-}
-
-/* =========================
-   WHATSAPP FLOAT BUTTON
-========================= */
-.whatsapp-float{
-position:fixed;
-bottom:22px;
-right:22px;
-width:58px;
-height:58px;
-background:#25D366;
-color:white;
-font-size:26px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-text-decoration:none;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
-z-index:9999;
-transition:0.3s ease;
-}
-
-.whatsapp-float:hover{
-transform:scale(1.1);
 }
 
 /* =========================
