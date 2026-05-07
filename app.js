@@ -1,30 +1,45 @@
 (() => {
+
+  // ============================
+  // PAYSTACK LINK
+  // ============================
   const PAYSTACK_URL = "https://paystack.shop/pay/mrtyf-aq5c";
 
-  const form = document.querySelector(".donation-form");
-  const amountInput = document.querySelector(".donation-form input[type='number']");
+  // ============================
+  // DONATION ELEMENTS
+  // ============================
   const buttons = document.querySelectorAll(".donation-options button");
+  const amountInput = document.querySelector(".donation-form input[type='number']");
+  const donationForm = document.querySelector(".donation-form");
 
-  if (!form || !amountInput) return;
-
-  // ===============================
-  // PRESET AMOUNT BUTTONS
-  // ===============================
+  // ============================
+  // PRESET BUTTONS
+  // ============================
   buttons.forEach((btn) => {
+
     btn.addEventListener("click", () => {
-      const value = btn.innerText.replace(/[₦,]/g, "").trim();
+
+      const value = btn.innerText
+        .replace(/[₦,]/g, "")
+        .trim();
+
       amountInput.value = value;
 
-      // visual feedback
-      buttons.forEach(b => b.classList.remove("active"));
+      buttons.forEach((b) => {
+        b.classList.remove("active");
+      });
+
       btn.classList.add("active");
+
     });
+
   });
 
-  // ===============================
-  // DONATE BUTTON → PAYSTACK
-  // ===============================
-  form.addEventListener("submit", (e) => {
+  // ============================
+  // DONATE FORM SUBMIT
+  // ============================
+  donationForm.addEventListener("submit", (e) => {
+
     e.preventDefault();
 
     const amount = parseInt(amountInput.value, 10);
@@ -34,15 +49,46 @@
       return;
     }
 
-    // optional confirmation
-    const confirmPay = confirm(
-      `Proceed to donate ₦${amount.toLocaleString()} via Paystack?`
+    const confirmDonate = confirm(
+      `Proceed to donate ₦${amount.toLocaleString()}?`
     );
 
-    if (!confirmPay) return;
+    if (!confirmDonate) return;
 
-    // REDIRECT TO PAYSTACK
     window.location.href = PAYSTACK_URL;
+
+  });
+
+  // ============================
+  // COUNTER ANIMATION
+  // ============================
+  const counters = document.querySelectorAll('.counter');
+
+  counters.forEach(counter => {
+
+    const updateCounter = () => {
+
+      const target = +counter.getAttribute('data-target');
+      const current = +counter.innerText;
+
+      const increment = target / 80;
+
+      if(current < target){
+
+        counter.innerText = `${Math.ceil(current + increment)}`;
+
+        setTimeout(updateCounter, 30);
+
+      } else {
+
+        counter.innerText = target;
+
+      }
+
+    };
+
+    updateCounter();
+
   });
 
 })();
