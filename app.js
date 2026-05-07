@@ -7,14 +7,10 @@ let children = 74;
 const counter = document.getElementById("counter");
 
 /* =========================
-   DARK MODE (STABLE)
+   DARK MODE
 ========================= */
 function setTheme(mode){
-if(mode === "dark"){
-document.body.classList.add("dark");
-}else{
-document.body.classList.remove("dark");
-}
+document.body.classList.toggle("dark", mode === "dark");
 localStorage.setItem("theme", mode);
 }
 
@@ -23,10 +19,8 @@ const isDark = document.body.classList.contains("dark");
 setTheme(isDark ? "light" : "dark");
 }
 
-// load theme
-(function(){
-const saved = localStorage.getItem("theme") || "light";
-setTheme(saved);
+(function initTheme(){
+setTheme(localStorage.getItem("theme") || "light");
 })();
 
 /* =========================
@@ -40,30 +34,25 @@ if(counter) counter.innerText = children;
 }
 
 /* =========================
-   PAYSTACK REDIRECT (CORE LOGIC)
+   PAYSTACK FLOW
 ========================= */
 const PAYSTACK_URL = "https://paystack.shop/pay/mrtyf-aq5c";
 
 function redirectToPaystack(amount){
-showToast(`Redirecting with ₦${amount.toLocaleString()}`);
+showToast(`Processing ₦${amount.toLocaleString()} donation`);
 
 updateImpact(amount);
 
-// small delay so user sees feedback
 setTimeout(()=>{
 window.location.href = PAYSTACK_URL;
 },700);
 }
 
-/* =========================
-   DONATION HANDLERS
-========================= */
 function donate(amount){
 if(amount < 10000){
 showToast("Minimum donation is ₦10,000");
 return;
 }
-
 redirectToPaystack(amount);
 }
 
@@ -80,7 +69,7 @@ redirectToPaystack(value);
 }
 
 /* =========================
-   TOAST NOTIFICATION
+   TOAST SYSTEM
 ========================= */
 function showToast(message){
 const toast = document.createElement("div");
@@ -98,9 +87,9 @@ setTimeout(()=>toast.remove(),300);
 }
 
 /* =========================
-   MULTILINGUAL ENGINE
+   🌍 MODERN TRANSLATION ENGINE (UPGRADED)
 ========================= */
-const translations = {
+const LANG_DATA = {
 en:{
 title:"Omanchi Hope Foundation",
 subtitle:"Restoring dignity, hope, and opportunity to vulnerable children",
@@ -129,16 +118,26 @@ donate:"Donar"
 }
 };
 
-function changeLanguage(lang){
-const t = translations[lang];
+/* Detect browser language automatically */
+function detectLanguage(){
+const lang = navigator.language.slice(0,2);
+return LANG_DATA[lang] ? lang : "en";
+}
+
+/* Apply translations smoothly */
+function applyLanguage(lang){
+
+const t = LANG_DATA[lang];
 if(!t) return;
 
-const heroTitle = document.querySelector(".hero h1");
-const heroSub = document.querySelector(".hero p");
+/* Hero */
+const h1 = document.querySelector(".hero h1");
+const p = document.querySelector(".hero p");
 
-if(heroTitle) heroTitle.innerText = t.title;
-if(heroSub) heroSub.innerText = t.subtitle;
+if(h1) h1.innerText = t.title;
+if(p) p.innerText = t.subtitle;
 
+/* Nav links */
 const links = document.querySelectorAll("nav a");
 
 if(links[0]) links[0].innerText = t.about;
@@ -146,6 +145,20 @@ if(links[1]) links[1].innerText = t.family;
 if(links[2]) links[2].innerText = t.news;
 if(links[3]) links[3].innerText = t.donate;
 }
+
+/* Manual switch from dropdown */
+function changeLanguage(lang){
+applyLanguage(lang);
+localStorage.setItem("lang", lang);
+}
+
+/* Auto init language (smart UX) */
+(function initLanguage(){
+const saved = localStorage.getItem("lang");
+const auto = detectLanguage();
+
+applyLanguage(saved || auto);
+})();
 
 /* =========================
    SCROLL REVEAL
@@ -156,7 +169,7 @@ if(entry.isIntersecting){
 entry.target.classList.add("active");
 }
 });
-},{ threshold:0.15 });
+},{threshold:0.15});
 
 document.querySelectorAll(".reveal").forEach(el=>{
 observer.observe(el);
