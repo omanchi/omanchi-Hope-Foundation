@@ -1,34 +1,31 @@
-:root{
---primary:#ff6b35;
---dark:#0f1115;
---card:#ffffff;
---text:#111;
---muted:#666;
---shadow:0 12px 30px rgba(0,0,0,0.08);
-}
-
+/* =========================
+   GLOBAL RESET
+========================= */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Inter',sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
+font-family:'Inter',sans-serif;
 background:#f4f6fb;
-color:var(--text);
-transition:0.4s ease;
-overflow-x:hidden;
+color:#111;
+transition:0.3s ease;
+line-height:1.6;
 }
 
+/* =========================
+   DARK MODE (matches app.js)
+========================= */
 body.dark{
-background:var(--dark);
+background:#0f1115;
 color:#eaeaea;
 }
 
 /* =========================
-   TOP NAV (LIGHT + CLEAN)
+   NAVIGATION BAR
 ========================= */
 nav{
 position:fixed;
@@ -37,23 +34,25 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 20px;
-background:rgba(255,255,255,0.85);
+padding:14px 18px;
+background:rgba(255,255,255,0.92);
 backdrop-filter:blur(12px);
+box-shadow:0 4px 18px rgba(0,0,0,0.06);
 z-index:1000;
-box-shadow:0 5px 18px rgba(0,0,0,0.06);
+transition:0.3s;
 }
 
 body.dark nav{
-background:rgba(20,20,25,0.85);
+background:rgba(20,20,25,0.92);
 }
 
-/* LOGO */
 .logo img{
-height:50px;
+height:52px;
 }
 
-/* NAV LINKS */
+/* =========================
+   NAV LINKS
+========================= */
 .nav-links{
 display:flex;
 gap:10px;
@@ -64,237 +63,208 @@ flex-wrap:wrap;
 .nav-links a,
 .nav-links button,
 .nav-links select{
-padding:8px 12px;
 border:none;
+padding:8px 12px;
 border-radius:10px;
 cursor:pointer;
 font-weight:600;
-text-decoration:none;
 background:transparent;
 color:inherit;
-transition:0.3s ease;
+transition:0.2s ease;
+text-decoration:none;
 }
 
 .nav-links a:hover,
 .nav-links button:hover{
 transform:translateY(-2px);
+opacity:0.85;
 }
 
-/* =========================
-   HERO (STRONG IMPACT)
-========================= */
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-background:url('hero.jpg') center/cover no-repeat;
+/* Language dropdown */
+.lang-select{
+background:white;
+}
+
+body.dark .lang-select{
+background:#1a1d25;
 color:white;
 }
 
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(
-180deg,
-rgba(0,0,0,0.5),
-rgba(0,0,0,0.8)
-);
-}
-
-.hero-content{
-position:relative;
-max-width:850px;
-animation:fadeUp 1s ease;
-}
-
-.hero h1{
-font-size:56px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:18px;
-opacity:0.9;
-line-height:1.6;
-}
-
 /* =========================
-   BUTTONS (LIVELY BUT CLEAN)
+   BUTTON STYLES
 ========================= */
 .btn{
-padding:10px 16px;
+padding:10px 14px;
 border-radius:10px;
 font-weight:600;
 display:inline-block;
 transition:0.3s ease;
 }
 
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
-}
-
-.primary{
-background:var(--primary);
+.btn.primary{
+background:#ff6b35;
 color:white;
 }
 
-.green{
+.btn.green{
 background:#25D366;
 color:white;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+background:url('hero.jpg') center/cover no-repeat;
+color:white;
+padding:20px;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+position:relative;
+max-width:850px;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.9;
 }
 
 /* =========================
    SECTIONS
 ========================= */
 section{
-padding:90px 20px;
-max-width:1050px;
+padding:85px 20px;
+max-width:1100px;
 margin:auto;
 }
 
 .card{
-background:var(--card);
+background:white;
 padding:25px;
-border-radius:18px;
-box-shadow:var(--shadow);
-margin-bottom:20px;
+border-radius:16px;
+box-shadow:0 10px 28px rgba(0,0,0,0.06);
 transition:0.3s ease;
-}
-
-.card:hover{
-transform:translateY(-4px);
 }
 
 body.dark .card{
 background:#1a1d25;
 }
 
-/* TEXT */
-h2{
-font-size:28px;
-margin-bottom:12px;
+/* =========================
+   GRID LAYOUT (NEWS)
+========================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
-p{
-line-height:1.7;
-color:var(--muted);
-}
-
-body.dark p{
-color:#bdbdbd;
-}
-
-/* IMAGES */
-img{
+.card img{
 width:100%;
-border-radius:14px;
-margin-top:12px;
-transition:0.3s ease;
-}
-
-img:hover{
-transform:scale(1.01);
+border-radius:12px;
+margin-bottom:10px;
 }
 
 /* =========================
    IMPACT COUNTER
 ========================= */
 .counter{
-font-size:64px;
-font-weight:800;
-color:var(--primary);
+font-size:48px;
+font-weight:700;
+color:#ff6b35;
 text-align:center;
 }
 
 /* =========================
-   DONATION AREA
+   DONATION SECTION
 ========================= */
 .donation-grid{
 display:flex;
 gap:12px;
+justify-content:center;
 flex-wrap:wrap;
-margin:20px 0;
+margin:15px 0;
 }
 
 .donation-grid button{
-padding:12px 14px;
+padding:12px 18px;
 border:none;
+border-radius:10px;
 background:#111;
 color:white;
-border-radius:10px;
+font-weight:600;
 cursor:pointer;
 transition:0.3s ease;
 }
 
-.donation-grid button:hover{
-background:var(--primary);
-transform:translateY(-2px);
+body.dark .donation-grid button{
+background:#2a2f3a;
 }
 
+.donation-grid button:hover{
+transform:scale(1.05);
+}
+
+/* custom donation */
 .custom-donate{
 display:flex;
 gap:10px;
+justify-content:center;
+flex-wrap:wrap;
 margin-top:10px;
 }
 
 .custom-donate input{
-flex:1;
-padding:12px;
+padding:10px;
 border-radius:10px;
 border:1px solid #ddd;
-outline:none;
+min-width:220px;
 }
 
 .custom-donate button{
-background:var(--primary);
+padding:10px 16px;
 border:none;
-color:white;
-padding:12px 14px;
 border-radius:10px;
+background:#ff6b35;
+color:white;
+font-weight:600;
 cursor:pointer;
 }
 
-/* PAY BUTTON */
+/* Paystack button */
 .paystack-btn{
-display:block;
-margin-top:18px;
-text-align:center;
-background:var(--primary);
+display:inline-block;
+margin-top:15px;
+padding:12px 16px;
+background:#ff6b35;
 color:white;
-padding:14px;
-border-radius:12px;
+border-radius:10px;
 text-decoration:none;
 font-weight:600;
+transition:0.3s;
 }
 
-/* =========================
-   LANGUAGE SELECTOR (NEW UX)
-========================= */
-.lang-select{
-background:white;
-border:1px solid #ddd;
-border-radius:10px;
-padding:8px;
-}
-
-body.dark .lang-select{
-background:#1a1d25;
-color:white;
-border:1px solid #333;
-}
-
-/* =========================
-   GRID
-========================= */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.paystack-btn:hover{
+transform:translateY(-2px);
 }
 
 /* =========================
@@ -302,18 +272,17 @@ gap:20px;
 ========================= */
 footer{
 text-align:center;
-padding:35px;
-background:#111;
-color:white;
-margin-top:40px;
+padding:40px 20px;
+font-size:14px;
+opacity:0.75;
 }
 
 /* =========================
-   SCROLL ANIMATION
+   SCROLL ANIMATION (app.js compatible)
 ========================= */
 .reveal{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(20px);
 transition:0.8s ease;
 }
 
@@ -323,15 +292,51 @@ transform:translateY(0);
 }
 
 /* =========================
-   ANIMATIONS
+   WHATSAPP FLOAT BUTTON
 ========================= */
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(25px);
+.whatsapp-float{
+position:fixed;
+bottom:22px;
+right:22px;
+width:58px;
+height:58px;
+background:#25D366;
+color:white;
+font-size:26px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+z-index:9999;
+transition:0.3s ease;
 }
-to{
-opacity:1;
-transform:translateY(0);
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width:768px){
+
+.hero h1{
+font-size:34px;
+}
+
+.nav-links{
+justify-content:center;
+}
+
+.donation-grid{
+flex-direction:column;
+align-items:center;
+}
+
+.custom-donate{
+flex-direction:column;
+align-items:center;
 }
 }
