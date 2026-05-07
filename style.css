@@ -3,10 +3,11 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#f6f7fb;
+background:#f4f6fb;
 color:#111;
 }
 
@@ -18,8 +19,8 @@ align-items:center;
 justify-content:center;
 text-align:center;
 background:url('hero.jpg') center/cover no-repeat;
-color:white;
 position:relative;
+color:white;
 }
 
 .hero::before{
@@ -38,7 +39,7 @@ max-width:800px;
 font-size:54px;
 }
 
-.hero-buttons{
+.hero-actions{
 margin-top:20px;
 display:flex;
 gap:10px;
@@ -67,7 +68,7 @@ color:white;
 
 /* SECTIONS */
 section{
-padding:80px 20px;
+padding:90px 20px;
 max-width:1000px;
 margin:auto;
 }
@@ -76,7 +77,7 @@ margin:auto;
 background:white;
 padding:25px;
 border-radius:16px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
 margin-bottom:20px;
 }
 
@@ -84,23 +85,23 @@ margin-bottom:20px;
 text-align:center;
 }
 
-/* IMPACT */
-.big-number{
+/* COUNTER */
+.counter{
 font-size:60px;
-color:#ff6b35;
 font-weight:bold;
+color:#ff6b35;
 }
 
-/* DONATIONS */
+/* DONATION */
 .donation-grid{
 display:flex;
 gap:10px;
-margin:20px 0;
 flex-wrap:wrap;
+margin:20px 0;
 }
 
-.donate-btn{
-padding:12px 16px;
+.donation-grid button{
+padding:12px;
 border:none;
 background:#111;
 color:white;
@@ -130,11 +131,10 @@ border-radius:8px;
 cursor:pointer;
 }
 
-/* FINAL BUTTON */
-.final-donate{
+.paystack-btn{
 display:block;
+margin-top:15px;
 text-align:center;
-margin-top:20px;
 background:#ff6b35;
 color:white;
 padding:12px;
@@ -162,5 +162,16 @@ text-align:center;
 padding:30px;
 background:#111;
 color:white;
-margin-top:40px;
+}
+
+/* REVEAL ANIMATION */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
