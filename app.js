@@ -1,4 +1,3 @@
-/* DARK MODE */
 function toggleDark(){
 document.body.classList.toggle("dark");
 }
@@ -6,19 +5,18 @@ document.body.classList.toggle("dark");
 /* COUNTER */
 let count = 0;
 let target = 74;
-let counter = document.getElementById("counter");
+let el = document.getElementById("counter");
 
 function runCounter(){
-let interval = setInterval(()=>{
+let t = setInterval(()=>{
 if(count < target){
 count++;
-counter.innerText = count;
+el.innerText = count;
 }else{
-clearInterval(interval);
+clearInterval(t);
 }
 },30);
 }
-
 runCounter();
 
 /* DONATION */
@@ -27,15 +25,15 @@ window.location.href="https://paystack.shop/pay/mrtyf-aq5c";
 }
 
 function customDonate(){
-let amt = document.getElementById("customAmount").value;
-if(amt>0){
+let val = document.getElementById("customAmount").value;
+if(val > 0){
 window.location.href="https://paystack.shop/pay/mrtyf-aq5c";
 }
 }
 
-/* LANGUAGE */
+/* LANGUAGE (FULL PAGE BASIC ENGINE) */
 function changeLanguage(lang){
-if(lang=="en") location.reload();
+if(lang === "en") location.reload();
 }
 
 /* SCROLL ANIMATION */
