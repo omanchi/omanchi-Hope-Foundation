@@ -1,67 +1,29 @@
-/* =========================
-   DESIGN SYSTEM CORE
-========================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+
 :root{
 --primary:#ff6b35;
 --green:#25D366;
 --bg:#f4f6fb;
---card:#ffffff;
+--card:#fff;
 --text:#111;
---muted:#666;
-
---shadow:0 12px 30px rgba(0,0,0,0.10);
---soft:0 6px 18px rgba(0,0,0,0.06);
---radius:16px;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
 }
 
 body{
-font-family:'Inter',sans-serif;
+font-family:Inter;
 background:var(--bg);
 color:var(--text);
+transition:0.4s;
 overflow-x:hidden;
-transition:0.5s ease;
 }
 
-/* DARK MODE */
 body.dark{
 --bg:#0f1115;
 --card:#1a1d25;
 --text:#eaeaea;
---muted:#b5b5b5;
 background:var(--bg);
-color:var(--text);
 }
 
-/* =========================
-   GLOBAL BACKGROUND LAYER (DEPTH + MOTION)
-========================= */
-body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 10% 10%, rgba(255,107,53,0.08), transparent 35%),
-radial-gradient(circle at 90% 90%, rgba(37,211,102,0.06), transparent 40%),
-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03), transparent 60%);
-z-index:-1;
-animation:ambientFlow 14s ease-in-out infinite;
-}
-
-@keyframes ambientFlow{
-0%,100%{transform:translateY(0) scale(1)}
-50%{transform:translateY(-20px) scale(1.03)}
-}
-
-/* =========================
-   NAV (FLOATING GLASS LAYER)
-========================= */
+/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -69,256 +31,111 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 20px;
-background:rgba(255,255,255,0.72);
-backdrop-filter:blur(18px);
-box-shadow:var(--soft);
+padding:14px;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(12px);
 z-index:1000;
-animation:navDrop 0.9s cubic-bezier(0.2,0.8,0.2,1);
 }
 
-body.dark nav{
-background:rgba(20,20,25,0.72);
+.logo img{height:50px;}
+
+.nav-links{
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap;
 }
 
-@keyframes navDrop{
-from{transform:translateY(-40px);opacity:0}
-to{transform:translateY(0);opacity:1}
-}
-
-/* =========================
-   LOGO (SOFT BREATH LIFE)
-========================= */
-.logo img{
-height:52px;
-animation:breathing 5s ease-in-out infinite;
-filter:drop-shadow(0 6px 10px rgba(0,0,0,0.1));
-}
-
-@keyframes breathing{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.07)}
-}
-
-/* =========================
-   HERO (PARALLAX DEPTH + LIGHT SHAFT)
-========================= */
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
+background:url('hero.jpg') center/cover;
 position:relative;
-background:url('hero.jpg') center/cover no-repeat fixed;
-color:white;
+color:#fff;
 }
 
 .hero::before{
 content:'';
 position:absolute;
 inset:0;
-background:linear-gradient(
-180deg,
-rgba(0,0,0,0.65),
-rgba(0,0,0,0.55),
-rgba(0,0,0,0.7)
-);
-backdrop-filter:blur(2px);
+background:rgba(0,0,0,0.6);
 }
 
-/* subtle moving light overlay */
-.hero::after{
-content:'';
-position:absolute;
-inset:-20%;
-background:radial-gradient(circle,rgba(255,255,255,0.08),transparent 60%);
-animation:lightDrift 10s infinite ease-in-out;
-}
+.hero-content{position:relative;max-width:700px;}
 
-@keyframes lightDrift{
-0%,100%{transform:translateX(0) translateY(0)}
-50%{transform:translateX(30px) translateY(-20px)}
-}
-
-.hero-content{
-position:relative;
-max-width:800px;
-animation:heroEnter 1.2s ease;
-}
-
-@keyframes heroEnter{
-from{opacity:0;transform:translateY(60px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-.hero h1{
-font-size:54px;
-letter-spacing:1px;
-animation:titlePulse 3.5s infinite ease-in-out;
-}
-
-@keyframes titlePulse{
-0%,100%{text-shadow:0 0 0 rgba(255,255,255,0)}
-50%{text-shadow:0 0 25px rgba(255,255,255,0.25)}
-}
-
-/* =========================
-   REVEAL SYSTEM (SMOOTH LIFE MOTION)
-========================= */
-.reveal{
-opacity:0;
-transform:translateY(45px) scale(0.98);
-transition:all 0.9s cubic-bezier(0.2,0.9,0.2,1);
-filter:blur(6px);
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
-}
-
-/* =========================
-   CARDS (FLOAT + SHADOW DEPTH + SHINE WAVE)
-========================= */
+/* CARDS */
 .card{
 background:var(--card);
-padding:26px;
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-position:relative;
-overflow:hidden;
-transition:0.4s ease;
-transform-style:preserve-3d;
-}
-
-.card::before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,0.25),
-transparent
-);
-transform:translateX(-120%);
-transition:0.7s;
-}
-
-.card:hover::before{
-transform:translateX(120%);
-}
-
-.card:hover{
-transform:translateY(-12px) rotateX(1deg);
-box-shadow:0 25px 50px rgba(0,0,0,0.15);
-}
-
-/* =========================
-   BUTTONS (ENERGY + FEEDBACK LOOP)
-========================= */
-button, a{
-transition:0.25s ease;
-}
-
-button:hover, a:hover{
-transform:translateY(-2px);
-}
-
-/* PRIMARY BUTTON GLOW */
-.btn.primary{
-background:var(--primary);
-color:white;
-padding:10px 16px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(255,107,53,0.25);
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 
-.btn.primary:hover{
-transform:scale(1.05);
-box-shadow:0 15px 35px rgba(255,107,53,0.35);
+.card:hover{
+transform:translateY(-8px);
 }
 
-/* =========================
-   WHATSAPP (PULSE + LIFE SIGNAL)
-========================= */
-.whatsapp-btn{
-display:flex;
-align-items:center;
-gap:8px;
-background:var(--green);
-color:white;
-padding:10px 14px;
-border-radius:14px;
-animation:signalPulse 2.2s infinite;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-@keyframes signalPulse{
-0%{box-shadow:0 0 0 0 rgba(37,211,102,0.4)}
-70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
-}
-
-/* =========================
-   COUNTER (BREATHING IMPACT)
-========================= */
-.counter{
-font-size:56px;
-font-weight:900;
-color:var(--primary);
-animation:impactBeat 2.5s infinite ease-in-out;
-}
-
-@keyframes impactBeat{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.09)}
-}
-
-/* =========================
-   IMAGES (SOFT LIFE FLOAT)
-========================= */
-img{
-transition:0.5s ease;
-}
-
-img:hover{
-transform:scale(1.04);
-filter:saturate(1.1);
-}
-
-/* =========================
-   GRID (STRUCTURE STABILITY)
-========================= */
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* =========================
-   FOOTER (FADE IN PRESENCE)
-========================= */
-footer{
-text-align:center;
-padding:40px 20px;
-opacity:0.75;
-animation:footerRise 1.6s ease;
+/* BUTTONS */
+.btn.primary{
+background:var(--primary);
+color:#fff;
+padding:10px 14px;
+border-radius:10px;
 }
 
-@keyframes footerRise{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:0.75;transform:translateY(0)}
+/* WHATSAPP */
+.whatsapp-btn{
+background:var(--green);
+color:white;
+padding:10px 14px;
+border-radius:12px;
+text-decoration:none;
 }
 
-/* =========================
-   MOBILE OPTIMIZATION
-========================= */
-@media(max-width:768px){
-.hero h1{
-font-size:34px;
+/* COUNTER */
+.counter{
+font-size:50px;
+font-weight:bold;
+color:var(--primary);
 }
-   }
+
+/* DONATION */
+.donation-grid{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.donation-grid button{
+padding:12px;
+border:none;
+border-radius:10px;
+background:#111;
+color:white;
+cursor:pointer;
+}
+
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:0.8s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
