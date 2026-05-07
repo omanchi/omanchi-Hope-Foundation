@@ -5,80 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Omanchi Hope Foundation</title>
 
-<link rel="stylesheet" href="style. css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
 <div class="logo">
-<img src="logo. jpg">
+<img src="logo.jpg" alt="logo">
 </div>
 
-<div>
+<div class="nav-links">
 <a href="#about">About</a>
 <a href="#family">Hope Family</a>
 <a href="#blog">News</a>
 
-<a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate</a>
+<a class="btn" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">Donate</a>
 <button onclick="toggleDark()">🌙</button>
+<button onclick="shareSite()">Share</button>
 </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
-<div class="hero-content">
+<div class="hero-content fade">
 <h1>Omanchi Hope Foundation</h1>
-<p>Restoring dignity, hope, and opportunity.</p>
+<p>Restoring dignity, hope, and opportunity to vulnerable children.</p>
 </div>
 </header>
 
-<section id="about">
+<!-- ABOUT -->
+<section id="about" class="reveal">
+<div class="card">
 <h2>Founder</h2>
-<p><b>Omanchi Samuel</b> founded this organization to help vulnerable children.</p>
+<p><b>Omanchi Samuel</b> founded this foundation to support vulnerable children and create lasting impact through compassion and action.</p>
+</div>
 </section>
 
-<section id="family">
+<!-- HOPE FAMILY -->
+<section id="family" class="reveal">
+<div class="card">
 <h2>Hope Family</h2>
-<p>Our community of supporters and children.</p>
-<img src="hopefoundation. jpg">
+<p>Our growing community of volunteers, supporters, and children united by hope.</p>
+
+<!-- UPDATED IMAGE FIX -->
+<img src="hopefoundation.jpg" alt="Hope Family">
+</div>
 </section>
 
-<section>
-<h2>Impact</h2>
-<div id="counter">0</div>
+<!-- IMPACT -->
+<section class="reveal">
+<div class="card center">
+<div class="counter" id="counter">0</div>
 <p>Children Supported</p>
+</div>
 </section>
 
-<section id="blog">
+<!-- BLOG -->
+<section id="blog" class="reveal">
 <h2>News & Updates</h2>
 
-<div>
-<img src="children1. jpg">
-<p>Community outreach continues.</p>
+<div class="grid">
+<div class="card">
+<img src="children1.jpg">
+<p>Community outreach programs continue across regions.</p>
 </div>
 
-<div>
-<img src="children2. jpg">
+<div class="card">
+<img src="children2.jpg">
 <p>Helping vulnerable children daily.</p>
+</div>
 </div>
 </section>
 
-<script src="app. js"></script>
-
-<script>
-function toggleDark(){
-document.body.classList.toggle('dark');
-}
-
-let c=0;
-setInterval(()=>{
-if(c<120){
-c++;
-document.getElementById("counter").innerText=c;
-}
-},30);
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
