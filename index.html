@@ -11,123 +11,108 @@
 
 <body>
 
-<!-- NAV -->
-<nav>
-<div class="logo">
-<img src="logo.jpg" alt="Logo">
-</div>
-
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#family">Hope Family</a>
-<a href="#blog">Impact</a>
-
-<!-- DONATE (kept in same place) -->
-<a class="btn" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">
-Donate
-</a>
-
-<button onclick="toggleDark()">🌙</button>
-<button onclick="shareSite()">Share</button>
-
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp" href="https://wa.me/2349162447016" target="_blank">
-WhatsApp
-</a>
-</div>
-</nav>
-
 <!-- HERO -->
 <header class="hero">
 <div class="hero-content">
 <h1>Omanchi Hope Foundation</h1>
-<p>
-A humanitarian initiative dedicated to restoring dignity, education, and hope
-to vulnerable children and underserved communities.
-</p>
+<p>Restoring dignity, hope, and opportunity to vulnerable children.</p>
+
+<div class="hero-buttons">
+<a class="btn primary" href="#donate">Support a Child</a>
+<a class="btn green" href="https://wa.me/2349162447016" target="_blank">WhatsApp Us</a>
+</div>
 </div>
 </header>
 
 <!-- ABOUT -->
-<section id="about">
+<section>
 <div class="card">
-<h2>About the Foundation</h2>
-
+<h2>About Us</h2>
 <p>
-Omanchi Hope Foundation is built on compassion and action. We focus on supporting children
-who face hardship due to poverty, lack of access to education, and unstable living conditions.
+Omanchi Hope Foundation is committed to supporting vulnerable children through education,
+food support, and community outreach programs across underserved areas.
 </p>
-
-<p>
-Through outreach programs, donations, and community partnerships, we aim to create long-term
-impact that goes beyond temporary relief.
-</p>
-
-<img src="about.jpg" alt="About image">
+<img src="about.jpg">
 </div>
 </section>
 
 <!-- HOPE FAMILY -->
-<section id="family">
+<section>
 <div class="card">
 <h2>Hope Family</h2>
-
 <p>
-The Hope Family represents the heart of this foundation — a growing network of volunteers,
-supporters, donors, and children who are connected through one shared vision: hope for a better future.
+The Hope Family is a growing movement of volunteers, donors, and children united by compassion.
+Every donation strengthens our ability to provide food, school support, and emotional care.
 </p>
-
-<p>
-Every child in our care is not just a beneficiary but part of a larger family that believes in
-restoration, love, and opportunity. Together, we build confidence, education support, and emotional care.
-</p>
-
-<p>
-From small community visits to structured outreach programs, the Hope Family continues to expand
-its reach across regions, ensuring no child is left behind.
-</p>
-
-<img src="hopefoundation.jpg" alt="Hope Family">
+<img src="hopefoundation.jpg">
 </div>
 </section>
 
 <!-- IMPACT -->
-<section>
+<section class="impact">
 <div class="card center">
 <h2>Our Impact</h2>
 
-<div class="counter" id="counter">0</div>
-<p>
-Children directly supported through food aid, education materials, outreach programs,
-and emotional care initiatives.
-</p>
+<div class="big-number" id="childrenCount">74</div>
+<p>Children currently supported</p>
+
+<div class="small-note">
+Every donation helps increase this number through direct outreach programs.
+</div>
 </div>
 </section>
 
-<!-- BLOG / NEWS -->
-<section id="blog">
-<h2>News & Updates</h2>
+<!-- DONATION OPTIONS (BOTTOM STRATEGIC SECTION) -->
+<section id="donate">
+<div class="card">
+<h2>Support the Mission</h2>
+
+<p>Select a quick donation or enter a custom amount:</p>
+
+<div class="donation-grid">
+
+<button class="donate-btn" onclick="donate(10000)">₦10,000</button>
+<button class="donate-btn" onclick="donate(20000)">₦20,000</button>
+<button class="donate-btn" onclick="donate(50000)">₦50,000</button>
+
+</div>
+
+<div class="custom-donate">
+<input type="number" id="customAmount" placeholder="Enter custom amount (₦)">
+<button onclick="customDonate()">Donate Now</button>
+</div>
+
+<a class="final-donate" href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank">
+Proceed to Secure Payment
+</a>
+
+</div>
+</section>
+
+<!-- BLOG -->
+<section>
+<div class="card">
+<h2>Updates</h2>
 
 <div class="grid">
-
-<div class="card">
+<div>
 <img src="children1.jpg">
-<p>
-Ongoing outreach programs continue to reach children in underserved communities,
-providing essential support and encouragement.
-</p>
+<p>Community outreach continues across rural areas.</p>
 </div>
 
-<div class="card">
+<div>
 <img src="children2.jpg">
-<p>
-We remain committed to daily interventions aimed at improving the lives of vulnerable children
-through consistent community engagement.
-</p>
+<p>Providing consistent support to vulnerable children.</p>
 </div>
-
+</div>
 </div>
 </section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Omanchi Hope Foundation. All Rights Reserved.</p>
+<p>Built with compassion for humanity.</p>
+</footer>
 
 <script src="app.js"></script>
 </body>
