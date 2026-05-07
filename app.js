@@ -1,181 +1,70 @@
-"use strict";
-
-/* =========================
-   STATE
-========================= */
-let children = 74;
-const counter = document.getElementById("counter");
-
-/* =========================
-   DARK MODE
-========================= */
-function setTheme(mode){
-document.body.classList.toggle("dark", mode === "dark");
-localStorage.setItem("theme", mode);
-}
-
+/* DARK MODE */
 function toggleDark(){
-const isDark = document.body.classList.contains("dark");
-setTheme(isDark ? "light" : "dark");
+document.body.classList.toggle("dark");
 }
 
-(function initTheme(){
-setTheme(localStorage.getItem("theme") || "light");
-})();
+/* COUNTER */
+let count = 74;
 
-/* =========================
-   IMPACT SYSTEM
-========================= */
-function updateImpact(amount){
-if(amount >= 10000){
-children += 1;
-if(counter) counter.innerText = children;
+function animateCounter(){
+const el = document.getElementById("counter");
+let target = 74;
+let current = 0;
+
+let interval = setInterval(()=>{
+if(current >= target){
+clearInterval(interval);
+} else {
+current++;
+el.innerText = current;
 }
-}
-
-/* =========================
-   PAYSTACK FLOW
-========================= */
-const PAYSTACK_URL = "https://paystack.shop/pay/mrtyf-aq5c";
-
-function redirectToPaystack(amount){
-showToast(`Processing ₦${amount.toLocaleString()} donation`);
-
-updateImpact(amount);
-
-setTimeout(()=>{
-window.location.href = PAYSTACK_URL;
-},700);
+},30);
 }
 
+animateCounter();
+
+/* DONATION */
 function donate(amount){
-if(amount < 10000){
-showToast("Minimum donation is ₦10,000");
-return;
-}
-redirectToPaystack(amount);
+window.location.href = "https://paystack.shop/pay/mrtyf-aq5c";
 }
 
 function customDonate(){
-const input = document.getElementById("customAmount");
-let value = Number(input.value || 0);
-
-if(value < 10000){
-showToast("Minimum donation is ₦10,000");
-return;
+let amt = document.getElementById("customAmount").value;
+if(amt){
+window.location.href = "https://paystack.shop/pay/mrtyf-aq5c";
+}
 }
 
-redirectToPaystack(value);
-}
-
-/* =========================
-   TOAST SYSTEM
-========================= */
-function showToast(message){
-const toast = document.createElement("div");
-toast.className = "toast";
-toast.innerText = message;
-
-document.body.appendChild(toast);
-
-setTimeout(()=>toast.classList.add("show"),50);
-
-setTimeout(()=>{
-toast.classList.remove("show");
-setTimeout(()=>toast.remove(),300);
-},2000);
-}
-
-/* =========================
-   🌍 MODERN TRANSLATION ENGINE (UPGRADED)
-========================= */
-const LANG_DATA = {
-en:{
-title:"Omanchi Hope Foundation",
-subtitle:"Restoring dignity, hope, and opportunity to vulnerable children",
-about:"About",
-family:"Hope Family",
-news:"News",
-donate:"Donate"
-},
-
+/* TRANSLATION SYSTEM */
+const translations = {
 fr:{
 title:"Fondation Omanchi Hope",
-subtitle:"Restaurer la dignité et l’espoir des enfants vulnérables",
-about:"À propos",
-family:"Famille Espoir",
-news:"Actualités",
-donate:"Donner"
+subtitle:"Redonner espoir aux enfants vulnérables"
 },
-
 es:{
 title:"Fundación Omanchi Hope",
-subtitle:"Restaurando dignidad y esperanza a los niños vulnerables",
-about:"Sobre",
-family:"Familia Esperanza",
-news:"Noticias",
-donate:"Donar"
+subtitle:"Restaurando esperanza"
 }
 };
 
-/* Detect browser language automatically */
-function detectLanguage(){
-const lang = navigator.language.slice(0,2);
-return LANG_DATA[lang] ? lang : "en";
-}
-
-/* Apply translations smoothly */
-function applyLanguage(lang){
-
-const t = LANG_DATA[lang];
-if(!t) return;
-
-/* Hero */
-const h1 = document.querySelector(".hero h1");
-const p = document.querySelector(".hero p");
-
-if(h1) h1.innerText = t.title;
-if(p) p.innerText = t.subtitle;
-
-/* Nav links */
-const links = document.querySelectorAll("nav a");
-
-if(links[0]) links[0].innerText = t.about;
-if(links[1]) links[1].innerText = t.family;
-if(links[2]) links[2].innerText = t.news;
-if(links[3]) links[3].innerText = t.donate;
-}
-
-/* Manual switch from dropdown */
 function changeLanguage(lang){
-applyLanguage(lang);
-localStorage.setItem("lang", lang);
+if(lang === "en") location.reload();
+else{
+document.getElementById("title").innerText = translations[lang].title;
+document.getElementById("subtitle").innerText = translations[lang].subtitle;
+}
 }
 
-/* Auto init language (smart UX) */
-(function initLanguage(){
-const saved = localStorage.getItem("lang");
-const auto = detectLanguage();
+/* SCROLL ANIMATION */
+const reveals = document.querySelectorAll(".reveal");
 
-applyLanguage(saved || auto);
-})();
+window.addEventListener("scroll",()=>{
+for(let i=0;i<reveals.length;i++){
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
 
-/* =========================
-   SCROLL REVEAL
-========================= */
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("active");
+if(elementTop < windowHeight - 100){
+reveals[i].classList.add("active");
+}
 }
 });
-},{threshold:0.15});
-
-document.querySelectorAll(".reveal").forEach(el=>{
-observer.observe(el);
-});
-
-/* =========================
-   INIT
-========================= */
-if(counter) counter.innerText = children;
