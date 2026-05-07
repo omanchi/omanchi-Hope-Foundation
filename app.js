@@ -1,36 +1,36 @@
+"use strict";
+
+/* =========================
+   STATE (GLOBAL SAFE STATE)
+========================= */
 let children = 74;
 const counter = document.getElementById("counter");
 
 /* =========================
-   DARK MODE (PERSISTENT)
+   DARK MODE SYSTEM (SMOOTH + PERSISTENT)
 ========================= */
-function enableDarkMode(){
+function applyTheme(theme){
+if(theme === "dark"){
 document.body.classList.add("dark");
-localStorage.setItem("theme","dark");
-}
-
-function disableDarkMode(){
+}else{
 document.body.classList.remove("dark");
-localStorage.setItem("theme","light");
+}
+localStorage.setItem("theme", theme);
 }
 
 function toggleDark(){
-if(document.body.classList.contains("dark")){
-disableDarkMode();
-}else{
-enableDarkMode();
-}
+const isDark = document.body.classList.contains("dark");
+applyTheme(isDark ? "light" : "dark");
 }
 
-// load saved theme
-(function(){
-if(localStorage.getItem("theme") === "dark"){
-document.body.classList.add("dark");
-}
+// Load saved theme on startup
+(function initTheme(){
+const saved = localStorage.getItem("theme") || "light";
+applyTheme(saved);
 })();
 
 /* =========================
-   IMPACT COUNTER SYSTEM
+   IMPACT SYSTEM (REALISTIC BEHAVIOR)
 ========================= */
 function updateImpact(amount){
 if(amount >= 10000){
@@ -40,46 +40,67 @@ animateCounter();
 }
 
 function animateCounter(){
+if(!counter) return;
 counter.innerText = children;
 }
 
 /* =========================
-   DONATION HANDLERS
+   DONATION SYSTEM (CLEAN UX FLOW)
 ========================= */
 function donate(amount){
-alert("Donation selected: ₦" + amount);
+
+// subtle feedback instead of aggressive alerts
+showToast(`₦${amount.toLocaleString()} selected`);
+
 updateImpact(amount);
+
+// redirect to Paystack after short delay
+setTimeout(()=>{
+window.open("https://paystack.shop/pay/mrtyf-aq5c", "_blank");
+},600);
 }
 
 function customDonate(){
-let value = document.getElementById("customAmount").value;
+const input = document.getElementById("customAmount");
+if(!input) return;
 
-value = Number(value);
+let value = Number(input.value || 0);
 
-if(value >= 10000){
-alert("Donation of ₦" + value + " selected");
+if(value < 10000){
+showToast("Minimum donation is ₦10,000");
+return;
+}
+
+showToast(`₦${value.toLocaleString()} selected`);
 updateImpact(value);
-}else{
-alert("Minimum donation is ₦10,000");
-}
+
+setTimeout(()=>{
+window.open("https://paystack.shop/pay/mrtyf-aq5c", "_blank");
+},600);
 }
 
 /* =========================
-   SHARE FUNCTION (optional if you add button later)
+   SIMPLE TOAST NOTIFICATION (NEW UX LAYER)
 ========================= */
-function shareSite(){
-if(navigator.share){
-navigator.share({
-title:"Omanchi Hope Foundation",
-url:location.href
-});
-}else{
-alert("Copy link: " + location.href);
-}
+function showToast(message){
+let toast = document.createElement("div");
+toast.className = "toast";
+toast.innerText = message;
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+toast.classList.add("show");
+},50);
+
+setTimeout(()=>{
+toast.classList.remove("show");
+setTimeout(()=>toast.remove(),300);
+},2000);
 }
 
 /* =========================
-   SCROLL REVEAL ANIMATION
+   SCROLL REVEAL (MATCHES YOUR CSS)
 ========================= */
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -87,6 +108,8 @@ if(entry.isIntersecting){
 entry.target.classList.add("active");
 }
 });
+},{
+threshold:0.15
 });
 
 document.querySelectorAll(".reveal").forEach(el=>{
@@ -94,6 +117,6 @@ observer.observe(el);
 });
 
 /* =========================
-   INITIAL COUNTER LOAD
+   COUNTER INIT
 ========================= */
 animateCounter();
