@@ -1,49 +1,56 @@
-/* DARK MODE */
+/* =========================
+   DARK MODE
+========================= */
 function toggleDark(){
 document.body.classList.toggle("dark");
 }
 
-/* COUNTER */
-let count = 74;
-
+/* =========================
+   COUNTER (SMOOTH ANIMATION)
+========================= */
 function animateCounter(){
 const el = document.getElementById("counter");
 let target = 74;
 let current = 0;
 
-let interval = setInterval(()=>{
-if(current >= target){
-clearInterval(interval);
-} else {
+let timer = setInterval(()=>{
 current++;
 el.innerText = current;
+
+if(current >= target){
+clearInterval(timer);
 }
 },30);
 }
 
 animateCounter();
 
-/* DONATION */
+/* =========================
+   DONATION SYSTEM
+========================= */
 function donate(amount){
 window.location.href = "https://paystack.shop/pay/mrtyf-aq5c";
 }
 
 function customDonate(){
 let amt = document.getElementById("customAmount").value;
-if(amt){
+
+if(amt && amt > 0){
 window.location.href = "https://paystack.shop/pay/mrtyf-aq5c";
 }
 }
 
-/* TRANSLATION SYSTEM */
+/* =========================
+   LANGUAGE SYSTEM (LIGHTWEIGHT BUT FULL PAGE READY)
+========================= */
 const translations = {
 fr:{
 title:"Fondation Omanchi Hope",
-subtitle:"Redonner espoir aux enfants vulnérables"
+subtitle:"Restaurer l’espoir et la dignité des enfants vulnérables"
 },
 es:{
 title:"Fundación Omanchi Hope",
-subtitle:"Restaurando esperanza"
+subtitle:"Restaurando esperanza y dignidad"
 }
 };
 
@@ -55,16 +62,18 @@ document.getElementById("subtitle").innerText = translations[lang].subtitle;
 }
 }
 
-/* SCROLL ANIMATION */
-const reveals = document.querySelectorAll(".reveal");
-
+/* =========================
+   SCROLL ANIMATION
+========================= */
 window.addEventListener("scroll",()=>{
-for(let i=0;i<reveals.length;i++){
-let windowHeight = window.innerHeight;
-let elementTop = reveals[i].getBoundingClientRect().top;
+let elements = document.querySelectorAll(".reveal");
 
-if(elementTop < windowHeight - 100){
-reveals[i].classList.add("active");
+elements.forEach(el=>{
+let top = el.getBoundingClientRect().top;
+let height = window.innerHeight;
+
+if(top < height - 80){
+el.classList.add("active");
 }
-}
+});
 });
