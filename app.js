@@ -7,7 +7,7 @@ let children = 74;
 const counter = document.getElementById("counter");
 
 /* =========================
-   DARK MODE SYSTEM (SYNCED WITH CSS)
+   DARK MODE (STABLE)
 ========================= */
 function setTheme(mode){
 if(mode === "dark"){
@@ -23,8 +23,8 @@ const isDark = document.body.classList.contains("dark");
 setTheme(isDark ? "light" : "dark");
 }
 
-// load saved theme
-(function initTheme(){
+// load theme
+(function(){
 const saved = localStorage.getItem("theme") || "light";
 setTheme(saved);
 })();
@@ -35,32 +35,40 @@ setTheme(saved);
 function updateImpact(amount){
 if(amount >= 10000){
 children += 1;
-animateCounter();
-}
-}
-
-function animateCounter(){
-if(counter){
-counter.innerText = children;
+if(counter) counter.innerText = children;
 }
 }
 
 /* =========================
-   DONATION SYSTEM (CLEAN FLOW)
+   PAYSTACK REDIRECT (CORE LOGIC)
 ========================= */
-function donate(amount){
-showToast(`₦${amount.toLocaleString()} selected`);
+const PAYSTACK_URL = "https://paystack.shop/pay/mrtyf-aq5c";
+
+function redirectToPaystack(amount){
+showToast(`Redirecting with ₦${amount.toLocaleString()}`);
 
 updateImpact(amount);
 
+// small delay so user sees feedback
 setTimeout(()=>{
-window.open("https://paystack.shop/pay/mrtyf-aq5c", "_blank");
-},600);
+window.location.href = PAYSTACK_URL;
+},700);
+}
+
+/* =========================
+   DONATION HANDLERS
+========================= */
+function donate(amount){
+if(amount < 10000){
+showToast("Minimum donation is ₦10,000");
+return;
+}
+
+redirectToPaystack(amount);
 }
 
 function customDonate(){
 const input = document.getElementById("customAmount");
-
 let value = Number(input.value || 0);
 
 if(value < 10000){
@@ -68,17 +76,11 @@ showToast("Minimum donation is ₦10,000");
 return;
 }
 
-showToast(`₦${value.toLocaleString()} selected`);
-
-updateImpact(value);
-
-setTimeout(()=>{
-window.open("https://paystack.shop/pay/mrtyf-aq5c", "_blank");
-},600);
+redirectToPaystack(value);
 }
 
 /* =========================
-   TOAST NOTIFICATION (UX LAYER)
+   TOAST NOTIFICATION
 ========================= */
 function showToast(message){
 const toast = document.createElement("div");
@@ -96,7 +98,7 @@ setTimeout(()=>toast.remove(),300);
 }
 
 /* =========================
-   MULTILINGUAL ENGINE (CORE FEATURE)
+   MULTILINGUAL ENGINE
 ========================= */
 const translations = {
 en:{
@@ -131,14 +133,12 @@ function changeLanguage(lang){
 const t = translations[lang];
 if(!t) return;
 
-/* HERO TEXT */
 const heroTitle = document.querySelector(".hero h1");
 const heroSub = document.querySelector(".hero p");
 
 if(heroTitle) heroTitle.innerText = t.title;
 if(heroSub) heroSub.innerText = t.subtitle;
 
-/* NAV LINKS (safe targeting) */
 const links = document.querySelectorAll("nav a");
 
 if(links[0]) links[0].innerText = t.about;
@@ -148,7 +148,7 @@ if(links[3]) links[3].innerText = t.donate;
 }
 
 /* =========================
-   SCROLL REVEAL (MATCH CSS)
+   SCROLL REVEAL
 ========================= */
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -156,15 +156,13 @@ if(entry.isIntersecting){
 entry.target.classList.add("active");
 }
 });
-},{
-threshold:0.15
-});
+},{ threshold:0.15 });
 
 document.querySelectorAll(".reveal").forEach(el=>{
 observer.observe(el);
 });
 
 /* =========================
-   INITIAL RENDER
+   INIT
 ========================= */
-animateCounter();
+if(counter) counter.innerText = children;
