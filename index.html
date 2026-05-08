@@ -7,6 +7,8 @@
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -29,23 +31,20 @@
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <h1>Restoring Hope. Rebuilding Lives.</h1>
-    <p>
-      A humanitarian mission dedicated to empowering vulnerable children and communities through education, care, and sustainable impact.
-    </p>
+    <h1>Restoring Hope. Rebuilding Futures.</h1>
+    <p>We empower vulnerable children through education, care, and long-term support systems.</p>
 
-    <a href="#donate" class="btn">Donate Now</a>
+    <a href="#donate" class="btn">Make a Donation</a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="section" id="about">
-  <div class="container split">
-    <div class="text">
+  <div class="container grid">
+    <div>
       <h2>Our Mission</h2>
       <p>
-        Omachi Hope Foundation is committed to creating long-term transformation in the lives of children and underserved communities.
-        We believe that dignity begins with opportunity, and every child deserves access to education, safety, and hope.
+        Omachi Hope Foundation is committed to restoring dignity and opportunity to children and families in need through structured humanitarian programs and education-driven initiatives.
       </p>
     </div>
 
@@ -61,28 +60,22 @@
     <div class="card">
       <img src="children1.jpg">
       <h3>Education Support</h3>
-      <p>Providing structured learning opportunities for children in underserved communities.</p>
+      <p>Providing access to learning and academic empowerment.</p>
     </div>
 
     <div class="card">
       <img src="children2.jpg">
       <h3>Child Welfare</h3>
-      <p>Ensuring emotional, physical, and social well-being of vulnerable children.</p>
+      <p>Ensuring safety, care, and emotional development for children.</p>
     </div>
-  </div>
-
-  <div class="live-counter">
-    <span>Lives Impacted:</span>
-    <strong id="counter">0</strong>
   </div>
 </section>
 
 <!-- DONATION -->
 <section class="section" id="donate">
-  <div class="donation">
-
-    <h2>Support the Mission</h2>
-    <p>Your generosity directly transforms lives.</p>
+  <div class="donation-box">
+    <h2>Support Our Mission</h2>
+    <p>Your donation creates real impact.</p>
 
     <form class="donation-form">
       <input type="text" placeholder="Full Name" required>
@@ -91,12 +84,8 @@
 
       <button type="submit">Donate Securely</button>
     </form>
-
   </div>
 </section>
-
-<!-- EMAILJS -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 <script src="app.js"></script>
 
