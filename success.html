@@ -1,36 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Thank You</title>
+    <meta charset="UTF-8">
+    <title>Donation Successful - Omanchi Hope Foundation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body{
-background:#0b0f17;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
-text-align:center;
-font-family:Arial;
-}
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-.box{
-background:#111;
-padding:50px;
-border-radius:20px;
-}
-</style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+    <style>
+        body {
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background: #070b14;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .box {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,255,213,0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0,255,213,0.15);
+            animation: pop 0.8s ease;
+        }
+
+        h1 {
+            color: #00ffd5;
+            margin-bottom: 10px;
+        }
+
+        p {
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .btn {
+            margin-top: 25px;
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg,#00ffd5,#0066ff);
+            color: #000;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @keyframes pop {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="box">
-<h1>Thank You 🤍</h1>
-<p>Your donation is making real impact.</p>
-<a href="index.html" style="color:#00ffd5;">Return Home</a>
+
+    <h1>Thank You 🤍</h1>
+
+    <p>
+        Your donation has been successfully received by Omanchi Hope Foundation.<br>
+        We deeply appreciate your support in changing lives and restoring hope.
+    </p>
+
+    <p id="ref"></p>
+
+    <a href="index.html" class="btn">Return Home</a>
+
 </div>
+
+<script>
+    // EmailJS init
+    emailjs.init("q_UrmnYn1ewI1H4A_");
+
+    // Get reference from URL
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref") || "N/A";
+
+    document.getElementById("ref").innerText = "Transaction Reference: " + ref;
+
+    // Prevent duplicate emails
+    if (!sessionStorage.getItem("email_sent")) {
+
+        emailjs.send("service_gemvr0r", "template_3dcc8lq", {
+            to_name: "Donor",
+            message: "Donation successfully received",
+            reference: ref
+        });
+
+        sessionStorage.setItem("email_sent", "true");
+    }
+</script>
 
 </body>
 </html>
