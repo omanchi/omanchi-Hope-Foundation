@@ -5,267 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omachi Hope Foundation</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="logo.jpg" alt="Omachi Hope Foundation Logo">
+<header class="navbar">
+  <div class="logo">
+    <img src="logo.jpg" alt="logo">
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#donate">Donate</a></li>
+  </ul>
+</header>
+
+<section class="hero" id="home">
+  <img src="hopefoundation.jpg" class="hero-img" />
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Bringing Hope To Every Child</h1>
+    <p>We restore hope through education, care, and opportunity.</p>
+
+    <div class="hero-buttons">
+      <a href="#donate" class="btn">Donate Now</a>
+      <a href="#about" class="btn secondary-btn">Learn More</a>
     </div>
+  </div>
+</section>
 
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#impact">Impact</a></li>
-      <li><a href="#donate">Donate</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" id="home">
-
-    <div class="hero-overlay"></div>
-
-    <img src="hopefoundation.jpg" alt="Hope Foundation" class="hero-img">
-
-    <div class="hero-content">
-      <h1>
-        Restoring Hope.<br>
-        Rebuilding Communities.<br>
-        Empowering Futures.
-      </h1>
-
+<section class="section" id="about">
+  <div class="container about-grid">
+    <img src="about.jpg" />
+    <div>
+      <h2>About Us</h2>
       <p>
-        Omachi Hope Foundation is a humanitarian organization dedicated to transforming lives through education, healthcare outreach, youth empowerment, poverty alleviation, and sustainable community development. We believe every individual deserves dignity, opportunity, and the chance to build a meaningful future regardless of their circumstances.
+        Omachi Hope Foundation is dedicated to transforming lives by supporting vulnerable children and communities with education, care, and sustainable empowerment.
       </p>
+    </div>
+  </div>
+</section>
 
-      <div class="hero-buttons">
-        <a href="#donate" class="btn">Donate Now</a>
-        <a href="#programs" class="btn secondary-btn">Explore Programs</a>
+<section class="section dark" id="programs">
+  <div class="container">
+    <h2>Our Programs</h2>
+
+    <div class="cards">
+      <div class="card">
+        <img src="children1.jpg" />
+        <h3>Education Support</h3>
+        <p>We provide school support and learning opportunities for children in need.</p>
+      </div>
+
+      <div class="card">
+        <img src="children2.jpg" />
+        <h3>Child Welfare</h3>
+        <p>We ensure safety, care, and emotional support for vulnerable children.</p>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
+<section class="section" id="donate">
+  <div class="container donation-box">
+    <h2>Support Our Mission</h2>
 
-      <div class="section-title">
-        <h2>About Us</h2>
+    <form class="donation-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="number" placeholder="Amount (NGN)" required />
+
+      <div class="donation-options">
+        <button type="button">1000</button>
+        <button type="button">5000</button>
+        <button type="button">10000</button>
       </div>
 
-      <div class="about-grid">
+      <button type="submit">Donate via Paystack</button>
+    </form>
+  </div>
+</section>
 
-        <div class="about-image">
-          <img src="about.jpg" alt="About Omachi Hope Foundation">
-        </div>
+<a href="success.html" style="display:none;">success</a>
 
-        <div class="about-content">
-          <p>
-            Omachi Hope Foundation was established with a clear vision: to create lasting impact in underserved communities through compassion-driven initiatives that empower individuals and strengthen families. Our work focuses on creating opportunities where there were once limitations, and replacing despair with sustainable hope.
-          </p>
+<!-- EMAILJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-          <p>
-            Through strategic humanitarian programs, community outreach initiatives, and educational support systems, we are building pathways that help children, women, and vulnerable individuals rise beyond hardship. We believe that transformation becomes possible when support is consistent, intentional, and community-centered.
-          </p>
+<!-- ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LZ9QQ1REND"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LZ9QQ1REND');
+</script>
 
-          <p>
-            We are committed to building a future where communities are equipped not only to survive, but to thrive through empowerment, innovation, and sustainable development.
-          </p>
-        </div>
+<!-- CLARITY -->
+<script>
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wntk0rljs5");
+</script>
 
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROGRAMS -->
-  <section class="section dark" id="programs">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Our Programs</h2>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <img src="children1.jpg" alt="STEM Education">
-          <div class="card-content">
-            <h3>STEM Education</h3>
-            <p>
-              We provide educational support, mentorship, and access to learning opportunities that equip young minds with the skills necessary to thrive in a rapidly evolving world.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="children2.jpg" alt="Healthcare Outreach">
-          <div class="card-content">
-            <h3>Healthcare Outreach</h3>
-            <p>
-              Our healthcare initiatives focus on improving wellness awareness, providing outreach services, and ensuring vulnerable communities gain access to basic healthcare support.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="hopefoundation.jpg" alt="Community Development">
-          <div class="card-content">
-            <h3>Community Development</h3>
-            <p>
-              Through strategic projects and empowerment programs, we are helping communities build sustainable systems that support long-term growth and stability.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- IMPACT -->
-  <section class="section" id="impact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Our Impact</h2>
-      </div>
-
-      <div class="stats-grid">
-
-        <div class="stat-box">
-          <h3 class="counter" data-target="1200">0</h3>
-          <p>Children Reached</p>
-        </div>
-
-        <div class="stat-box">
-          <h3 class="counter" data-target="500">0</h3>
-          <p>Families Supported</p>
-        </div>
-
-        <div class="stat-box">
-          <h3 class="counter" data-target="25">0</h3>
-          <p>Community Projects</p>
-        </div>
-
-        <div class="stat-box">
-          <h3 class="counter" data-target="150">0</h3>
-          <p>Volunteers</p>
-        </div>
-
-      </div>
-
-      <div class="impact-text">
-        <p>
-          Every initiative we launch contributes to a larger movement of transformation. From educational support and youth empowerment to healthcare outreach and community development, our impact continues to grow through compassion, collaboration, and consistent action.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-overlay"></div>
-
-    <div class="cta-content">
-      <h2>
-        Hope grows where compassion meets action.
-      </h2>
-
-      <p>
-        Join us in building a future filled with opportunity, dignity, and sustainable impact.
-      </p>
-
-      <a href="#donate" class="btn">
-        Support The Mission
-      </a>
-    </div>
-  </section>
-
-  <!-- DONATION -->
-  <section class="section dark" id="donate">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Support Our Mission</h2>
-      </div>
-
-      <div class="donation-box">
-
-        <p>
-          Your generosity helps us continue transforming lives through education, healthcare support, youth empowerment, and humanitarian outreach.
-        </p>
-
-        <div class="donation-options">
-          <button type="button">₦2,000</button>
-          <button type="button">₦5,000</button>
-          <button type="button">₦10,000</button>
-          <button type="button">₦50,000</button>
-        </div>
-
-        <form class="donation-form">
-          <input type="number" placeholder="Enter custom amount (₦)" required>
-          <input type="text" placeholder="Full Name" required>
-          <input type="email" placeholder="Email Address" required>
-
-          <button type="submit">
-            Donate Securely
-          </button>
-        </form>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FLOATING DONATE -->
-  <a href="#donate" class="floating-donate">
-    Donate
-  </a>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>
-      © 2026 Omachi Hope Foundation. All Rights Reserved.
-    </p>
-  </footer>
-
-    <!-- GOOGLE ANALYTICS -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZ9QQ1REND"></script>
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag(){
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-LZ9QQ1REND');
-  </script>
-
-  <!-- MICROSOFT CLARITY -->
-  <!-- Replace CLARITY_PROJECT_ID with your real Clarity Project ID -->
-  <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
-  </script>
-
-  <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
-  </html>
+</html>
