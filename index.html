@@ -1,74 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omachi Hope Foundation</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omachi Hope Foundation</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="header">
   <div class="logo">
     <img src="logo.jpg" alt="logo">
   </div>
 
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#donate">Donate</a></li>
-  </ul>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#impact">Impact</a>
+    <a href="#donate">Donate</a>
+  </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
-  <img src="hopefoundation.jpg" class="hero-img">
-  <div class="hero-overlay"></div>
+  <div class="overlay"></div>
 
   <div class="hero-content">
-    <h1>Bringing Hope To Every Child</h1>
-    <p>We are dedicated to supporting vulnerable children and communities through education and care.</p>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="container">
-    <h2>About Us</h2>
+    <h1>Restoring Hope. Rebuilding Lives.</h1>
     <p>
-      Omachi Hope Foundation is committed to transforming lives through education, welfare, and sustainable support systems for children in need.
+      A humanitarian mission dedicated to empowering vulnerable children and communities through education, care, and sustainable impact.
     </p>
 
-    <img src="about.jpg" alt="about image">
+    <a href="#donate" class="btn">Donate Now</a>
   </div>
 </section>
 
-<section class="section dark" id="programs">
-  <div class="container">
-    <h2>Our Programs</h2>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container split">
+    <div class="text">
+      <h2>Our Mission</h2>
+      <p>
+        Omachi Hope Foundation is committed to creating long-term transformation in the lives of children and underserved communities.
+        We believe that dignity begins with opportunity, and every child deserves access to education, safety, and hope.
+      </p>
+    </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="children1.jpg">
-        <h3>Education Support</h3>
-        <p>We provide educational assistance to underprivileged children.</p>
-      </div>
+    <img src="about.jpg" class="img">
+  </div>
+</section>
 
-      <div class="card">
-        <img src="children2.jpg">
-        <h3>Child Welfare</h3>
-        <p>We ensure care, protection, and emotional support for children in need.</p>
-      </div>
+<!-- IMPACT -->
+<section class="section dark" id="impact">
+  <h2 class="center">Our Impact</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="children1.jpg">
+      <h3>Education Support</h3>
+      <p>Providing structured learning opportunities for children in underserved communities.</p>
+    </div>
+
+    <div class="card">
+      <img src="children2.jpg">
+      <h3>Child Welfare</h3>
+      <p>Ensuring emotional, physical, and social well-being of vulnerable children.</p>
     </div>
   </div>
-</section>
 
-<section class="section" id="donate">
-  <div class="container">
-    <h2>Support Our Mission</h2>
-    <p>Donation system will be restored shortly.</p>
+  <div class="live-counter">
+    <span>Lives Impacted:</span>
+    <strong id="counter">0</strong>
   </div>
 </section>
+
+<!-- DONATION -->
+<section class="section" id="donate">
+  <div class="donation">
+
+    <h2>Support the Mission</h2>
+    <p>Your generosity directly transforms lives.</p>
+
+    <form class="donation-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="number" placeholder="Amount (NGN)" required>
+
+      <button type="submit">Donate Securely</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- EMAILJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 <script src="app.js"></script>
 
