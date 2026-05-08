@@ -1,91 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omachi Hope Foundation</title>
-
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Foundation Initiative</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<body>
-
-<header class="header">
-  <div class="logo">
-    <img src="logo.jpg" alt="logo">
-  </div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#impact">Impact</a>
-    <a href="#donate">Donate</a>
-  </nav>
+<body><!-- HERO SECTION -->
+<header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Building Hope. Restoring Dignity. Changing Lives.</h1>
+        <p>
+            Every day, countless children and vulnerable families are left without access to basic necessities such as shelter,
+            education, and healthcare. At Hope Foundation Initiative, we believe that no life should be defined by lack or limitation.
+            We are committed to creating sustainable support systems that empower individuals to rise above their circumstances and
+            build a future filled with opportunity.
+        </p>
+        <a href="#donate" class="btn-primary">Make a Difference Today</a>
+    </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <h1>Restoring Hope. Rebuilding Futures.</h1>
-    <p>We empower vulnerable children through education, care, and long-term support systems.</p>
-
-    <a href="#donate" class="btn">Make a Donation</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="container grid">
-    <div>
-      <h2>Our Mission</h2>
-      <p>
-        Omachi Hope Foundation is committed to restoring dignity and opportunity to children and families in need through structured humanitarian programs and education-driven initiatives.
-      </p>
+<!-- ABOUT SECTION -->
+<section class="about">
+    <div class="container">
+        <h2>Who We Are</h2>
+        <p>
+            Hope Foundation Initiative is a humanitarian-driven organization dedicated to transforming communities through
+            compassion, education, and empowerment. Our mission is not just to provide temporary relief, but to create
+            long-term solutions that break the cycle of poverty.
+        </p>
+        <p>
+            We work closely with local communities to identify pressing needs and deliver targeted support in areas such as
+            education sponsorship, food security, medical outreach, and orphan care programs. Every donation we receive goes
+            directly into making a tangible difference in real lives.
+        </p>
     </div>
-
-    <img src="about.jpg" class="img">
-  </div>
 </section>
 
-<!-- IMPACT -->
-<section class="section dark" id="impact">
-  <h2 class="center">Our Impact</h2>
-
-  <div class="cards">
-    <div class="card">
-      <img src="children1.jpg">
-      <h3>Education Support</h3>
-      <p>Providing access to learning and academic empowerment.</p>
+<!-- IMPACT SECTION -->
+<section class="impact">
+    <div class="container">
+        <h2>Why Your Support Matters</h2>
+        <p>
+            Behind every statistic is a human story—a child who dreams of going to school but cannot afford books, a mother
+            struggling to feed her family, or a community without access to clean water. Your support becomes the bridge
+            between despair and hope.
+        </p>
+        <p>
+            Even the smallest contribution can create lasting impact. A single donation can provide meals for a family, sponsor
+            a child's education for months, or fund essential medical care. Together, we can rewrite stories of hardship into
+            stories of triumph.
+        </p>
     </div>
+</section>
 
-    <div class="card">
-      <img src="children2.jpg">
-      <h3>Child Welfare</h3>
-      <p>Ensuring safety, care, and emotional development for children.</p>
+<!-- CALL TO ACTION -->
+<section id="donate" class="donate">
+    <div class="container">
+        <h2>Be the Change</h2>
+        <p>
+            The world does not change by chance—it changes by people who choose to act. Your generosity today can shape a better
+            tomorrow for someone in need. Join us in this mission of hope and transformation.
+        </p>
+        <a href="success.html" class="btn-primary">Donate Now</a>
     </div>
-  </div>
 </section>
 
-<!-- DONATION -->
-<section class="section" id="donate">
-  <div class="donation-box">
-    <h2>Support Our Mission</h2>
-    <p>Your donation creates real impact.</p>
-
-    <form class="donation-form">
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="number" placeholder="Amount (NGN)" required>
-
-      <button type="submit">Donate Securely</button>
-    </form>
-  </div>
-</section>
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Hope Foundation Initiative. All Rights Reserved.</p>
+</footer>
 
 <script src="app.js"></script>
 
