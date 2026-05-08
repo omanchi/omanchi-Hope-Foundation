@@ -9,44 +9,34 @@ const EMAILJS_PUBLIC_KEY = "q_UrmnYn1ewI1H4A_";
 emailjs.init(EMAILJS_PUBLIC_KEY);
 
 const form = document.querySelector(".donation-form");
-const amountInput = document.querySelector("input[type='number']");
-const nameInput = document.querySelector("input[type='text']");
-const emailInput = document.querySelector("input[type='email']");
-const buttons = document.querySelectorAll(".donation-options button");
-
-buttons.forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    amountInput.value = btn.innerText;
-  });
-});
+const inputs = document.querySelectorAll("input");
 
 form.addEventListener("submit", async (e)=>{
-  e.preventDefault();
+e.preventDefault();
 
-  const amount = amountInput.value;
-  const name = nameInput.value;
-  const email = emailInput.value;
+const name = inputs[0].value;
+const email = inputs[1].value;
+const amount = inputs[2].value;
 
-  // Unique transaction ID
-  const transactionId = "TXN-" + Date.now();
+const transactionId = "TXN-" + Date.now();
 
-  try{
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      {
-        to_name: name,
-        to_email: email,
-        amount: amount,
-        transaction_id: transactionId
-      }
-    );
-  }catch(err){
-    console.log("EmailJS error:", err);
-  }
+try{
+await emailjs.send(
+EMAILJS_SERVICE_ID,
+EMAILJS_TEMPLATE_ID,
+{
+to_name:name,
+to_email:email,
+amount:amount,
+transaction_id:transactionId
+}
+);
+}catch(err){
+console.log(err);
+}
 
-  // Redirect to Paystack
-  window.location.href = PAYSTACK_URL;
+window.location.href = PAYSTACK_URL;
+
 });
 
 })();
