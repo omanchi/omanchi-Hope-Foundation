@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 *{
 margin:0;
 padding:0;
@@ -9,75 +7,31 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#070a12;
+background:#070b14;
 color:#fff;
 overflow-x:hidden;
 }
 
-/* =========================
-   GLOBAL ANIMATIONS SYSTEM
-========================= */
-
-@keyframes fadeUp{
-0%{opacity:0;transform:translateY(40px);}
-100%{opacity:1;transform:translateY(0);}
-}
-
-@keyframes fadeIn{
-0%{opacity:0;}
-100%{opacity:1;}
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
-}
-
-@keyframes glow{
-0%{box-shadow:0 0 0px #00ffd5;}
-50%{box-shadow:0 0 25px #00ffd5;}
-100%{box-shadow:0 0 0px #00ffd5;}
-}
-
-/* =========================
-   HEADER (GLASS EFFECT)
-========================= */
-
-header{
-position:fixed;
-top:0;
-width:100%;
+/* HEADER */
+.header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 80px;
+padding:20px 70px;
+position:fixed;
+width:100%;
+top:0;
 z-index:1000;
-
-background:rgba(10,15,25,0.4);
-backdrop-filter:blur(20px);
-border-bottom:1px solid rgba(255,255,255,0.05);
-
-animation:fadeIn 1s ease;
-}
-
-header img{
-height:45px;
-transition:0.3s;
-}
-
-header img:hover{
-transform:scale(1.05);
+background:rgba(10,15,25,0.6);
+backdrop-filter:blur(15px);
 }
 
 nav a{
 color:#fff;
-margin-left:25px;
+margin-left:20px;
 text-decoration:none;
-font-weight:500;
 opacity:0.7;
-transition:0.4s;
-position:relative;
+transition:0.3s;
 }
 
 nav a:hover{
@@ -85,25 +39,7 @@ opacity:1;
 color:#00ffd5;
 }
 
-nav a::after{
-content:'';
-position:absolute;
-bottom:-5px;
-left:0;
-width:0%;
-height:2px;
-background:#00ffd5;
-transition:0.4s;
-}
-
-nav a:hover::after{
-width:100%;
-}
-
-/* =========================
-   HERO SECTION (CINEMATIC)
-========================= */
-
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -111,209 +47,129 @@ align-items:center;
 justify-content:center;
 text-align:center;
 position:relative;
-
 background:url('hopefoundation.jpg') center/cover no-repeat;
 }
 
-.hero::before{
-content:'';
+.overlay{
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to bottom, rgba(0,0,0,0.4), #070a12);
+background:rgba(0,0,0,0.6);
 }
 
 .hero-content{
 position:relative;
-max-width:850px;
-animation:fadeUp 1.5s ease;
+max-width:800px;
+animation:fadeUp 1.2s ease;
 }
 
 .hero h1{
-font-size:4rem;
+font-size:3.5rem;
 font-weight:800;
-line-height:1.1;
 }
 
 .hero p{
-margin-top:20px;
+margin:20px 0;
 opacity:0.8;
-font-size:1.1rem;
-line-height:1.7;
+line-height:1.6;
 }
 
-.hero .btn{
+.btn{
 display:inline-block;
-margin-top:30px;
-padding:14px 35px;
+padding:14px 30px;
 background:#00ffd5;
 color:#000;
-font-weight:700;
-border-radius:40px;
+border-radius:30px;
 text-decoration:none;
-transition:0.4s;
-animation:glow 3s infinite;
+font-weight:700;
+transition:0.3s;
 }
 
-.hero .btn:hover{
+.btn:hover{
 transform:scale(1.05);
 }
 
-/* =========================
-   SECTIONS BASE
-========================= */
-
+/* SECTIONS */
 .section{
-padding:120px 80px;
-animation:fadeUp 1s ease;
+padding:120px 70px;
 }
-
-.section h2{
-font-size:2.5rem;
-margin-bottom:20px;
-}
-
-.section p{
-opacity:0.8;
-line-height:1.8;
-}
-
-/* =========================
-   ABOUT SPLIT LAYOUT
-========================= */
-
-.split{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-}
-
-.split img{
-width:100%;
-border-radius:20px;
-transition:0.5s;
-}
-
-.split img:hover{
-transform:scale(1.03);
-}
-
-/* =========================
-   IMPACT CARDS (3D FEEL)
-========================= */
 
 .dark{
 background:#0b1220;
 }
 
+.center{
+text-align:center;
+margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.img{
+width:100%;
+border-radius:18px;
+}
+
+/* CARDS */
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-margin-top:40px;
 }
 
 .card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
+background:#111827;
 padding:20px;
-border-radius:18px;
-transition:0.5s;
-backdrop-filter:blur(10px);
-animation:fadeUp 1s ease;
+border-radius:15px;
+transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 20px 40px rgba(0,0,0,0.4);
+transform:translateY(-10px);
 }
 
 .card img{
 width:100%;
 border-radius:12px;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
-/* =========================
-   DONATION SECTION (PREMIUM BOX)
-========================= */
-
-.donation{
-max-width:650px;
+/* DONATION */
+.donation-box{
+max-width:600px;
 margin:auto;
-background:rgba(255,255,255,0.04);
+background:#111827;
 padding:50px;
-border-radius:25px;
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-animation:fadeUp 1.2s ease;
+border-radius:20px;
+text-align:center;
 }
 
-.donation input{
+.donation-form input{
 width:100%;
-padding:15px;
+padding:14px;
 margin:10px 0;
 border:none;
-border-radius:10px;
-background:#111827;
-color:#fff;
-outline:none;
-transition:0.3s;
+border-radius:8px;
 }
 
-.donation input:focus{
-border:1px solid #00ffd5;
-box-shadow:0 0 10px rgba(0,255,213,0.3);
-}
-
-.donation button{
+.donation-form button{
 width:100%;
-padding:15px;
-margin-top:15px;
+padding:14px;
 background:#00ffd5;
 border:none;
-border-radius:10px;
-font-weight:800;
+border-radius:8px;
+font-weight:bold;
 cursor:pointer;
-transition:0.4s;
 }
 
-.donation button:hover{
-transform:scale(1.03);
-box-shadow:0 10px 30px rgba(0,255,213,0.3);
+/* ANIMATION */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
-
-/* =========================
-   SCROLL EFFECTS FEEL
-========================= */
-
-section{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1s forwards;
-}
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-
-header{
-padding:15px 20px;
-}
-
-.hero h1{
-font-size:2.5rem;
-}
-
-.section{
-padding:80px 20px;
-}
-
-.split{
-grid-template-columns:1fr;
-}
-
-                         }
