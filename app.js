@@ -1,94 +1,50 @@
-(() => {
+(function(){
 
-  // ============================
-  // PAYSTACK LINK
-  // ============================
-  const PAYSTACK_URL = "https://paystack.shop/pay/mrtyf-aq5c";
+const PAYSTACK_URL = "https://paystack.shop/pay/mrtyf-aq5c";
 
-  // ============================
-  // DONATION ELEMENTS
-  // ============================
-  const buttons = document.querySelectorAll(".donation-options button");
-  const amountInput = document.querySelector(".donation-form input[type='number']");
-  const donationForm = document.querySelector(".donation-form");
+const EMAILJS_SERVICE_ID = "service_gemvr0r";
+const EMAILJS_TEMPLATE_ID = "template_3dcc8lq";
+const EMAILJS_PUBLIC_KEY = "q_UrmnYn1ewI1H4A_";
 
-  // ============================
-  // PRESET BUTTONS
-  // ============================
-  buttons.forEach((btn) => {
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    btn.addEventListener("click", () => {
+const form = document.querySelector(".donation-form");
+const amountInput = document.querySelector("input[type='number']");
+const nameInput = document.querySelector("input[type='text']");
+const emailInput = document.querySelector("input[type='email']");
+const buttons = document.querySelectorAll(".donation-options button");
 
-      const value = btn.innerText
-        .replace(/[₦,]/g, "")
-        .trim();
-
-      amountInput.value = value;
-
-      buttons.forEach((b) => {
-        b.classList.remove("active");
-      });
-
-      btn.classList.add("active");
-
-    });
-
+buttons.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    amountInput.value = btn.innerText;
   });
+});
 
-  // ============================
-  // DONATE FORM SUBMIT
-  // ============================
-  donationForm.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
 
-    e.preventDefault();
+  const amount = amountInput.value;
+  const name = nameInput.value;
+  const email = emailInput.value;
 
-    const amount = parseInt(amountInput.value, 10);
+  const transactionId = "TXN-" + Date.now();
 
-    if (!amount || amount <= 0) {
-      alert("Please enter a valid donation amount.");
-      return;
-    }
-
-    const confirmDonate = confirm(
-      `Proceed to donate ₦${amount.toLocaleString()}?`
-    );
-
-    if (!confirmDonate) return;
-
-    window.location.href = PAYSTACK_URL;
-
-  });
-
-  // ============================
-  // COUNTER ANIMATION
-  // ============================
-  const counters = document.querySelectorAll('.counter');
-
-  counters.forEach(counter => {
-
-    const updateCounter = () => {
-
-      const target = +counter.getAttribute('data-target');
-      const current = +counter.innerText;
-
-      const increment = target / 80;
-
-      if(current < target){
-
-        counter.innerText = `${Math.ceil(current + increment)}`;
-
-        setTimeout(updateCounter, 30);
-
-      } else {
-
-        counter.innerText = target;
-
+  try{
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        to_name: name,
+        to_email: email,
+        amount: amount,
+        transaction_id: transactionId
       }
+    );
+  }catch(err){
+    console.log(err);
+  }
 
-    };
-
-    updateCounter();
-
-  });
+  window.location.href = PAYSTACK_URL;
+});
 
 })();
