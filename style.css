@@ -1,175 +1,56 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
+/* ========================== GLOBAL RESET & BASE STYLE ========================== */
+
+{ margin: 0; padding: 0; box-sizing: border-box; }
+
+
+body { font-family: 'Poppins', sans-serif; background: #0b0f1a; color: #eaeaea; overflow-x: hidden; line-height: 1.7; }
+
+/* Smooth scrolling */ html { scroll-behavior: smooth; }
+
+/* ========================== GENERAL CONTAINER ========================== */ .container { width: 90%; max-width: 1100px; margin: auto; padding: 60px 0; }
+
+h1, h2 { font-weight: 700; letter-spacing: 1px; }
+
+p { opacity: 0.9; font-weight: 300; }
+
+/* ========================== HERO SECTION ========================== */ .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at top, #1b2a4a, #0b0f1a 70%); overflow: hidden; }
+
+.hero .overlay { position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,255,200,0.08), transparent 60%); animation: floatGlow 8s infinite alternate ease-in-out; }
+
+.hero-content { position: relative; z-index: 2; max-width: 800px; animation: fadeUp 1.5s ease-out; }
+
+.hero h1 { font-size: 3rem; margin-bottom: 20px; color: #ffffff; text-shadow: 0 0 20px rgba(0,255,200,0.3); }
+
+.hero p { font-size: 1.1rem; margin-bottom: 30px; }
+
+/* ========================== BUTTON STYLE ========================== */ .btn-primary { display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #00ffd5, #0066ff); color: #000; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.4s ease; box-shadow: 0 0 20px rgba(0,255,200,0.3); }
+
+.btn-primary:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 35px rgba(0,255,200,0.6); }
+
+/* ========================== SECTIONS ========================== */ section { padding: 100px 0; position: relative; }
+
+.about, .impact, .donate { background: #0f172a; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); animation: fadeUp 1.2s ease-in-out; }
+
+h2 { font-size: 2.2rem; margin-bottom: 20px; color: #00ffd5; }
+
+/* ========================== DONATE SECTION ========================== */ .donate { text-align: center; background: linear-gradient(180deg, #0b0f1a, #111c33); }
+
+.donate p { max-width: 700px; margin: auto; margin-bottom: 30px; }
+
+/* ========================== FOOTER ========================== */ footer { text-align: center; padding: 30px; background: #05070d; font-size: 0.9rem; opacity: 0.7; }
+
+/* ========================== ANIMATIONS ========================== */ @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+@keyframes floatGlow { 0% { transform: translate(-10%, -10%) scale(1); } 100% { transform: translate(10%, 10%) scale(1.2); } }
+
+/* ========================== SCROLL EFFECTS ========================== */ section { opacity: 0; transform: translateY(40px); animation: fadeUp 1s forwards; }
+
+section:nth-child(2) { animation-delay: 0.2s; } section:nth-child(3) { animation-delay: 0.4s; } section:nth-child(4) { animation-delay: 0.6s; } section:nth-child(5) { animation-delay: 0.8s; }
+
+/* ========================== RESPONSIVE DESIGN ========================== */ @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; }
+
+.container {
+    width: 95%;
 }
 
-body{
-background:#070b14;
-color:#fff;
-overflow-x:hidden;
-}
-
-/* HEADER */
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 70px;
-position:fixed;
-width:100%;
-top:0;
-z-index:1000;
-background:rgba(10,15,25,0.6);
-backdrop-filter:blur(15px);
-}
-
-nav a{
-color:#fff;
-margin-left:20px;
-text-decoration:none;
-opacity:0.7;
-transition:0.3s;
-}
-
-nav a:hover{
-opacity:1;
-color:#00ffd5;
-}
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-background:url('hopefoundation.jpg') center/cover no-repeat;
-}
-
-.overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-}
-
-.hero-content{
-position:relative;
-max-width:800px;
-animation:fadeUp 1.2s ease;
-}
-
-.hero h1{
-font-size:3.5rem;
-font-weight:800;
-}
-
-.hero p{
-margin:20px 0;
-opacity:0.8;
-line-height:1.6;
-}
-
-.btn{
-display:inline-block;
-padding:14px 30px;
-background:#00ffd5;
-color:#000;
-border-radius:30px;
-text-decoration:none;
-font-weight:700;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-/* SECTIONS */
-.section{
-padding:120px 70px;
-}
-
-.dark{
-background:#0b1220;
-}
-
-.center{
-text-align:center;
-margin-bottom:40px;
-}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.img{
-width:100%;
-border-radius:18px;
-}
-
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.card{
-background:#111827;
-padding:20px;
-border-radius:15px;
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card img{
-width:100%;
-border-radius:12px;
-margin-bottom:10px;
-}
-
-/* DONATION */
-.donation-box{
-max-width:600px;
-margin:auto;
-background:#111827;
-padding:50px;
-border-radius:20px;
-text-align:center;
-}
-
-.donation-form input{
-width:100%;
-padding:14px;
-margin:10px 0;
-border:none;
-border-radius:8px;
-}
-
-.donation-form button{
-width:100%;
-padding:14px;
-background:#00ffd5;
-border:none;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;transform:translateY(0);}
-}
+                           }
