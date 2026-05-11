@@ -297,38 +297,4 @@ footer {
         grid-template-columns: 1fr;
     }
 
-   }
-/* =========================================
-   IMAGE SIZE BALANCE FIX (GLOBAL)
-========================================= */
-
-/* Prevent excessive zoom cropping */
-.gallery-grid img,
-.impact-story-card img {
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Better balanced gallery display */
-.gallery-grid img {
-    height: 240px;   /* reduced from 280px */
-    width: 100%;
-    border-radius: 18px;
-    transition: 0.5s ease;
-}
-
-/* Make impact section images more natural */
-.impact-story-card img {
-    max-height: 420px;
-    width: 100%;
-}
-
-/* Slight improvement for very tall/wide images */
-.gallery-grid img:hover {
-    transform: scale(1.02); /* reduced zoom so it doesn't feel oversized */
-}
-
-/* Optional: improve spacing feel */
-.gallery-grid {
-    align-items: stretch;
-} 
+       }
