@@ -177,10 +177,34 @@ section{
   text-align:center;
 }
 
+.suggested-amounts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin-top:20px;
+}
+
+.amount-btn{
+  background:#1a2645;
+  border:none;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:500;
+}
+
+.amount-btn:hover{
+  background:#00e6aa;
+  color:#000;
+}
+
 input{
   width:80%;
   padding:12px;
-  margin-top:15px;
+  margin-top:20px;
   border:none;
   border-radius:10px;
   outline:none;
@@ -223,7 +247,7 @@ input{
 <header>
 
   <div class="brand">
-    <img src="about.jpg" alt="Omanchi Hope Logo">
+    <img src="logo.jpg" alt="Omanchi Hope Logo">
     <h2>Omanchi Hope</h2>
   </div>
 
@@ -406,10 +430,18 @@ input{
       and hope for vulnerable children and struggling communities.
     </p>
 
+    <div class="suggested-amounts">
+      <button class="amount-btn" onclick="setAmount(20000)">₦20,000</button>
+      <button class="amount-btn" onclick="setAmount(50000)">₦50,000</button>
+      <button class="amount-btn" onclick="setAmount(100000)">₦100,000</button>
+      <button class="amount-btn" onclick="setAmount(250000)">₦250,000</button>
+      <button class="amount-btn" onclick="setAmount(500000)">₦500,000</button>
+    </div>
+
     <input
       type="number"
       id="amount"
-      placeholder="Enter amount (NGN)"
+      placeholder="Enter custom amount (NGN)"
     >
 
     <br><br>
@@ -431,12 +463,16 @@ input{
 <script>
 const PAYSTACK_PUBLIC_KEY = "YOUR_PUBLIC_KEY_HERE";
 
+function setAmount(value){
+  document.getElementById("amount").value = value;
+}
+
 function payWithPaystack(){
 
   let amount = document.getElementById("amount").value;
 
-  if(!amount || amount < 50000){
-    alert("Minimum donation is 50,000 NGN");
+  if(!amount || amount < 20000){
+    alert("Minimum donation is 20,000 NGN");
     return;
   }
 
@@ -461,4 +497,4 @@ function payWithPaystack(){
 </script>
 
 </body>
-    </html>
+</html>
