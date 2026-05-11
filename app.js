@@ -1,105 +1,68 @@
-const stories = [
+const stories=[
 {
 title:"Education Support",
 image:"aventis1.png",
-content:`
-<p><strong>Education Support Initiative</strong></p>
-<p>Omanchi Hope Foundation provides educational access for children who cannot afford school fees, uniforms, or learning materials.</p>
-<p>Many of these children come from environments where survival takes priority over education.</p>
-<p>We step in with structured support — books, mentorship, emotional encouragement, and consistent guidance.</p>
-<p>Our goal is not just schooling, but restoring belief in a better future through education.</p>
-`
+text:`We support children without access to education by providing materials, mentorship and emotional guidance.`
 },
 {
 title:"Child Welfare",
 image:"aventis2.png",
-content:`
-<p><strong>Child Welfare Program</strong></p>
-<p>We ensure vulnerable children receive protection, food, and emotional stability.</p>
-<p>Our intervention focuses on safety, healing, and rebuilding trust.</p>
-<p>Each child is placed in a supportive environment that encourages growth and dignity.</p>
-`
+text:`We ensure vulnerable children receive care, safety, food and emotional stability.`
 },
 {
 title:"Community Outreach",
 image:"aventis4.png",
-content:`
-<p><strong>Community Outreach</strong></p>
-<p>We extend humanitarian aid to underserved communities through food, clothing, and basic support.</p>
-<p>Every outreach restores dignity and strengthens social connection.</p>
-`
+text:`We reach underserved communities with essential humanitarian aid and support.`
 },
 {
 title:"Humanitarian Impact",
 image:"aventis5.jpg",
-content:`
-<p><strong>Humanitarian Impact Initiative</strong></p>
-<p>We focus on long-term transformation rather than temporary relief.</p>
-<p>Families are supported through structured aid systems designed for stability.</p>
-`
+text:`We focus on long-term transformation and sustainable community development.`
 },
 {
 title:"Community Support",
 image:"aventis6.jpg",
-content:`
-<p><strong>Community Support System</strong></p>
-<p>We provide continuous assistance to families facing hardship.</p>
-<p>Support includes essentials, emotional care, and long-term follow-up.</p>
-`
+text:`We provide continuous assistance to families in need of support and stability.`
 },
 {
 title:"Transformation Stories",
 image:"aventis7.jpg",
-content:`
-<p><strong>Transformation Stories</strong></p>
-<p>Each story represents a real journey from hardship to hope.</p>
-<p>We document real impact created through consistent humanitarian work.</p>
-`
+text:`Every story represents a real journey from hardship to hope and recovery.`
 }
 ];
 
-let currentIndex = 0;
+let current=0;
 
-function openStory(index){
-currentIndex = index;
+function openStory(i){
+current=i;
 
-const modal = document.getElementById("storyModal");
-modal.style.display = "flex";
-modal.style.opacity = "0";
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src=stories[i].image;
+document.getElementById("modalTitle").innerText=stories[i].title;
+document.getElementById("modalText").innerText=stories[i].text;
 
-setTimeout(()=>{
-modal.style.opacity = "1";
-},50);
-
-document.getElementById("modalImage").src = stories[index].image;
-document.getElementById("modalTitle").innerText = stories[index].title;
-document.getElementById("modalBody").innerHTML = stories[index].content;
-
-document.body.style.overflow = "hidden";
+document.body.style.overflow="hidden";
 }
 
 function nextStory(){
-currentIndex = (currentIndex + 1) % stories.length;
-openStory(currentIndex);
+current=(current+1)%stories.length;
+openStory(current);
 }
 
 function prevStory(){
-currentIndex = (currentIndex - 1 + stories.length) % stories.length;
-openStory(currentIndex);
+current=(current-1+stories.length)%stories.length;
+openStory(current);
 }
 
 function closeStory(){
-document.getElementById("storyModal").style.opacity = "0";
-setTimeout(()=>{
-document.getElementById("storyModal").style.display = "none";
-document.body.style.overflow = "auto";
-},200);
+document.getElementById("modal").style.display="none";
+document.body.style.overflow="auto";
 }
+
+document.addEventListener("click",(e)=>{
+if(e.target.id==="modal") closeStory();
+});
 
 document.addEventListener("keydown",(e)=>{
 if(e.key==="Escape") closeStory();
-});
-
-document.addEventListener("click",(e)=>{
-if(e.target.id==="storyModal") closeStory();
 });
