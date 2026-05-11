@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omanchi Hope Foundation</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omanchi Hope Foundation</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- HERO -->
 <header class="hero" style="background-image:url('hero.jpg');">
-
     <div class="overlay"></div>
 
     <div class="hero-content">
-
         <img src="logo.jpg" class="logo">
 
-        <h1>Building Hope.<br>Restoring Dignity.<br>Changing Lives.</h1>
+        <h1>Building Hope. Restoring Dignity.</h1>
 
         <p>
-            Omanchi Hope Foundation is committed to transforming lives through humanitarian outreach,
-            education support, food relief, healthcare assistance, and empowerment initiatives.
+            Omanchi Hope Foundation is a humanitarian organization dedicated to supporting orphaned and less privileged children
+            through education, welfare, and community outreach programs.
         </p>
 
-        <a href="#donate" class="btn-primary">Support The Mission</a>
-
+        <a href="#donate" class="btn-primary">Donate Now</a>
     </div>
-
 </header>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-
     <div class="container">
 
         <div class="section-image">
@@ -46,143 +42,148 @@
             <h2>Who We Are</h2>
 
             <p>
-                Omanchi Hope Foundation is a humanitarian initiative focused on restoring dignity and hope
-                to vulnerable individuals and underserved communities.
+                Omanchi Hope Foundation is a humanitarian initiative focused on restoring dignity and hope to vulnerable communities.
             </p>
 
             <p>
-                This foundation serves as a safe shelter and support system for orphaned and less privileged children,
-                providing care, education support, emotional stability, and hope for a better future.
+                We serve as a safe shelter and support system for orphaned and less privileged children,
+                providing care, education support, emotional stability, and opportunities for a better future.
             </p>
 
         </div>
 
     </div>
-
 </section>
 
 <!-- PROGRAMS -->
 <section id="programs" class="programs">
 
-    <div class="container">
+<div class="container">
+<h2>Our Programs</h2>
 
-        <h2>Our Programs</h2>
+<div class="program-grid">
 
-        <div class="program-grid">
+<div class="program-card">
+<img src="aventis1.png">
+<h3>Education Support</h3>
+<p>Helping children access learning opportunities.</p>
+</div>
 
-            <div class="program-card">
-                <img src="aventis1.png">
-                <h3>Education Support</h3>
-                <p>Helping children gain access to quality learning and mentorship.</p>
-            </div>
+<div class="program-card">
+<img src="aventis2.png">
+<h3>Child Welfare</h3>
+<p>Providing care and emotional support for children.</p>
+</div>
 
-            <div class="program-card">
-                <img src="aventis2.png">
-                <h3>Child Welfare</h3>
-                <p>Providing care, food, and emotional support for vulnerable children.</p>
-            </div>
+<div class="program-card">
+<img src="aventis4.png">
+<h3>Community Outreach</h3>
+<p>Reaching vulnerable communities with aid.</p>
+</div>
 
-            <div class="program-card">
-                <img src="aventis4.png">
-                <h3>Community Outreach</h3>
-                <p>Reaching underserved communities with humanitarian aid.</p>
-            </div>
+</div>
 
-        </div>
-
-    </div>
-
+</div>
 </section>
 
 <!-- IMPACT -->
 <section id="impact" class="impact">
+<div class="container">
 
-    <div class="container">
+<h2>Lives We Impact</h2>
 
-        <h2>Lives We Have Impacted</h2>
+<p class="impact-intro">
+Every outreach is designed to restore dignity, hope, and long-term transformation.
+</p>
 
-        <p class="impact-intro">
-            Every outreach is focused on restoring dignity, rebuilding hope, and creating sustainable change.
-        </p>
-
-        <div class="impact-story-grid">
-
-            <div class="impact-story-card">
-                <img src="aventis5.jpg">
-                <div class="impact-story-content">
-                    <h3>Restoring Hope</h3>
-                    <p>We provide food, education support, and care to struggling families.</p>
-                </div>
-            </div>
-
-            <div class="impact-story-card reverse">
-                <img src="aventis6.jpg">
-                <div class="impact-story-content">
-                    <h3>Community Support</h3>
-                    <p>We engage communities with direct outreach programs.</p>
-                </div>
-            </div>
-
-            <div class="impact-story-card">
-                <img src="aventis7.jpg">
-                <div class="impact-story-content">
-                    <h3>Lasting Change</h3>
-                    <p>We focus on long-term empowerment and transformation.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
 
-<!-- GALLERY -->
+<!-- GALLERY (NEW STORY SYSTEM) -->
 <section id="gallery" class="gallery">
 
-    <div class="container">
+<div class="container">
 
-        <h2>Outreach Gallery</h2>
+<h2>Impact Gallery</h2>
 
-        <div class="gallery-grid">
+<p class="gallery-intro">
+Click any image to read the full story behind the moment.
+</p>
 
-            <img src="aventis1.png">
-            <img src="aventis2.png">
-            <img src="aventis4.png">
-            <img src="aventis5.jpg">
-            <img src="aventis6.jpg">
-            <img src="aventis7.jpg">
+<div class="gallery-grid">
 
-        </div>
+<div class="gallery-item" onclick="openStory('aventis1.png','Education Support','story1')">
+<img src="aventis1.png"><button>Read More</button>
+</div>
 
-    </div>
+<div class="gallery-item" onclick="openStory('aventis2.png','Child Welfare','story2')">
+<img src="aventis2.png"><button>Read More</button>
+</div>
+
+<div class="gallery-item" onclick="openStory('aventis4.png','Community Outreach','story3')">
+<img src="aventis4.png"><button>Read More</button>
+</div>
+
+<div class="gallery-item" onclick="openStory('aventis5.jpg','Humanitarian Impact','story4')">
+<img src="aventis5.jpg"><button>Read More</button>
+</div>
+
+<div class="gallery-item" onclick="openStory('aventis6.jpg','Community Support','story5')">
+<img src="aventis6.jpg"><button>Read More</button>
+</div>
+
+<div class="gallery-item" onclick="openStory('aventis7.jpg','Transformation','story6')">
+<img src="aventis7.jpg"><button>Read More</button>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- DONATION -->
+<!-- DONATE -->
 <section id="donate" class="donate">
+<div class="container">
 
-    <div class="container">
+<h2>Support the Mission</h2>
 
-        <h2>Donation Board</h2>
+<div class="donation-grid">
 
-        <div class="donation-grid">
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn-primary">₦10,000</a>
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn-primary">₦25,000</a>
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn-primary">₦50,000</a>
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn-primary">₦100,000</a>
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn-primary">₦250,000</a>
+<a href="https://paystack.shop/pay/mrtyf-aq5c" class="btn-primary">₦500,000</a>
 
-            <a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank" class="btn-primary donation-btn">₦10,000</a>
-            <a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank" class="btn-primary donation-btn">₦25,000</a>
-            <a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank" class="btn-primary donation-btn">₦50,000</a>
-            <a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank" class="btn-primary donation-btn">₦100,000</a>
-            <a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank" class="btn-primary donation-btn">₦250,000</a>
-            <a href="https://paystack.shop/pay/mrtyf-aq5c" target="_blank" class="btn-primary donation-btn">₦500,000</a>
+</div>
 
-        </div>
-
-    </div>
-
+</div>
 </section>
+
+<!-- STORY MODAL -->
+<div id="storyModal" class="story-modal">
+
+<div class="story-modal-content">
+
+<span class="close-modal" onclick="closeStory()">&times;</span>
+
+<img id="modalImage">
+
+<div class="story-text">
+
+<h2 id="modalTitle"></h2>
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+</div>
 
 <footer>
-    <p>© 2026 Omanchi Hope Foundation</p>
+<p>© 2026 Omanchi Hope Foundation</p>
 </footer>
 
 <script src="app.js"></script>
