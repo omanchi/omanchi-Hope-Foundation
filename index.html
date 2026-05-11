@@ -1,140 +1,265 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omanchi Hope Foundation</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Omanchi Hope Foundation</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+  scroll-behavior:smooth;
+}
 
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+body{
+  background:#050814;
+  color:#fff;
+}
 
-<body>
+a{color:inherit;text-decoration:none;}
 
-<header class="hero" style="background-image:url('hero.jpg');">
-<div class="hero-overlay"></div>
+/* NAV */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
 
-<div class="hero-content">
-<img src="logo.jpg" class="logo">
+header h2{
+  color:#00e6aa;
+  letter-spacing:1px;
+}
 
-<h1>Building Hope. Restoring Dignity.</h1>
+nav a{
+  margin-left:20px;
+  font-weight:500;
+  opacity:0.9;
+}
 
-<p>Omanchi Hope Foundation supports orphaned and less privileged children through education, welfare and outreach.</p>
+nav a:hover{color:#00e6aa;}
 
-<a href="#donate" class="btn">Donate Now</a>
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.9)), url('aventis1') center/cover;
+}
+
+.hero h1{
+  font-size:3.2rem;
+}
+
+.hero p{
+  max-width:850px;
+  margin-top:15px;
+  opacity:0.9;
+}
+
+.btn{
+  margin-top:25px;
+  padding:14px 30px;
+  background:#00e6aa;
+  color:#000;
+  font-weight:600;
+  border-radius:30px;
+  display:inline-block;
+}
+
+/* SECTIONS */
+section{
+  padding:100px 60px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.title{
+  font-size:2rem;
+  color:#00e6aa;
+  margin-bottom:20px;
+}
+
+.card{
+  background:#111a2e;
+  padding:25px;
+  border-radius:15px;
+  margin-top:20px;
+  line-height:1.7;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.gcard{
+  background:#0f1425;
+  border-radius:15px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.gcard img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.gcard p{
+  padding:15px;
+  font-size:0.9rem;
+  opacity:0.85;
+}
+
+.gcard:hover{
+  transform:scale(1.03);
+}
+
+/* DONATE */
+.donate-box{
+  background:#0f1a33;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+}
+
+input{
+  width:80%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#040610;
+}
+</style></head><body><header>
+  <h2>Omanchi Hope</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#history">History</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#donate">Donate</a>
+  </nav>
+</header><!-- HERO --><section class="hero" id="home">
+  <div>
+    <h1>Restoring Hope. Rebuilding Lives.</h1>
+    <p>
+      A humanitarian movement committed to uplifting vulnerable children, rebuilding struggling communities, and restoring dignity through love, education, and support.
+    </p>
+    <a class="btn" href="#donate">Support Now</a>
+  </div>
+</section><!-- ABOUT --><section id="about">
+  <h2 class="title">About Us</h2>
+  <div class="card">
+    Omanchi Hope Foundation exists to bring lasting change to vulnerable communities. We focus on education, food support, outreach programs, and restoring dignity where it has been lost.
+    <br><br>
+    We believe that hope is not just spoken — it is demonstrated through action.
+  </div>
+</section><!-- HISTORY --><section id="history">
+  <h2 class="title">Our History</h2>
+  <div class="card">
+    Founded in 2022, Omanchi Hope Foundation began as a small outreach initiative driven by compassion for children in underserved communities.
+    <br><br>
+    What started with simple acts of kindness quickly evolved into a structured humanitarian effort as the needs became overwhelming and impossible to ignore.
+    <br><br>
+    Today, the foundation has grown into a coordinated movement reaching multiple communities, providing food relief, educational materials, and emotional support programs.
+    <br><br>
+    We are still growing — but our mission remains the same: restore hope, rebuild lives, and transform communities.
+  </div>
+</section><!-- IMPACT --><section>
+  <h2 class="title">Our Impact</h2>
+  <div class="grid">
+    <div class="card"><h3>500+</h3><p>Children Supported</p></div>
+    <div class="card"><h3>20+</h3><p>Communities Reached</p></div>
+    <div class="card"><h3>100+</h3><p>Outreach Programs</p></div>
+  </div>
+</section><!-- GALLERY --><section id="gallery">
+  <h2 class="title">Moments of Hope</h2>  <div class="gallery"><div class="gcard">
+  <img src="aventis1" />
+  <p>Children receiving care packages — a moment of restored joy and childhood innocence.</p>
 </div>
-</header>
 
-<section class="about">
-<div class="container about-grid">
-<img src="logo.jpg" class="about-img">
-
-<div>
-<h2>Who We Are</h2>
-<p>We are a humanitarian foundation dedicated to restoring dignity, hope, and opportunity to vulnerable children and communities.</p>
-</div>
-</div>
-</section>
-<section class="gallery">
-<div class="container">
-
-<h2>Impact Gallery</h2>
-
-<div class="grid">
-
-<div class="card" onclick="openStory(0)">
-<img src="aventis1.png"><span>Read Story</span>
+<div class="gcard">
+  <img src="aventis2" />
+  <p>Community outreach support bringing food and relief to struggling families.</p>
 </div>
 
-<div class="card" onclick="openStory(1)">
-<img src="aventis2.png"><span>Read Story</span>
+<div class="gcard">
+  <img src="aventis4" />
+  <p>Educational empowerment — children receiving materials that open doors to a better future.</p>
 </div>
 
-<div class="card" onclick="openStory(2)">
-<img src="aventis4.png"><span>Read Story</span>
+<div class="gcard">
+  <img src="aventis5" />
+  <p>Moments of unity and prayer as hope is restored in difficult environments.</p>
 </div>
 
-<div class="card" onclick="openStory(3)">
-<img src="aventis5.jpg"><span>Read Story</span>
+<div class="gcard">
+  <img src="aventis6" />
+  <p>Health and welfare outreach bringing essential care to vulnerable communities.</p>
 </div>
 
-<div class="card" onclick="openStory(4)">
-<img src="aventis6.jpg"><span>Read Story</span>
+<div class="gcard">
+  <img src="aventis7" />
+  <p>Community transformation — people coming together to rebuild lives and futures.</p>
 </div>
 
-<div class="card" onclick="openStory(5)">
-<img src="aventis7.jpg"><span>Read Story</span>
-</div>
+  </div>
+</section><!-- DONATE --><section id="donate">
+  <h2 class="title">Make a Difference</h2>  <div class="donate-box">
+    <p>Your donation becomes food, education, and hope for those in need.</p><input type="number" id="amount" placeholder="Enter amount (NGN)" />
+<br><br>
+<button class="btn" onclick="payWithPaystack()">Donate Now</button>
 
-</div>
+  </div>
+</section><footer>
+  <p>© 2026 Omanchi Hope Foundation. Built with purpose.</p>
+</footer><script src="https://js.paystack.co/v1/inline.js"></script><script>
+const PAYSTACK_PUBLIC_KEY = "YOUR_PUBLIC_KEY_HERE";
 
-</div>
-</section>
+function payWithPaystack(){
+  let amount = document.getElementById("amount").value;
 
-<!-- SINGLE CLEAN MODAL -->
-<div id="modal" class="modal">
+  if(!amount || amount < 100){
+    alert("Minimum donation is 100 NGN");
+    return;
+  }
 
-<div class="modal-box">
+  let handler = PaystackPop.setup({
+    key: PAYSTACK_PUBLIC_KEY,
+    email: "donor@omanchi.org",
+    amount: amount * 100,
+    currency: "NGN",
+    callback: function(){
+      alert("Thank you for your donation ❤️");
+    }
+  });
 
-<div class="top-bar">
-<button onclick="closeStory()">✕</button>
-</div>
-
-<img id="modalImg">
-
-<h2 id="modalTitle"></h2>
-
-<div id="modalText"></div>
-
-<p class="hint">Press ESC or click outside to exit</p>
-
-<!-- donation buttons -->
-<div id="donationBox" class="donation-box"></div>
-
-<!-- ONLY ONE NAV SECTION -->
-<div class="nav">
-<button onclick="prevStory()">⬅ Prev</button>
-<button onclick="nextStory()">Next ➡</button>
-</div>
-
-</div>
-
-</div>
-
-<!-- 💰 DONATION BUTTON AREA (JS FILLS THIS) -->
-<div id="donationBox" class="donation-box"></div>
-
-<div class="nav">
-<button onclick="prevStory()">⬅ Prev</button>
-<button onclick="nextStory()">Next ➡</button>
-</div>
-
-</div>
-
-</div>
-<!-- 💰 STORY DONATION BUTTON -->
-<div style="text-align:center;margin:10px 0;">
-<a id="donateLink" 
-   href="https://paystack.shop/pay/mrtyf-aq5c" 
-   target="_blank"
-   style="
-   background:#00ffd5;
-   color:#000;
-   padding:10px 18px;
-   border-radius:20px;
-   text-decoration:none;
-   font-weight:600;
-   display:inline-block;
-   transition:0.3s;">
-Donate to this Story
-</a>
-</div>
-
-<div class="nav">
-<button onclick="prevStory()">⬅ Prev</button>
-<button onclick="nextStory()">Next ➡</button>
-</div>
-
-</div>
-
-</div>
+  handler.openIframe();
+}
+</script></body>
+</html>
