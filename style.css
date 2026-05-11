@@ -190,3 +190,7 @@ to{opacity:1;transform:translateY(0);}
 from{transform:scale(.85);opacity:0;}
 to{transform:scale(1);opacity:1;}
 }
+#donateLink:hover {
+transform:scale(1.05);
+box-shadow:0 8px 20px rgba(0,255,213,0.3);
+}
