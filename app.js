@@ -55,28 +55,16 @@ document.getElementById("modalImg").src=stories[i].image;
 document.getElementById("modalTitle").innerText=stories[i].title;
 document.getElementById("modalText").innerText=stories[i].text;
 
-// 🔥 BUILD DONATION BUTTONS PER STORY
-const donateLink=document.getElementById("donateLink");
+// 💰 donation levels per story
+const box=document.getElementById("donationBox");
 
-let buttonsHTML = stories[i].donations.map(amount=>{
+box.innerHTML = stories[i].donations.map(amount=>{
 return `
 <a href="https://paystack.shop/pay/mrtyf-aq5c?story=${encodeURIComponent(stories[i].title)}&amount=${amount}"
-target="_blank"
-style="
-display:inline-block;
-margin:5px;
-background:#00ffd5;
-color:#000;
-padding:8px 12px;
-border-radius:15px;
-text-decoration:none;
-font-weight:600;
-font-size:13px;">
+target="_blank">
 ₦${amount.toLocaleString()}
 </a>`;
 }).join("");
-
-donateLink.innerHTML = buttonsHTML;
 
 document.body.style.overflow="hidden";
 }
