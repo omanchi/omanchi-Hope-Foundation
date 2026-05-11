@@ -299,178 +299,36 @@ footer {
 
    }
 /* =========================================
-   IMPACT STORY SECTION
+   IMAGE SIZE BALANCE FIX (GLOBAL)
 ========================================= */
 
-.impact-intro,
-.gallery-intro {
-    max-width: 900px;
-    margin: 0 auto 50px;
-    text-align: center;
-    opacity: 0.88;
-    font-size: 1.05rem;
-    line-height: 1.9;
-}
-
-.impact-story-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    margin-top: 60px;
-    margin-bottom: 80px;
-}
-
-.impact-story-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-    align-items: center;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 24px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    transition: 0.5s ease;
-    position: relative;
-}
-
-.impact-story-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(0,255,213,0.04),
-        transparent
-    );
-    pointer-events: none;
-}
-
-.impact-story-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 45px rgba(0,255,213,0.12);
-}
-
-.impact-story-card.reverse {
-    direction: rtl;
-}
-
-.impact-story-card.reverse .impact-story-content {
-    direction: ltr;
-}
-
+/* Prevent excessive zoom cropping */
+.gallery-grid img,
 .impact-story-card img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    min-height: 420px;
-    transition: 0.6s ease;
+    object-position: center;
 }
 
-.impact-story-card:hover img {
-    transform: scale(1.05);
-}
-
-.impact-story-content {
-    padding: 40px;
-}
-
-.impact-story-content h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #00ffd5;
-}
-
-.impact-story-content p {
-    opacity: 0.88;
-    margin-bottom: 18px;
-    line-height: 1.9;
-}
-
-/* =========================================
-   ENHANCED IMPACT CARDS
-========================================= */
-
-.impact-grid {
-    margin-top: 40px;
-}
-
-.impact-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-    overflow: hidden;
-    position: relative;
-}
-
-.impact-card::before {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(
-        circle,
-        rgba(0,255,213,0.08),
-        transparent 70%
-    );
-    top: -60%;
-    left: -30%;
-    transition: 0.6s ease;
-}
-
-.impact-card:hover::before {
-    transform: scale(1.1);
-}
-
-/* =========================================
-   ADVANCED GALLERY SECTION
-========================================= */
-
-.gallery-grid {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-}
-
+/* Better balanced gallery display */
 .gallery-grid img {
+    height: 240px;   /* reduced from 280px */
     width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 20px;
-    transition: 0.6s ease;
-    cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 18px;
+    transition: 0.5s ease;
 }
 
+/* Make impact section images more natural */
+.impact-story-card img {
+    max-height: 420px;
+    width: 100%;
+}
+
+/* Slight improvement for very tall/wide images */
 .gallery-grid img:hover {
-    transform: scale(1.04);
-    box-shadow: 0 20px 40px rgba(0,255,213,0.18);
-    filter: brightness(1.08);
+    transform: scale(1.02); /* reduced zoom so it doesn't feel oversized */
 }
 
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-
-@media (max-width: 900px) {
-
-    .impact-story-card,
-    .impact-story-card.reverse {
-        grid-template-columns: 1fr;
-        direction: ltr;
-    }
-
-    .impact-story-card img {
-        min-height: 300px;
-    }
-
-    .impact-story-content {
-        padding: 30px;
-    }
-
-    .impact-story-content h3 {
-        font-size: 1.6rem;
-    }
-
-}
+/* Optional: improve spacing feel */
+.gallery-grid {
+    align-items: stretch;
+} 
