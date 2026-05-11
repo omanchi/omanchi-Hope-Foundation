@@ -1,3 +1,7 @@
+html {
+scroll-behavior: smooth;
+}
+
 body{
 margin:0;
 font-family:Poppins,sans-serif;
@@ -5,10 +9,7 @@ background:#070b14;
 color:#fff;
 }
 
-.container{
-width:90%;
-margin:auto;
-}
+.container{width:90%;margin:auto;}
 
 .hero{
 height:100vh;
@@ -33,11 +34,11 @@ z-index:2;
 animation:fadeUp 1s ease;
 }
 
-.logo{width:90px;}
+.logo{width:85px;}
 
 .btn{
 background:#00ffd5;
-padding:12px 25px;
+padding:12px 22px;
 border-radius:30px;
 color:#000;
 font-weight:600;
@@ -49,18 +50,15 @@ transition:.3s;
 
 .about-grid{
 display:flex;
-gap:30px;
+gap:25px;
 align-items:center;
 padding:60px 0;
 animation:fadeUp 1s ease;
 }
 
-.about-img{
-width:220px;
-border-radius:12px;
-}
+.about-img{width:200px;border-radius:10px;}
 
-.gallery .grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
@@ -71,18 +69,20 @@ position:relative;
 overflow:hidden;
 border-radius:12px;
 cursor:pointer;
-transition:.4s;
+transition:.3s;
 }
 
 .card img{
 width:100%;
-height:230px;
+height:220px;
 object-fit:cover;
-transition:.4s;
+transition:.3s;
 }
 
-.card:hover img{
-transform:scale(1.08);
+.card:hover img{transform:scale(1.08);}
+
+.card:hover{
+box-shadow:0 10px 25px rgba(0,255,213,0.2);
 }
 
 .card span{
@@ -110,7 +110,7 @@ background:rgba(0,0,0,0.92);
 justify-content:center;
 align-items:center;
 z-index:999;
-animation:fadeIn .3s ease;
+transition:opacity .3s ease;
 }
 
 .modal-box{
@@ -119,7 +119,7 @@ width:90%;
 max-width:850px;
 border-radius:15px;
 overflow:hidden;
-animation:pop .35s ease;
+animation:zoomIn .3s ease;
 }
 
 .modal-box img{
@@ -136,21 +136,14 @@ padding:10px;
 
 .top-bar button{
 background:red;
-color:#fff;
 border:none;
+color:#fff;
 padding:8px 12px;
 border-radius:6px;
 cursor:pointer;
 }
 
-.modal-box h2{
-padding:10px 20px;
-}
-
-#modalText{
-padding:0 20px 20px;
-line-height:1.6;
-}
+#modalText{padding:0 20px 20px;line-height:1.6;}
 
 .nav{
 display:flex;
@@ -164,6 +157,12 @@ border:none;
 padding:10px;
 border-radius:8px;
 cursor:pointer;
+}
+
+.hint{
+text-align:center;
+font-size:12px;
+opacity:0.6;
 }
 
 .donations{
@@ -187,12 +186,7 @@ from{opacity:0;transform:translateY(20px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-@keyframes pop{
+@keyframes zoomIn{
 from{transform:scale(.85);opacity:0;}
 to{transform:scale(1);opacity:1;}
 }
