@@ -12,62 +12,72 @@
 <body>
 
 <header class="hero" style="background-image:url('hero.jpg');">
-<div class="overlay"></div>
+<div class="hero-overlay"></div>
 
 <div class="hero-content">
 <img src="logo.jpg" class="logo">
 
 <h1>Building Hope. Restoring Dignity.</h1>
 
-<p>Omanchi Hope Foundation supports orphaned and less privileged children through education, welfare and humanitarian outreach.</p>
+<p>
+Omanchi Hope Foundation is committed to supporting orphaned and less privileged children through education, welfare, and humanitarian outreach programs.
+</p>
 
-<a href="#donate" class="btn-primary">Donate Now</a>
+<a href="#donate" class="btn">Donate Now</a>
 </div>
 </header>
 
-<section id="about" class="about">
-<div class="container">
+<section class="about">
+<div class="container about-grid">
+
 <img src="logo.jpg" class="about-img">
 
 <div>
 <h2>Who We Are</h2>
-<p>We are a humanitarian foundation focused on restoring dignity and hope to vulnerable children and communities.</p>
+<p>
+We are a humanitarian organization dedicated to restoring dignity, hope, and opportunity to vulnerable children and communities.
+</p>
+<p>
+We provide structured support through education, welfare, outreach, and long-term community development.
+</p>
 </div>
+
 </div>
 </section>
 
-<section id="gallery" class="gallery">
+<section class="gallery">
 <div class="container">
 
 <h2>Impact Gallery</h2>
 
-<div class="gallery-grid">
+<div class="grid">
 
-<div class="gallery-item" onclick="openStory(0)">
-<img src="aventis1.png"><button>Read Story</button>
+<div class="card" onclick="openStory(0)">
+<img src="aventis1.png"><span>Read Story</span>
 </div>
 
-<div class="gallery-item" onclick="openStory(1)">
-<img src="aventis2.png"><button>Read Story</button>
+<div class="card" onclick="openStory(1)">
+<img src="aventis2.png"><span>Read Story</span>
 </div>
 
-<div class="gallery-item" onclick="openStory(2)">
-<img src="aventis4.png"><button>Read Story</button>
+<div class="card" onclick="openStory(2)">
+<img src="aventis4.png"><span>Read Story</span>
 </div>
 
-<div class="gallery-item" onclick="openStory(3)">
-<img src="aventis5.jpg"><button>Read Story</button>
+<div class="card" onclick="openStory(3)">
+<img src="aventis5.jpg"><span>Read Story</span>
 </div>
 
-<div class="gallery-item" onclick="openStory(4)">
-<img src="aventis6.jpg"><button>Read Story</button>
+<div class="card" onclick="openStory(4)">
+<img src="aventis6.jpg"><span>Read Story</span>
 </div>
 
-<div class="gallery-item" onclick="openStory(5)">
-<img src="aventis7.jpg"><button>Read Story</button>
+<div class="card" onclick="openStory(5)">
+<img src="aventis7.jpg"><span>Read Story</span>
 </div>
 
 </div>
+
 </div>
 </section>
 
@@ -76,7 +86,7 @@
 
 <h2>Support the Mission</h2>
 
-<div class="donation-grid">
+<div class="donations">
 
 <a href="https://paystack.shop/pay/mrtyf-aq5c">₦10,000</a>
 <a href="https://paystack.shop/pay/mrtyf-aq5c">₦25,000</a>
@@ -91,26 +101,22 @@
 </section>
 
 <!-- MODAL -->
-<div id="storyModal" class="story-modal">
+<div id="modal" class="modal">
 
-<div class="story-modal-content">
+<div class="modal-box">
 
-<div class="modal-top-bar">
-<button class="exit-btn" onclick="closeStory()">✕ Exit</button>
+<div class="top-bar">
+<button onclick="closeStory()">✕</button>
 </div>
 
-<img id="modalImage">
-
-<div class="story-text">
+<img id="modalImg">
 
 <h2 id="modalTitle"></h2>
-<div id="modalBody"></div>
+<div id="modalText"></div>
 
-<div class="nav-buttons">
+<div class="nav">
 <button onclick="prevStory()">⬅ Prev</button>
 <button onclick="nextStory()">Next ➡</button>
-</div>
-
 </div>
 
 </div>
@@ -124,4 +130,4 @@
 <script src="app.js"></script>
 
 </body>
-</html>
+  </html>
