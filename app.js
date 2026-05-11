@@ -2,37 +2,37 @@ const stories = [
 {
 title:"Education Support",
 image:"aventis1.png",
-text:"We support children without access to education by providing materials, mentorship and hope.",
+text:"We support children through education, mentorship and learning materials.",
 donations:[10000,25000,50000]
 },
 {
 title:"Child Welfare",
 image:"aventis2.png",
-text:"We ensure children receive care, safety and emotional stability.",
+text:"We ensure safety, care and emotional stability for vulnerable children.",
 donations:[15000,30000,60000]
 },
 {
 title:"Community Outreach",
 image:"aventis4.png",
-text:"We reach underserved communities with essential humanitarian aid.",
+text:"We provide essential humanitarian aid to underserved communities.",
 donations:[10000,20000,40000]
 },
 {
 title:"Humanitarian Impact",
 image:"aventis5.jpg",
-text:"We focus on long-term transformation and sustainable development.",
+text:"We focus on long-term sustainable transformation.",
 donations:[20000,50000,100000]
 },
 {
 title:"Community Support",
 image:"aventis6.jpg",
-text:"We provide continuous assistance to struggling families.",
+text:"We support struggling families with continuous assistance.",
 donations:[15000,35000,70000]
 },
 {
 title:"Transformation Stories",
 image:"aventis7.jpg",
-text:"Every story reflects real change, recovery and hope.",
+text:"Each story represents real human change and recovery.",
 donations:[10000,25000,75000]
 }
 ];
@@ -40,25 +40,17 @@ donations:[10000,25000,75000]
 let current = 0;
 
 function openStory(i){
-
 current = i;
 
 const modal = document.getElementById("modal");
-const img = document.getElementById("modalImg");
-const title = document.getElementById("modalTitle");
-const text = document.getElementById("modalText");
-const box = document.getElementById("donationBox");
-
-if(!modal || !img || !title || !text){
-console.error("Modal elements missing - check HTML IDs");
-return;
-}
 
 modal.style.display = "flex";
 
-img.src = stories[i].image;
-title.innerText = stories[i].title;
-text.innerText = stories[i].text;
+document.getElementById("modalImg").src = stories[i].image;
+document.getElementById("modalTitle").innerText = stories[i].title;
+document.getElementById("modalText").innerText = stories[i].text;
+
+const box = document.getElementById("donationBox");
 
 box.innerHTML = stories[i].donations.map(amount=>{
 return `
@@ -86,6 +78,7 @@ document.getElementById("modal").style.display = "none";
 document.body.style.overflow = "auto";
 }
 
+/* SAFE CLOSE CONTROLS */
 document.addEventListener("click",(e)=>{
 if(e.target.id === "modal") closeStory();
 });
