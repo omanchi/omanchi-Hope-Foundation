@@ -2,32 +2,32 @@ const stories=[
 {
 title:"Education Support",
 image:"aventis1.png",
-text:`We support children without access to education by providing materials, mentorship and emotional guidance.`
+text:"We support children without access to education by providing materials, mentorship and hope."
 },
 {
 title:"Child Welfare",
 image:"aventis2.png",
-text:`We ensure vulnerable children receive care, safety, food and emotional stability.`
+text:"We ensure children receive care, safety and emotional stability."
 },
 {
 title:"Community Outreach",
 image:"aventis4.png",
-text:`We reach underserved communities with essential humanitarian aid and support.`
+text:"We reach underserved communities with essential humanitarian aid."
 },
 {
 title:"Humanitarian Impact",
 image:"aventis5.jpg",
-text:`We focus on long-term transformation and sustainable community development.`
+text:"We focus on long-term transformation and sustainable development."
 },
 {
 title:"Community Support",
 image:"aventis6.jpg",
-text:`We provide continuous assistance to families in need of support and stability.`
+text:"We provide continuous assistance to struggling families."
 },
 {
 title:"Transformation Stories",
 image:"aventis7.jpg",
-text:`Every story represents a real journey from hardship to hope and recovery.`
+text:"Every story reflects real change, recovery and hope."
 }
 ];
 
@@ -36,7 +36,15 @@ let current=0;
 function openStory(i){
 current=i;
 
-document.getElementById("modal").style.display="flex";
+const modal=document.getElementById("modal");
+
+modal.style.display="flex";
+modal.style.opacity="0";
+
+setTimeout(()=>{
+modal.style.opacity="1";
+},50);
+
 document.getElementById("modalImg").src=stories[i].image;
 document.getElementById("modalTitle").innerText=stories[i].title;
 document.getElementById("modalText").innerText=stories[i].text;
@@ -55,8 +63,13 @@ openStory(current);
 }
 
 function closeStory(){
-document.getElementById("modal").style.display="none";
+const modal=document.getElementById("modal");
+modal.style.opacity="0";
+
+setTimeout(()=>{
+modal.style.display="none";
 document.body.style.overflow="auto";
+},200);
 }
 
 document.addEventListener("click",(e)=>{
