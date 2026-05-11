@@ -84,6 +84,19 @@ We serve as a support system for orphaned and less privileged children, providin
 </div>
 </section>
 
+<!-- IMPACT -->
+<section id="impact" class="impact">
+<div class="container">
+
+<h2>Lives We Impact</h2>
+
+<p class="impact-intro">
+Every outreach represents restoration, dignity, and hope.
+</p>
+
+</div>
+</section>
+
 <!-- GALLERY -->
 <section id="gallery" class="gallery">
 <div class="container">
@@ -91,33 +104,39 @@ We serve as a support system for orphaned and less privileged children, providin
 <h2>Impact Gallery</h2>
 
 <p class="gallery-intro">
-Click any image to read the full story behind it.
+Click any image to explore the full story. Use Next/Prev to navigate.
 </p>
 
 <div class="gallery-grid">
 
-<div class="gallery-item" onclick="openStory('aventis1.png','Education Support','story1')">
-<img src="aventis1.png"><button>Read Story</button>
+<div class="gallery-item" onclick="openStory(0)">
+<img src="aventis1.png">
+<button>Read Story</button>
 </div>
 
-<div class="gallery-item" onclick="openStory('aventis2.png','Child Welfare','story2')">
-<img src="aventis2.png"><button>Read Story</button>
+<div class="gallery-item" onclick="openStory(1)">
+<img src="aventis2.png">
+<button>Read Story</button>
 </div>
 
-<div class="gallery-item" onclick="openStory('aventis4.png','Community Outreach','story3')">
-<img src="aventis4.png"><button>Read Story</button>
+<div class="gallery-item" onclick="openStory(2)">
+<img src="aventis4.png">
+<button>Read Story</button>
 </div>
 
-<div class="gallery-item" onclick="openStory('aventis5.jpg','Humanitarian Impact','story4')">
-<img src="aventis5.jpg"><button>Read Story</button>
+<div class="gallery-item" onclick="openStory(3)">
+<img src="aventis5.jpg">
+<button>Read Story</button>
 </div>
 
-<div class="gallery-item" onclick="openStory('aventis6.jpg','Community Support','story5')">
-<img src="aventis6.jpg"><button>Read Story</button>
+<div class="gallery-item" onclick="openStory(4)">
+<img src="aventis6.jpg">
+<button>Read Story</button>
 </div>
 
-<div class="gallery-item" onclick="openStory('aventis7.jpg','Transformation','story6')">
-<img src="aventis7.jpg"><button>Read Story</button>
+<div class="gallery-item" onclick="openStory(5)">
+<img src="aventis7.jpg">
+<button>Read Story</button>
 </div>
 
 </div>
@@ -147,17 +166,29 @@ Click any image to read the full story behind it.
 
 <!-- MODAL -->
 <div id="storyModal" class="story-modal">
+
 <div class="story-modal-content">
 
 <span class="close-modal" onclick="closeStory()">&times;</span>
 
 <img id="modalImage">
+
 <div class="story-text">
+
 <h2 id="modalTitle"></h2>
+
 <div id="modalBody"></div>
+
+<!-- NAVIGATION BUTTONS -->
+<div class="nav-buttons">
+<button onclick="prevStory()">⬅ Prev</button>
+<button onclick="nextStory()">Next ➡</button>
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 <footer>
