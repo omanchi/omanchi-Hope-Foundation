@@ -49,6 +49,10 @@ document.getElementById("modalImg").src=stories[i].image;
 document.getElementById("modalTitle").innerText=stories[i].title;
 document.getElementById("modalText").innerText=stories[i].text;
 
+// 💰 dynamic donation link per story
+const donateBtn=document.getElementById("donateLink");
+donateBtn.href="https://paystack.shop/pay/mrtyf-aq5c?story="+encodeURIComponent(stories[i].title);
+
 document.body.style.overflow="hidden";
 }
 
