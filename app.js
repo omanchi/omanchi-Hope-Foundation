@@ -1,114 +1,135 @@
-/* ====================================== OMANCHI HOPE FOUNDATION - APP.JS HIGH-TECH INTERACTIVE SYSTEM ====================================== */
+// ==============================
+// STORY DATA (NGO IMPACT TEXTS)
+// ==============================
 
-// =============================== // SAFE INITIALIZATION // =============================== window.addEventListener('DOMContentLoaded', () => {
+const stories = {
 
-// Smooth internal anchor scrolling (enhanced feel)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+story1: `
+<p><strong>Education Support Initiative</strong></p>
 
-// ===============================
-// SCROLL REVEAL SYSTEM
-// ===============================
-const revealElements = document.querySelectorAll('section, .program-card, .hero-content');
+<p>
+Omanchi Hope Foundation believes education is the strongest foundation for breaking the cycle of poverty.
+This initiative supports children who lack access to school fees, learning materials, and academic guidance.
+Many of these children come from environments where survival is a daily struggle.
+</p>
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, {
-    threshold: 0.12
-});
+<p>
+We provide school supplies, uniforms, and mentorship to help restore confidence and direction.
+Beyond materials, we focus on emotional support and encouragement.
+Over time, children begin to rediscover hope, ambition, and self-belief.
+</p>
+`,
 
-revealElements.forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-});
+story2: `
+<p><strong>Child Welfare Program</strong></p>
 
-// ===============================
-// BUTTON RIPPLE EFFECT (GLOBAL)
-// ===============================
-document.querySelectorAll('.btn-primary').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
+<p>
+This program ensures vulnerable children receive care, protection, and emotional stability.
+Many lack stable family structures and access to basic needs.
+We step in to provide consistent support systems.
+</p>
 
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
+<p>
+Through food assistance, counseling, and safe environments, we help restore dignity.
+Our focus is long-term healing, not temporary relief.
+Children gradually regain confidence, trust, and emotional balance.
+</p>
+`,
 
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+story3: `
+<p><strong>Community Outreach Program</strong></p>
 
-        this.appendChild(ripple);
+<p>
+We reach underserved communities facing hardship and instability.
+Essential supplies such as food, clothing, and basic support are provided.
+</p>
 
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
+<p>
+Each outreach restores dignity and reminds people they are not forgotten.
+Communities begin to rebuild trust and strength through consistent support.
+</p>
+`,
 
-// ===============================
-// HERO PARALLAX LIGHT MOVEMENT
-// ===============================
-const hero = document.querySelector('.hero');
+story4: `
+<p><strong>Humanitarian Impact Initiative</strong></p>
 
-if (hero) {
-    hero.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20;
-        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+<p>
+This initiative focuses on structured long-term humanitarian support.
+We work closely with families to identify urgent needs.
+</p>
 
-        const overlay = document.querySelector('.hero .overlay');
-        if (overlay) {
-            overlay.style.transform = `translate(${x}px, ${y}px) scale(1.2)`;
-        }
-    });
+<p>
+The goal is sustainable transformation, not temporary relief.
+Every action is designed to restore dignity and stability.
+</p>
+`,
+
+story5: `
+<p><strong>Community Support System</strong></p>
+
+<p>
+We believe strong communities are built through consistent care.
+This program supports families struggling with basic survival needs.
+</p>
+
+<p>
+Through food, emotional care, and engagement, we help restore stability.
+Families gradually regain hope and strength.
+</p>
+`,
+
+story6: `
+<p><strong>Transformation Stories</strong></p>
+
+<p>
+Every life we support represents a journey from hardship to hope.
+This program captures real transformation experiences.
+</p>
+
+<p>
+We believe even small acts of kindness can create lasting impact.
+Each story is proof that change is possible.
+</p>
+`
+
+};
+
+// ==============================
+// OPEN STORY MODAL
+// ==============================
+
+function openStory(image, title, key) {
+    const modal = document.getElementById("storyModal");
+    const img = document.getElementById("modalImage");
+    const titleEl = document.getElementById("modalTitle");
+    const body = document.getElementById("modalBody");
+
+    modal.classList.add("active");
+
+    img.src = image;
+    titleEl.innerText = title;
+    body.innerHTML = stories[key] || "<p>Story not available.</p>";
+
+    document.body.style.overflow = "hidden";
 }
 
-// ===============================
-// PROGRAM CARD MICRO INTERACTION
-// ===============================
-document.querySelectorAll('.program-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
+// ==============================
+// CLOSE STORY MODAL
+// ==============================
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
-});
+function closeStory() {
+    document.getElementById("storyModal").classList.remove("active");
+    document.body.style.overflow = "auto";
+}
 
-// ===============================
-// PAGE LOAD INTRO FEEL
-// ===============================
-document.body.classList.add('loaded');
+// ==============================
+// OPTIONAL: CLICK OUTSIDE TO CLOSE
+// ==============================
 
-});
+document.addEventListener("click", function(e) {
+    const modal = document.getElementById("storyModal");
 
-// =============================== // PAYSTACK SAFETY WRAPPER // (DO NOT OVERRIDE EXISTING) // =============================== if (typeof window.payWithPaystack !== 'function') { window.payWithPaystack = function(amount) { alert("Payment system not initialized correctly."); console.log("Paystack not found or not loaded."); }; }
-
-// =============================== // OPTIONAL FUTURE: LIVE COUNTER SYSTEM // =============================== function animateNumber(el, target) { let start = 0; const duration = 1200; const step = Math.ceil(target / (duration / 16));
-
-const interval = setInterval(() => {
-    start += step;
-    if (start >= target) {
-        start = target;
-        clearInterval(interval);
+    if (e.target === modal) {
+        closeStory();
     }
-    el.textContent = start.toLocaleString();
-}, 16);
-
-}
-
-// =============================== // PERFORMANCE READY LOG // =============================== console.log("Omanchi Hope Foundation JS Loaded Successfully");
+});
