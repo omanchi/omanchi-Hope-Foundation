@@ -705,11 +705,14 @@ input{
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <script>
+
 const PAYSTACK_PUBLIC_KEY = "pk_live_cce679fd6e9678cd8a14112772f8f802bb1369dd";
+
 function setAmount(value){
   document.getElementById("amount").value = value;
 }
 
+/* GENERAL DONATION */
 function payWithPaystack(){
 
   let amount = document.getElementById("amount").value;
@@ -720,24 +723,47 @@ function payWithPaystack(){
   }
 
   let handler = PaystackPop.setup({
-
     key: PAYSTACK_PUBLIC_KEY,
-
     email: "donor@omanchi.org",
-
     amount: amount * 100,
-
     currency: "NGN",
-
     callback: function(){
       alert("Thank you for your donation ❤️");
+    }
+  });
+
+  handler.openIframe();
+}
+
+
+/* PROJECT DONATION (NEW UPGRADE) */
+function donateProject(amount, projectName){
+
+  let handler = PaystackPop.setup({
+    key: PAYSTACK_PUBLIC_KEY,
+    email: "donor@omanchi.org",
+    amount: amount * 100,
+    currency: "NGN",
+
+    metadata: {
+      custom_fields: [
+        {
+          display_name: "Project",
+          variable_name: "project",
+          value: projectName
+        }
+      ]
+    },
+
+    callback: function(){
+      alert("Thank you for supporting " + projectName + " ❤️");
     }
 
   });
 
   handler.openIframe();
 }
-</script>
 
+</script>
 </body>
 </html>
